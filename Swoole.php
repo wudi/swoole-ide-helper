@@ -259,6 +259,7 @@ function swoole_event_exit() {}
  * swoole_get_mysqli_sock仅支持mysqlnd驱动，php5.4以下版本不支持此特性
  *
  * @param resource $db mysqli
+ * @return int
  */
 function swoole_get_mysqli_sock($db) {}
 
@@ -322,6 +323,7 @@ function swoole_server_deltimer($serv, $interval) {}
  * 此函数可以用在worker进程内。
  *
  * @param object $serv
+ * @return void
  */
 function swoole_server_shutdown($serv) {}
 
@@ -337,6 +339,7 @@ function swoole_server_shutdown($serv) {}
  *
  * @param string $task_data
  * @param float $timeout
+ * @return string
  */
 function swoole_server_taskwait($task_data, $timeout = 0.5) {}
 
@@ -366,7 +369,7 @@ class swoole_client {
     public $errCode;
 
 
-    /**
+    /*
      * socket的文件描述符
      *
      * PHP代码中可以使用:
@@ -398,6 +401,7 @@ class swoole_client {
      * @param float $timeout 是网络IO的超时，单位是s，支持浮点数。默认为0.1s，即100ms
      * @param int $flag 参数在UDP类型时表示是否启用udp_connect。设定此选项后将绑定$host与$port，此UDP将会丢弃非指定host/port的数据包。
      * 在send/recv前必须使用swoole_client_select来检测是否完成了连接
+     * @return bool
      */
     public function connect($host, $port, $timeout = 0.1, $flag = 0) {}
 
@@ -410,6 +414,7 @@ class swoole_client {
      * 失败返回false，并设置$swoole_client->errCode
      *
      * @param string $data
+     * @return bool
      */
     public function send($data) {}
 
@@ -423,6 +428,7 @@ class swoole_client {
      *
      * @param int $size 接收数据的最大长度
      * @param bool $waitall 是否等待所有数据到达后返回
+     * @return string
      */
     public function recv($size = 65535, $waitall = false) {}
 
