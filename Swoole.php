@@ -366,7 +366,7 @@ class swoole_client {
     public $errCode;
 
 
-    /*
+    /**
      * socket的文件描述符
      *
      * PHP代码中可以使用:
