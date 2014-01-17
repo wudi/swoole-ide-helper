@@ -21,12 +21,21 @@ WinRAR打开 <Phpstorm_Dir>/plugins/php/lib/php.jar 文件
 
 复制 swoole.php 到路径：com\jetbrains\php\lang\psi\stubs\data\
 
+当然你也可以直接使用已经做好的 [php.jar](https://github.com/EagleWu/swoole-auto-complete/tree/master/phpstorm) 直接覆盖即可。
+
+(php.jar 拷贝来源PhpStorm 7.1，其他版本如存在兼容性问题，请自行按上面方面进行处理，覆盖php.jar时注意备份)
+
 保存文件，重启Phpstorm.
 
-PS:替换前请备份php.jar 若发生错误便于恢复 :)
+
+PHPstorm使用演示(其他IDE同理)：
 
 ![demo1](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/01.png "demo1")<br />  
 ![demo2](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/02.png "demo2")<br />  
 ![demo3](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/03.png "demo3")<br />
-![demo4](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/04.png "demo4")  
+![demo4](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/04.png "demo4")<br />
+
+使用php.jar包
+
+![demo5](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/05.png "demo5")<br />
 
