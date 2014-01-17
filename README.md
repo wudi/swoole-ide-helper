@@ -19,7 +19,7 @@ WinRAR打开 <Phpstorm_Dir>/plugins/php/lib/php.jar 文件
 PS:替换前请备份php.jar 若发生错误便于恢复 :)
 
 ![demo1](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/01.png "demo1")<br />  
-![demo2](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/01.png "demo2")<br />  
-![demo3](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/01.png "demo3")<br />
-![demo4](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/01.png "demo4")  
+![demo2](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/02.png "demo2")<br />  
+![demo3](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/03.png "demo3")<br />
+![demo4](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/04.png "demo4")  
 
