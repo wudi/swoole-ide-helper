@@ -178,6 +178,10 @@ function swoole_server_send($serv, $fd, $data, $from_id = 0) {}
  * from_port 来自哪个Server端口
  * remote_port 客户端连接的端口
  * remote_ip 客户端连接的ip
+ * 
+ * 以下 v1.6.10 增加
+ * connect_time 连接时间
+ * last_time 最后一次发送数据的时间
  *
  * @param object $serv
  * @param int $fd
@@ -397,7 +401,7 @@ class swoole_client {
     /**
      * 连接到远程服务器
      *
-     * @param string $host 是远程服务器的地址
+     * @param string $host 是远程服务器的地址 v1.6.10+ 支持填写域名 Swoole会自动进行DNS查询
      * @param int $port 是远程服务器端口
      * @param float $timeout 是网络IO的超时，单位是s，支持浮点数。默认为0.1s，即100ms
      * @param int $flag 参数在UDP类型时表示是否启用udp_connect。设定此选项后将绑定$host与$port，此UDP将会丢弃非指定host/port的数据包。

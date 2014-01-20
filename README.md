@@ -5,7 +5,7 @@ swoole-auto-complete
 
 Swoole 结构，便于开发过程中查看文档，以及屏蔽IDE undefined 提示，便于快速查看函数用法。
 
-当前适用Swoole版本: 1.6.9
+当前适用Swoole版本: 1.6.10
 
 ### 使用方式
  
