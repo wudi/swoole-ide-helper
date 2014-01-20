@@ -164,6 +164,7 @@ function swoole_server_close($serv, $fd, $from_id = 0) {}
  * @param int $fd
  * @param string $data
  * @param int $from_id
+ * @return bool
  */
 function swoole_server_send($serv, $fd, $data, $from_id = 0) {}
 
