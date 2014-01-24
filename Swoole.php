@@ -432,7 +432,6 @@ class swoole_client {
      */
     public function recv($size = 65535, $waitall = false) {}
 
-
     /**
      * 关闭远程连接
      *
@@ -442,7 +441,38 @@ class swoole_client {
      */
     public function close() {}
 
+    /**
+     * 注册异步事件回调函数
+     *
+     * @return bool
+     */
+    public function on($event_name, $callback_function){}
 }
+
+class swoole_server
+{
+    function __construct($host, $port, $mode = 3, $tcp_or_udp = 1){}
+    function on($event_name, $callback_function){}
+    function set(array $config){}
+    function start(){}
+    function send(int $fd, $response, $from_id = 0){}
+    function close(int $fd, $from_id = 0){}
+
+    /**
+     * @param string $task_data
+     * @param float $timeout
+     * @return string
+     */
+    function taskwait(string $task_data, float $timeout = 0.5){}
+    /**
+     * @param string $task_data
+     * @param float $timeout
+     * @return int
+     */
+    function task(string $task_data){}
+    function finish(string $task_data){}
+}
+
 
 /**
  * Class swoole_lock
