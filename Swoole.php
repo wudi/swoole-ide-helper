@@ -390,7 +390,7 @@ class swoole_client {
      * @param int $sock_type 指定socket的类型，支持TCP/UDP、TCP6/UDP64种
      * @param int $sync_type SWOOLE_SOCK_SYNC/SWOOLE_SOCK_ASYNC  同步/异步
      */
-    public function __construct($sock_type, $sync_type) {}
+    public function __construct($sock_type, $sync_type = SWOOLE_SOCK_SYNC) {}
 
 
     /**
@@ -452,25 +452,66 @@ class swoole_client {
 class swoole_server
 {
     function __construct($host, $port, $mode = 3, $tcp_or_udp = 1){}
+
+    /**
+     * 设置事件回调函数
+     * @param $event_name
+     * @param $callback_function
+     */
     function on($event_name, $callback_function){}
+
+    /**
+     * 设置运行时参数
+     * @param array $config
+     */
     function set(array $config){}
+
+    /**
+     * 启动服务器
+     */
     function start(){}
+
+    /**
+     * 发送数据到客户端连接
+     * @param int $fd
+     * @param $response
+     * @param int $from_id
+     */
     function send(int $fd, $response, $from_id = 0){}
+
+    /**
+     * 关闭连接
+     * @param int $fd
+     * @param int $from_id
+     */
     function close(int $fd, $from_id = 0){}
 
     /**
+     * 投递任务到task_worker进程去执行，并阻塞等待结果返回
      * @param string $task_data
      * @param float $timeout
      * @return string
      */
     function taskwait(string $task_data, float $timeout = 0.5){}
+
     /**
+     * 投递一个异步任务
      * @param string $task_data
      * @param float $timeout
      * @return int
      */
     function task(string $task_data){}
+
+    /**
+     * 任务完成后发送结果到对应的worker进程
+     * @param string $task_data
+     */
     function finish(string $task_data){}
+
+    /**
+     * 进行心跳检查，返回心跳超过约定时间的连接
+     */
+    function heartbeat(){}
 }
 
 
