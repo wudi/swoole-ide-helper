@@ -517,6 +517,40 @@ class swoole_server
      * 进行心跳检查，返回心跳超过约定时间的连接
      */
     function heartbeat(){}
+
+    /**
+     * 返回连接的信息，支持TCP/UDP
+     * array (
+     * 'from_id' => 0,
+     * 'from_fd' => 12,
+     * 'connect_time' => 1392895129,
+     * 'last_time' => 1392895137,
+     * 'from_port' => 9501,
+     * 'remote_port' => 48918,
+     * 'remote_ip' => '127.0.0.1',
+     * )
+     * @return array | bool
+     */
+    public function connection_info($fd, $from_id = -1){}
+
+    /**
+     * 遍历所有Server的TCP连接，这个接口是基于共享内存的，可以得到所有worker进程内的连接
+     *
+     * @return array | bool
+     */
+    public function connection_list($start_fd = -1, $pagesize = 100){}
+
+    /**
+     * 重启所有worker进程
+     * @return null
+     */
+    public function reload(){}
+
+    /**
+     * 关闭服务器
+     * @return null
+     */
+    public function shutdown(){}
 }
 
 
