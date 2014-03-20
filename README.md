@@ -1,6 +1,5 @@
 swoole-auto-complete
 ====================
-
 [Swoole](https://github.com/matyhtf/swoole) 在IDE下自动识别类、函数、宏，自动补全函数名
 
 Swoole 结构，便于开发过程中查看文档，以及屏蔽IDE undefined 提示，便于快速查看函数用法。
@@ -31,11 +30,19 @@ WinRAR打开 <Phpstorm_Dir>/plugins/php/lib/php.jar 文件
 PHPstorm使用演示(其他IDE同理)：
 
 ![demo1](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/01.png "demo1")<br />  
-![demo2](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/02.png "demo2")<br />  
+![demo2](https://raw2.github.com/EagleWu/swo
+
+
+SDSDSDSDDSDS
+
+
+
+ole-auto-complete/master/demo_img/02.png "demo2")<br />  
 ![demo3](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/03.png "demo3")<br />
 ![demo4](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/04.png "demo4")<br />
 
 使用php.jar包
 
 ![demo5](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/05.png "demo5")<br />
-
+========
+测试下
