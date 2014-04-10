@@ -355,6 +355,19 @@ function swoole_server_taskwait($task_data, $timeout = 0.5) {}
  */
 function swoole_event_wait() {}
 
+/**
+ * 添加定时器，可用于客户端环境和fpm中
+ * @param $interval
+ * @param $callback
+ */
+function swoole_timer_add($interval, $callback) {}
+
+/**
+ * 删除定时器
+ * @param $interval
+ * @param $callback
+ */
+function swoole_timer_del($interval) {}
 
 /**
  * swoole_client
