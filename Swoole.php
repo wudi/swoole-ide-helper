@@ -230,8 +230,18 @@ function swoole_set_process_name($name) {}
  * @param is_callable $callback
  * @return bool
  */
-function swoole_event_add($sock, $callback) {}
+function swoole_event_add($sock, $read_callback = null, $write_callback = null, $flag = null) {}
 
+/**
+ * 修改socket的事件设置
+ * 可以修改可读/可写事件的回调设置和监听的事件类型
+ *
+ * @param $sock
+ * @param $read_callback
+ * @param null $write_callback
+ * @param null $flag
+ */
+function swoole_event_set($sock, $read_callback = null, $write_callback = null, $flag = null) {}
 
 /**
  * 从reactor中移除监听的Socket
@@ -464,6 +474,16 @@ class swoole_client {
 
 class swoole_server
 {
+    /**
+     * 主进程PID
+     * @var int
+     */
+    public $master_pid;
+    /**
+     * 管理进程PID
+     * @var int
+     */
+    public $manager_pid;
     function __construct($host, $port, $mode = 3, $tcp_or_udp = 1){}
 
     /**
@@ -489,6 +509,7 @@ class swoole_server
      * @param int $fd
      * @param $response
      * @param int $from_id
+     * @return bool
      */
     function send(int $fd, $response, $from_id = 0){}
 
@@ -513,7 +534,7 @@ class swoole_server
      * @param float $timeout
      * @return int
      */
-    function task(string $task_data){}
+    function task(string $task_data, int $dst_worker_id = -1){}
 
     /**
      * 任务完成后发送结果到对应的worker进程
@@ -559,6 +580,26 @@ class swoole_server
      * @return null
      */
     public function shutdown(){}
+
+    /**
+     * 增加监听端口
+     * @param $host
+     * @param $port
+     * @param $type
+     */
+    public function addlistener($host, $port, $type = SWOOLE_SOCK_TCP){}
+
+    /**
+     * 增加定时器
+     * @param $interval
+     */
+    public function addtimer($interval){}
+
+    /**
+     * 删除定时器
+     * @param $interval
+     */
+    public function deltimer($interval){}
 }
 
 
@@ -645,6 +686,65 @@ class swoole_lock {
  */
 function swoole_client_select(array &$read, array &$write, array &$error, float $timeout) {}
 
+/**
+ * swoole进程管理类
+ * 内置IPC通信支持，子进程和主进程之间可以方便的通信
+ * 支持标准输入输出重定向，子进程内echo，会发送到管道中，而不是输出屏幕
+ * Class swoole_process
+ */
+class swoole_process
+{
+    /**
+     * 进程的PID
+     * @var int
+     */
+    public $pid;
+
+    /**
+     * 管道PIPE
+     * @var int
+     */
+    public $pipe;
+
+    /**
+     * @param mixed $callback 子进程的回调函数
+     * @param bool $redirect_stdin_stdout 是否重定向标准输入输出
+     * @param bool $create_pipe 是否创建管道
+     */
+    function __construct($callback, $redirect_stdin_stdout = false, $create_pipe = true){}
+
+    /**
+     * 向管道内写入数据
+     * @param string $data
+     */
+    function write($data){}
+
+    /**
+     * 从管道内读取数据
+     * @param int $buffer_len 最大读取的长度
+     * @return string
+     */
+    function read($buffer_len = 8192){}
+
+    /**
+     * 退出子进程，实际函数名为exit，IDE将exit识别为关键词了，会有语法错误，所以这里叫_exit
+     */
+    function _exit($code = 0){}
+
+    /**
+     * 阻塞等待子进程退出，并回收
+     * 成功返回一个数组包含子进程的PID和退出状态码
+     * 如array('code' => 0, 'pid' => 15001)，失败返回false
+     * @return false | array
+     */
+    static function wait(){}
+
+    /**
+     * 启动子进程
+     * @return int
+     */
+    function start(){}
+}
 
 define('SWOOLE_VERSION', '1.6.9'); //当前Swoole的版本号
 
@@ -655,7 +755,6 @@ define('SWOOLE_BASE', 1); //使用Base模式，业务代码在Reactor中直接�
 define('SWOOLE_THREAD', 2); //使用线程模式，业务代码在Worker线程中执行
 define('SWOOLE_PROCESS', 3); //使用进程模式，业务代码在Worker进程中执行
 
-
 /**
  * new swoole_client 构造函数参数
  */
@@ -663,8 +762,19 @@ define('SWOOLE_SOCK_TCP', 1); //创建tcp socket
 define('SWOOLE_SOCK_TCP6', 3); //创建tcp ipv6 socket
 define('SWOOLE_SOCK_UDP', 2); //创建udp socket
 define('SWOOLE_SOCK_UDP6', 4); //创建udp ipv6 socket
+
+define('SWOOLE_TCP', 1); //创建tcp socket
+define('SWOOLE_TCP6', 2); //创建tcp ipv6 socket
+define('SWOOLE_UDP', 3); //创建udp socket
+define('SWOOLE_UDP6', 4); //创建udp ipv6 socket
+define('SWOOLE_UNIX_DGRAM', 5);
+define('SWOOLE_UNIX_STREAM', 6);
+
 define('SWOOLE_SOCK_SYNC', 0); //同步客户端
 define('SWOOLE_SOCK_ASYNC', 1); //异步客户端
+
+define('SWOOLE_SYNC', 0); //同步客户端
+define('SWOOLE_ASYNC', 1); //异步客户端
 
 /**
  * new swoole_lock构造函数参数
@@ -674,3 +784,6 @@ define('SWOOLE_MUTEX', 3); //创建互斥锁
 define('SWOOLE_RWLOCK', 1); //创建读写锁
 define('SWOOLE_SPINLOCK', 5); //创建自旋锁
 define('SWOOLE_SEM', 4); //创建信号量
+
+define('SWOOLE_EVENT_WRITE', 1);
+define('SWOOLE_EVENT_READ', 2);
