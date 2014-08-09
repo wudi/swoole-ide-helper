@@ -5,7 +5,9 @@ swoole-auto-complete
 
 Swoole 结构，便于开发过程中查看文档，以及屏蔽IDE undefined 提示，便于快速查看函数用法。
 
-当前适用Swoole版本: 1.6.10
+当前适用Swoole版本: swoole-1.7.4
+
+Swoole releases 版本下载地址：[https://github.com/swoole/swoole-src/releases](https://github.com/swoole/swoole-src/releases)
 
 ### 使用方式
  
@@ -13,7 +15,7 @@ Swoole 结构，便于开发过程中查看文档，以及屏蔽IDE undefined �
 
 开发Swoole项目同时，在IDE中打开/导入本文件即可。
 
-如果IDE自带 Include Path 功能(如：PhpStorm)，设置该文件路径即可。
+如果IDE自带 ```Include Path``` 功能(如：PhpStorm)，设置该文件路径即可。
 
 PhpStorm 另一种方法:
 
