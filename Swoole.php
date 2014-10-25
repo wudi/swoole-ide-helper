@@ -691,6 +691,7 @@ class swoole_server
      *
      * @param int $fd
      * @param int $from_id
+     * @return bool
      */
     function close($fd, $from_id = 0) {
     }
