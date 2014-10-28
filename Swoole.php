@@ -26,11 +26,10 @@
 /**
  * swoole_server_set函数用于设置swoole_server运行时的各项参数
  *
- * @param \swoole_server $serv
+ * @param $serv
  * @param $arguments
  */
-function swoole_server_set($serv, array $arguments) {
-}
+function swoole_server_set($serv, array $arguments) {}
 
 
 /**
@@ -39,10 +38,10 @@ function swoole_server_set($serv, array $arguments) {
  * @param string $host 参数用来指定监听的ip地址，如127.0.0.1，或者外网地址，或者0.0.0.0监听全部地址
  * @param int $port 监听的端口，如9501，监听小于1024端口需要root权限，如果此端口被占用server-start时会失败
  * @param int $mode 运行的模式，swoole提供了3种运行模式，默认为多进程模式
- * @param int $sock_type 指定socket的类型，支持TCP/UDP、TCP6/UDP64种
+ * @param string $sock_type 指定socket的类型，支持TCP/UDP、TCP6/UDP64种
+ * @return int
  */
-function swoole_server_create($host, $port, $mode = SWOOLE_PROCESS, $sock_type = SWOOLE_SOCK_TCP) {
-}
+function swoole_server_create($host, $port, $mode = SWOOLE_PROCESS, $sock_type = SWOOLE_SOCK_TCP) {}
 
 
 /**
@@ -51,13 +50,12 @@ function swoole_server_create($host, $port, $mode = SWOOLE_PROCESS, $sock_type =
  * 您可以混合使用UDP/TCP，同时监听内网和外网端口
  * 业务代码中可以通过调用swoole_connection_info来获取某个连接来自于哪个端口
  *
- * @param \swoole_server $serv
+ * @param object $serv
  * @param string $host
  * @param int $port
  * @return void
  */
-function swoole_server_addlisten($serv, $host = '127.0.0.1', $port = 9502) {
-}
+function swoole_server_addlisten($serv, $host = '127.0.0.1', $port = 9502) {}
 
 
 /**
@@ -71,12 +69,11 @@ function swoole_server_addlisten($serv, $host = '127.0.0.1', $port = 9502) {
  * 多个定时器都会回调此函数。
  * 在这个函数内需要自行switch，根据interval的值来判断是来自于哪个定时器。
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @param int $interval
  * @return bool
  */
-function swoole_server_addtimer($serv, $interval) {
-}
+function swoole_server_addtimer($serv, $interval) {}
 
 
 /**
@@ -91,13 +88,12 @@ function swoole_server_addtimer($serv, $interval) {
  * onConnect/onClose/onReceive 这3个回调函数必须设置，其他事件回调函数可选。
  * 如果设定了timer定时器，onTimer事件回调函数也必须设置
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @param string $event_name
- * @param callable $event_callback_function
+ * @param is_callable $event_callback_function
  * @return bool
  */
-function swoole_server_handler($serv, $event_name, $event_callback_function) {
-}
+function swoole_server_handler($serv, $event_name, $event_callback_function) {}
 
 
 /**
@@ -119,11 +115,10 @@ function swoole_server_handler($serv, $event_name, $event_callback_function) {
  * 4、执行ulimit -c unlimited，打开core dump，查看是否有段错误
  * 5、关闭daemonize，关闭log，使错误信息可以打印到屏幕
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @return bool
  */
-function swoole_server_start($serv) {
-}
+function swoole_server_start($serv) {}
 
 
 /**
@@ -138,11 +133,10 @@ function swoole_server_start($serv) {
  * SIGTREM: 向主进程发送此信号服务器将安全终止
  * SIGUSR1: 向管理进程发送SIGUSR1信号，将平稳地restart所有worker进程，在PHP代码中可以调用swoole_server_reload($serv)完成此操作
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @return void
  */
-function swoole_server_reload($serv) {
-}
+function swoole_server_reload($serv) {}
 
 
 /**
@@ -151,13 +145,12 @@ function swoole_server_reload($serv) {
  * Server主动close连接，也一样会触发onClose事件。
  * 不要在close之后写清理逻辑，应当放置到onClose回调中处理。
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @param int $fd
  * @param int $from_id
  * @return bool
  */
-function swoole_server_close($serv, $fd, $from_id = 0) {
-}
+function swoole_server_close($serv, $fd, $from_id = 0) {}
 
 
 /**
@@ -167,14 +160,12 @@ function swoole_server_close($serv, $fd, $from_id = 0) {
  * 如果是UDP协议，会直接在worker进程内发送数据包。
  * 发送成功会返回true，如果连接已被关闭或发送失败会返回false.
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @param int $fd
  * @param string $data
  * @param int $from_id
- * @return bool
  */
-function swoole_server_send($serv, $fd, $data, $from_id = 0) {
-}
+function swoole_server_send($serv, $fd, $data, $from_id = 0) {}
 
 
 /**
@@ -187,16 +178,11 @@ function swoole_server_send($serv, $fd, $data, $from_id = 0) {
  * remote_port 客户端连接的端口
  * remote_ip 客户端连接的ip
  *
- * 以下 v1.6.10 增加
- * connect_time 连接时间
- * last_time 最后一次发送数据的时间
- *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @param int $fd
  * @return array on success or false on failure.
  */
-function swoole_connection_info($serv, $fd) {
-}
+function swoole_connection_info($serv, $fd) {}
 
 
 /**
@@ -206,13 +192,12 @@ function swoole_connection_info($serv, $fd) {
  * 调用成功将返回一个数字索引数组，元素是取到的$fd。
  * 数组会按从小到大排序，最后一个$fd作为新的start_fd再次尝试获取。
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @param int $start_fd
  * @param int $pagesize
  * @return array on success or false on failure
  */
-function swoole_connection_list($serv, $start_fd = 0, $pagesize = 10) {
-}
+function swoole_connection_list($serv, $start_fd = 0, $pagesize = 10) {}
 
 
 /**
@@ -225,8 +210,7 @@ function swoole_connection_list($serv, $start_fd = 0, $pagesize = 10) {
  * @param string $name
  * @return void
  */
-function swoole_set_process_name($name) {
-}
+function swoole_set_process_name($name) {}
 
 
 /**
@@ -243,13 +227,10 @@ function swoole_set_process_name($name) {
  * 第二次调用只增加此socket到reactor中，开始监听事件
  *
  * @param int $sock
- * @param \\is_callable $callback
- * @param $write_callback
- * @param $flag
+ * @param is_callable $callback
  * @return bool
  */
-function swoole_event_add($sock, $read_callback = NULL, $write_callback = NULL, $flag = NULL) {
-}
+function swoole_event_add($sock, $read_callback = null, $write_callback = null, $flag = null) {}
 
 /**
  * 修改socket的事件设置
@@ -260,8 +241,7 @@ function swoole_event_add($sock, $read_callback = NULL, $write_callback = NULL, 
  * @param null $write_callback
  * @param null $flag
  */
-function swoole_event_set($sock, $read_callback = NULL, $write_callback = NULL, $flag = NULL) {
-}
+function swoole_event_set($sock, $read_callback = null, $write_callback = null, $flag = null) {}
 
 /**
  * 从reactor中移除监听的Socket
@@ -271,8 +251,7 @@ function swoole_event_set($sock, $read_callback = NULL, $write_callback = NULL, 
  * @param int $sock
  * @return bool
  */
-function swoole_event_del($sock) {
-}
+function swoole_event_del($sock) {}
 
 
 /**
@@ -280,8 +259,7 @@ function swoole_event_del($sock) {
  *
  * @return void
  */
-function swoole_event_exit() {
-}
+function swoole_event_exit() {}
 
 /**
  * 获取MySQLi的socket文件描述符
@@ -290,10 +268,10 @@ function swoole_event_exit() {
  * 如果想要使用异步MySQL，需要在编译swoole时制定--enable-async-mysql
  * swoole_get_mysqli_sock仅支持mysqlnd驱动，php5.4以下版本不支持此特性
  *
- * @param mysqli $db
+ * @param resource $db mysqli
+ * @return int
  */
-function swoole_get_mysqli_sock(\mysqli $db) {
-}
+function swoole_get_mysqli_sock($db) {}
 
 
 /**
@@ -315,12 +293,11 @@ function swoole_get_mysqli_sock(\mysqli $db) {
  * task_worker的数量在swoole_server_set参数中调整，如task_worker_num => 64，表示启动64个进程来接收异步任务。
  * swoole_server_task和swoole_server_finish可发送$data的长度最大不得超过8K，此参数受SW_BUFFER_SIZE宏控制。
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @param string $data
  * @return int  $task_id
  */
-function swoole_server_task($serv, $data) {
-}
+function swoole_server_task($serv, $data) {}
 
 
 /**
@@ -330,12 +307,11 @@ function swoole_server_task($serv, $data) {
  * 使用swoole_server_finish函数必须为Server设置onFinish回调函数。此函数只可用于task_worker进程的onTask回调中
  * swoole_server_finish是可选的。如果worker进程不关心任务执行的结果，可以不调用此函数
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @param string $response
  * @return void
  */
-function swoole_server_finish($serv, $response) {
-}
+function swoole_server_finish($serv, $response) {}
 
 
 /**
@@ -344,12 +320,11 @@ function swoole_server_finish($serv, $response) {
  * $interval 参数为定时器的间隔时间
  * 根据定时器时间区分不同的定时器
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @param int $interval
  * @return void
  */
-function swoole_server_deltimer($serv, $interval) {
-}
+function swoole_server_deltimer($serv, $interval) {}
 
 
 /**
@@ -357,11 +332,10 @@ function swoole_server_deltimer($serv, $interval) {
  *
  * 此函数可以用在worker进程内。
  *
- * @param \swoole_server  $serv
+ * @param object $serv
  * @return void
  */
-function swoole_server_shutdown($serv) {
-}
+function swoole_server_shutdown($serv) {}
 
 
 /**
@@ -377,8 +351,7 @@ function swoole_server_shutdown($serv) {
  * @param float $timeout
  * @return string
  */
-function swoole_server_taskwait($task_data, $timeout = 0.5) {
-}
+function swoole_server_taskwait($task_data, $timeout = 0.5) {}
 
 /**
  * 进行事件轮询
@@ -390,149 +363,26 @@ function swoole_server_taskwait($task_data, $timeout = 0.5) {
  *
  * @return void
  */
-function swoole_event_wait() {
-}
+function swoole_event_wait() {}
 
 /**
  * 添加定时器，可用于客户端环境和fpm中
- *
  * @param $interval
  * @param $callback
  */
-function swoole_timer_add($interval, $callback) {
-}
+function swoole_timer_add($interval, $callback) {}
 
 /**
  * 删除定时器
- *
  * @param $interval
+ * @param $callback
  */
-function swoole_timer_del($interval) {
-}
-
-/**
- * 获取swoole扩展的版本号，如1.6.10
- *
- * @return string
- */
-function swoole_version() {
-}
-
-/**
- * 将标准的Unix Errno错误码转换成错误信息
- *
- * @param int $errno
- */
-function swoole_strerror($errno) {
-}
-
-/**
- * 获取最近一次系统调用的错误码，等同于C/C++的errno变量。
- *
- * @return int
- */
-function swoole_errno() {
-}
-
-
-/**
- * 此函数用于获取本机所有网络接口的IP地址，
- * 目前只返回IPv4地址，返回结果会过滤掉本地loop地址127.0.0.1。
- * 结果数组是以interface名称为key的关联数组。
- * 比如 array("eth0" => "192.168.1.100")
- *
- * @return array
- */
-function swoole_get_local_ip() {
-}
-
-
-/**
- * 异步读取文件内容
- * 此函数调用后会马上返回，当文件读取完毕时会回调制定的callback函数。
- * callback( $filename, $content )
- *
- * swoole_async_readfile会将文件内容全部复制到内存，所以不能用于大文件的读取
- * 如果要读取超大文件，请使用swoole_async_read函数
- * swoole_async_readfile最大可读取4M的文件，受限于SW_AIO_MAX_FILESIZE宏
- *
- * @param string $filename
- * @param mixed $callback
- */
-function swoole_async_readfile($filename, $callback) {
-}
-
-/**
- * 异步写文件，调用此函数后会立即返回, 当写入完成时会自动回调指定的callback函数
- * callback($filename)
- *
- * swoole_async_writefile最大可写入4M的文件
- * swoole_async_writefile可以不指定回调函数
- *
- * @param string $filename
- * @param string $content
- * @param callback $callback
- */
-function swoole_async_writefile($filename, $content, $callback) {
-}
-
-/**
- * 异步读文件
- *
- * 使用此函数读取文件是非阻塞的，当读操作完成时会自动回调制定的函数
- * 此函数与swoole_async_readfile不同，它是分段读取，可以用于读取超大文件。
- * 每次只读 $trunk_size 个字节，不会占用太多内存
- *
- * callback($filename, $content)
- * callback函数，可以通过return true/false，来控制是否继续读下一个trunk
- * return true，继续读取
- * return false，停止读取并关闭文件
- *
- * @param string $filename
- * @param mixed $callback
- * @param int $trunk_size
- * @return bool
- */
-function swoole_async_read($filename, $callback, $trunk_size = 8192) {
-}
-
-
-/**
- * 异步写文件
- *
- * 与swoole_async_writefile不同，write是分段读写的。
- * 不需要一次性将要写的内容放到内存里，所以只占用少量内存。
- * swoole_async_write通过传入的offset参数来确定写入的位置
- *
- * callback($filename)
- *
- * @param string $filename
- * @param string $content
- * @param int $offset
- * @param mixed $callback
- *
- * @return bool
- */
-function swoole_async_write($filename, $content, $offset, $callback = NULL) {
-}
-
-/**
- * 将域名解析为IP地址
- * 调用此函数会立即返回，当DNS查询完成时，自动回调指定的callback函数
- *
- * callback($host, $ip)
- *
- * @param string $domain
- * @param callback $callback
- */
-function swoole_async_dns_lookup($domain, $callback) {
-}
+function swoole_timer_del($interval) {}
 
 /**
  * swoole_client
  */
-class swoole_client
-{
+class swoole_client {
 
     /**
      * 函数执行错误会设置该变量
@@ -540,6 +390,7 @@ class swoole_client
      * @var
      */
     public $errCode;
+
 
     /**
      * socket的文件描述符
@@ -555,27 +406,28 @@ class swoole_client
      */
     public $sock;
 
+
     /**
      * swoole_client构造函数
      *
      * @param int $sock_type 指定socket的类型，支持TCP/UDP、TCP6/UDP64种
      * @param int $sync_type SWOOLE_SOCK_SYNC/SWOOLE_SOCK_ASYNC  同步/异步
      */
-    public function __construct($sock_type, $sync_type = SWOOLE_SOCK_SYNC) {
-    }
+    public function __construct($sock_type, $sync_type = SWOOLE_SOCK_SYNC) {}
+
 
     /**
      * 连接到远程服务器
      *
-     * @param string $host 是远程服务器的地址 v1.6.10+ 支持填写域名 Swoole会自动进行DNS查询
+     * @param string $host 是远程服务器的地址
      * @param int $port 是远程服务器端口
      * @param float $timeout 是网络IO的超时，单位是s，支持浮点数。默认为0.1s，即100ms
      * @param int $flag 参数在UDP类型时表示是否启用udp_connect。设定此选项后将绑定$host与$port，此UDP将会丢弃非指定host/port的数据包。
      * 在send/recv前必须使用swoole_client_select来检测是否完成了连接
      * @return bool
      */
-    public function connect($host, $port, $timeout = 0.1, $flag = 0) {
-    }
+    public function connect($host, $port, $timeout = 0.1, $flag = 0) {}
+
 
     /**
      * 向远程服务器发送数据
@@ -587,8 +439,8 @@ class swoole_client
      * @param string $data
      * @return bool
      */
-    public function send($data) {
-    }
+    public function send($data) {}
+
 
     /**
      * 从服务器端接收数据
@@ -601,8 +453,7 @@ class swoole_client
      * @param bool $waitall 是否等待所有数据到达后返回
      * @return string
      */
-    public function recv($size = 65535, $waitall = false) {
-    }
+    public function recv($size = 65535, $waitall = false) {}
 
     /**
      * 关闭远程连接
@@ -611,225 +462,179 @@ class swoole_client
      *
      * @return bool
      */
-    public function close() {
-    }
+    public function close() {}
 
     /**
      * 注册异步事件回调函数
      *
-     * @param $event_name
-     * @param $callback_function
      * @return bool
      */
-    public function on($event_name, $callback_function) {
-    }
+    public function on($event_name, $callback_function){}
 }
 
-/**
- * Class swoole_server
- */
 class swoole_server
 {
     /**
      * 主进程PID
-     *
      * @var int
      */
     public $master_pid;
     /**
      * 管理进程PID
-     *
      * @var int
      */
     public $manager_pid;
 
     /**
-     * @param $host
-     * @param $port
-     * @param int $mode
-     * @param int $tcp_or_udp
+     * 当前Worker的进程ID，与posix_getpid()结果一致
+     * @var int
      */
-    function __construct($host, $port, $mode = 3, $tcp_or_udp = 1) {
-    }
+    public $worker_pid;
+
+    /**
+     * 当前Worker进程的ID，0 - ($serv->setting[worker_num]-1)
+     * @var int
+     */
+    public $worker_id;
+    function __construct($host, $port, $mode = 3, $tcp_or_udp = 1){}
 
     /**
      * 设置事件回调函数
-     *
      * @param $event_name
      * @param $callback_function
      */
-    function on($event_name, $callback_function) {
-    }
+    function on($event_name, $callback_function){}
 
     /**
      * 设置运行时参数
-     *
      * @param array $config
      */
-    function set(array $config) {
-    }
+    function set(array $config){}
 
     /**
      * 启动服务器
      */
-    function start() {
-    }
+    function start(){}
 
     /**
      * 发送数据到客户端连接
-     *
      * @param int $fd
      * @param $response
      * @param int $from_id
      * @return bool
      */
-    function send($fd, $response, $from_id = 0) {
-    }
+    function send(int $fd, $response, $from_id = 0){}
 
     /**
      * 关闭连接
-     *
      * @param int $fd
      * @param int $from_id
      * @return bool
      */
-    function close($fd, $from_id = 0) {
-    }
+    function close(int $fd, $from_id = 0){}
 
     /**
      * 投递任务到task_worker进程去执行，并阻塞等待结果返回
-     *
      * @param string $task_data
      * @param float $timeout
      * @return string
      */
-    function taskwait($task_data, $timeout = 0.5) {
-    }
+    function taskwait(string $task_data, float $timeout = 0.5){}
 
     /**
      * 投递一个异步任务
-     *
      * @param string $task_data
-     * @param int $dst_worker_id
+     * @param float $timeout
+     * @return int
      */
-    function task($task_data, $dst_worker_id = -1) {
-    }
+    function task(string $task_data, int $dst_worker_id = -1){}
 
     /**
      * 任务完成后发送结果到对应的worker进程
-     *
      * @param string $task_data
      */
-    function finish($task_data) {
-    }
+    function finish(string $task_data){}
 
     /**
      * 进行心跳检查，返回心跳超过约定时间的连接
-     *
-     * @return array|false
      */
-    function heartbeat() {
-    }
+    function heartbeat(){}
 
     /**
      * 返回连接的信息，支持TCP/UDP
      * array (
-     *      'from_id' => 0,
-     *      'from_fd' => 12,
-     *      'connect_time' => 1392895129,
-     *      'last_time' => 1392895137,
-     *      'from_port' => 9501,
-     *      'remote_port' => 48918,
-     *      'remote_ip' => '127.0.0.1',
+     * 'from_id' => 0,
+     * 'from_fd' => 12,
+     * 'connect_time' => 1392895129,
+     * 'last_time' => 1392895137,
+     * 'from_port' => 9501,
+     * 'remote_port' => 48918,
+     * 'remote_ip' => '127.0.0.1',
      * )
-     *
-     * @param int $fd
-     * @param int $from_id
      * @return array | bool
      */
-    public function connection_info($fd, $from_id = -1) {
-    }
+    public function connection_info($fd, $from_id = -1){}
 
     /**
      * 遍历所有Server的TCP连接，这个接口是基于共享内存的，可以得到所有worker进程内的连接
      *
-     * @param int $start_fd
-     * @param int $pagesize
      * @return array | bool
      */
-    public function connection_list($start_fd = -1, $pagesize = 100) {
-    }
+    public function connection_list($start_fd = -1, $pagesize = 100){}
 
     /**
      * 重启所有worker进程
-     *
      * @return null
      */
-    public function reload() {
-    }
+    public function reload(){}
 
     /**
      * 关闭服务器
-     *
-     * @return null
+     * @return bool
      */
-    public function shutdown() {
-    }
+    public function shutdown(){}
 
     /**
      * 增加监听端口
-     *
      * @param $host
      * @param $port
      * @param $type
+     * @return bool
      */
-    public function addlistener($host, $port, $type = SWOOLE_SOCK_TCP) {
-    }
+    public function addlistener($host, $port, $type = SWOOLE_SOCK_TCP){}
 
     /**
      * 增加定时器
-     *
      * @param $interval
+     * @return bool
      */
-    public function addtimer($interval) {
-    }
+    public function addtimer($interval){}
 
     /**
      * 删除定时器
-     *
      * @param $interval
      */
-    public function deltimer($interval) {
-    }
+    public function deltimer($interval){}
 
     /**
-     * 设置Server的事件回调函数
-     *
-     * @param $event_name
-     * @param $event_callback_function
-     * @return bool
+     * 返回服务器的统计信息
+     * @return array
      */
-    public function handler($event_name, $event_callback_function) {
-    }
+    function stats(){}
 
     /**
-     * 发送文件到TCP客户端连接
-     *
-     * sendfile函数调用OS提供的sendfile系统调用，由操作系统直接读取文件并写入socket。sendfile只有2次内存拷贝，使用此函数可以降低发送大量文件时操作系统的CPU和内存占用。
-     *
-     * @param $fd
-     * @param string $filename 文件绝对路径
+     * 设置一个单次定时器，在$ms毫秒后执行某个函数
+     * @param $ms
+     * @param mixed $callback
      */
-    public function sendfile($fd, $filename) {
-    }
+    public function after($ms, $callback){}
 }
 
 
 /**
  * Class swoole_lock
  */
-class swoole_lock
-{
+class swoole_lock {
 
     /**
      * @param int $type 为锁的类型
@@ -837,8 +642,7 @@ class swoole_lock
      * 注意每一种类型的锁支持的方法都不一样。如读写锁、文件锁可以支持 $lock->lock_read()。
      * 另外除文件锁外，其他类型的锁必须在父进程内创建，这样fork出的子进程之间才可以互相争抢锁。
      */
-    public function __construct($type, $lockfile = NULL) {
-    }
+    public function __construct($type, $lockfile = NULL) {}
 
 
     /**
@@ -846,8 +650,7 @@ class swoole_lock
      *
      * 如果有其他进程持有锁，那这里将进入阻塞，直到持有锁的进程unlock。
      */
-    public function lock() {
-    }
+    public function lock() {}
 
 
     /**
@@ -858,15 +661,13 @@ class swoole_lock
      *
      * SWOOlE_SEM 信号量没有trylock方法
      */
-    public function trylock() {
-    }
+    public function trylock() {}
 
 
     /**
      * 释放锁
      */
-    public function unlock() {
-    }
+    public function unlock() {}
 
 
     /**
@@ -877,8 +678,7 @@ class swoole_lock
      *
      * 当另外一个进程获得了独占锁(调用$lock->lock/$lock->trylock)时，$lock->lock_read()会发生阻塞，直到持有锁的进程释放。
      */
-    public function lock_read() {
-    }
+    public function lock_read() {}
 
 
     /**
@@ -886,8 +686,7 @@ class swoole_lock
      *
      * 此方法与lock_read相同，但是非阻塞的。调用会立即返回，必须检测返回值以确定是否拿到了锁。
      */
-    public function trylock_read() {
-    }
+    public function trylock_read() {}
 }
 
 
@@ -913,8 +712,7 @@ class swoole_lock
  * @param array $error 错误
  * @param float $timeout
  */
-function swoole_client_select(array &$read, array &$write, array &$error, float $timeout) {
-}
+function swoole_client_select(array &$read, array &$write, array &$error, float $timeout) {}
 
 /**
  * swoole进程管理类
@@ -926,14 +724,12 @@ class swoole_process
 {
     /**
      * 进程的PID
-     *
      * @var int
      */
     public $pid;
 
     /**
      * 管道PIPE
-     *
      * @var int
      */
     public $pipe;
@@ -943,148 +739,47 @@ class swoole_process
      * @param bool $redirect_stdin_stdout 是否重定向标准输入输出
      * @param bool $create_pipe 是否创建管道
      */
-    function __construct($callback, $redirect_stdin_stdout = false, $create_pipe = true) {
-    }
+    function __construct($callback, $redirect_stdin_stdout = false, $create_pipe = true){}
 
     /**
      * 向管道内写入数据
-     *
      * @param string $data
-     * @return int
      */
-    function write($data) {
-    }
+    function write($data){}
 
     /**
      * 从管道内读取数据
-     *
      * @param int $buffer_len 最大读取的长度
      * @return string
      */
-    function read($buffer_len = 8192) {
-    }
+    function read($buffer_len = 8192){}
 
     /**
      * 退出子进程，实际函数名为exit，IDE将exit识别为关键词了，会有语法错误，所以这里叫_exit
-     *
-     * @param int $code
-     * @return int
      */
-    function _exit($code = 0) {
-    }
+    function _exit($code = 0){}
+
+    /**
+     * 执行另外的一个程序
+     * @param string $execute_file 可执行文件的路径
+     * @param array $params 参数数组
+     * @return bool
+     */
+    function exec($execute_file, $params){}
 
     /**
      * 阻塞等待子进程退出，并回收
      * 成功返回一个数组包含子进程的PID和退出状态码
      * 如array('code' => 0, 'pid' => 15001)，失败返回false
-     *
      * @return false | array
      */
-    static function wait() {
-    }
+    static function wait(){}
 
     /**
      * 启动子进程
-     *
      * @return int
      */
-    function start() {
-    }
-
-    /**
-     * 向子进程发送信号
-     *
-     * @param $pid
-     * @param string $signo
-     * @return int
-     */
-    function kill($pid, $signo = 'SIGTREM') {
-    }
-}
-
-
-/**
- * Class swoole_buffer
- *
- * 内存操作
- */
-class swoole_buffer
-{
-
-    /**
-     * @param int $size
-     */
-    function __construct($size = 128) {
-    }
-
-    /**
-     * 将一个字符串数据追加到缓存区末尾
-     *
-     * @param string $data
-     * @return int
-     */
-    function  append($data) {
-    }
-
-    /**
-     * 从缓冲区中取出内容
-     *
-     * substr会复制一次内存
-     * remove后内存并没有释放，只是底层进行了指针偏移。当销毁此对象时才会真正释放内存
-     *
-     * @param int $offset 表示偏移量，如果为负数，表示倒数计算偏移量
-     * @param int $length 表示读取数据的长度，默认为从$offset到整个缓存区末尾
-     * @param bool $remove 表示从缓冲区的头部将此数据移除。只有$offset = 0时此参数才有效
-     */
-    function  substr($offset, $length = -1, $remove = false) {
-    }
-
-    /**
-     * 清理缓存区数据
-     * 执行此操作后，缓存区将重置。swoole_buffer对象就可以用来处理新的请求了。
-     * swoole_buffer基于指针运算实现clear，并不会写内存
-     */
-    function  clear() {
-    }
-
-    /**
-     * 为缓存区扩容
-     *
-     * @param int $new_size 指定新的缓冲区尺寸，必须大于当前的尺寸
-     */
-    function  expand($new_size) {
-    }
-
-
-    /**
-     * 向缓存区的任意内存位置写数据
-     * 此函数可以直接写内存。所以使用务必要谨慎，否则可能会破坏现有数据
-     *
-     * $data不能超过缓存区的最大尺寸。
-     * write方法不会自动扩容
-     *
-     * @param int $offset 偏移量
-     * @param string $data 写入的数据
-     */
-    function  write($offset, $data) {
-    }
-
-}
-
-
-/**
- * Class swoole_table
- *
- * 创建内存表
- */
-class swoole_table
-{
-    /**
-     * 创建对象后会创建一个Mutex锁
-     * $table->lock()/$table->unlock()在创建后即可使用
-     */
-    function __construct() {
-    }
+    function start(){}
 }
 
 define('SWOOLE_VERSION', '1.6.9'); //当前Swoole的版本号
@@ -1103,6 +798,7 @@ define('SWOOLE_SOCK_TCP', 1); //创建tcp socket
 define('SWOOLE_SOCK_TCP6', 3); //创建tcp ipv6 socket
 define('SWOOLE_SOCK_UDP', 2); //创建udp socket
 define('SWOOLE_SOCK_UDP6', 4); //创建udp ipv6 socket
+define('SWOOLE_SSL', 5);
 
 define('SWOOLE_TCP', 1); //创建tcp socket
 define('SWOOLE_TCP6', 2); //创建tcp ipv6 socket
