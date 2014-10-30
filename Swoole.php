@@ -470,6 +470,12 @@ class swoole_client {
      * @return bool
      */
     public function on($event_name, $callback_function){}
+
+    /**
+     * 判断是否连接到服务器
+     * @return bool
+     */
+    public function isConnected() {}
 }
 
 class swoole_server
@@ -782,7 +788,29 @@ class swoole_process
     function start(){}
 }
 
-define('SWOOLE_VERSION', '1.6.9'); //当前Swoole的版本号
+class swoole_http_server extends swoole_server
+{
+
+}
+
+class swoole_http_request
+{
+    public $get;
+    public $post;
+    public $header;
+    public $server;
+    public $cookie;
+}
+
+class swoole_http_response
+{
+    public function end($html) { }
+    public function message($mssage, $type = 1) { }
+    public function header($key, $value) { }
+    public function cookie($key, $value, $expire = 0) {}
+}
+
+define('SWOOLE_VERSION', '1.7.7'); //当前Swoole的版本号
 
 /**
  * new swoole_server 构造函数参数
