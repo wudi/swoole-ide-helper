@@ -643,6 +643,17 @@ class swoole_server
      */
     public $manager_pid;
 
+
+    /**
+     * 当前Worker的进程ID，与posix_getpid()结果一致
+     * @var int
+     */
+    public $worker_pid;
+    /**
+     * 当前Worker进程的ID，0 - ($serv->setting[worker_num]-1)
+     * @var int
+     */
+    public $worker_id;
     /**
      * @param $host
      * @param $port
@@ -771,7 +782,7 @@ class swoole_server
     /**
      * 关闭服务器
      *
-     * @return null
+     * @return bool
      */
     public function shutdown() {
     }
@@ -782,14 +793,29 @@ class swoole_server
      * @param $host
      * @param $port
      * @param $type
+     * @return bool
      */
     public function addlistener($host, $port, $type = SWOOLE_SOCK_TCP) {
     }
 
     /**
+     * 返回服务器的统计信息
+     * @return array
+     */
+    function stats(){}
+    
+    /**
+     * 设置一个单次定时器，在$ms毫秒后执行某个函数
+     * @param $ms
+     * @param mixed $callback
+     */
+    public function after($ms, $callback){}
+    
+    /**
      * 增加定时器
      *
      * @param $interval
+     * @return bool
      */
     public function addtimer($interval) {
     }
@@ -974,6 +1000,14 @@ class swoole_process
     }
 
     /**
+     * 执行另外的一个程序
+     * @param string $execute_file 可执行文件的路径
+     * @param array $params 参数数组
+     * @return bool
+     */
+    function exec($execute_file, $params){}
+
+    /**
      * 阻塞等待子进程退出，并回收
      * 成功返回一个数组包含子进程的PID和退出状态码
      * 如array('code' => 0, 'pid' => 15001)，失败返回false
@@ -1095,7 +1129,6 @@ define('SWOOLE_VERSION', '1.6.9'); //当前Swoole的版本号
 define('SWOOLE_BASE', 1); //使用Base模式，业务代码在Reactor中直接执行
 define('SWOOLE_THREAD', 2); //使用线程模式，业务代码在Worker线程中执行
 define('SWOOLE_PROCESS', 3); //使用进程模式，业务代码在Worker进程中执行
-
 /**
  * new swoole_client 构造函数参数
  */
@@ -1103,6 +1136,7 @@ define('SWOOLE_SOCK_TCP', 1); //创建tcp socket
 define('SWOOLE_SOCK_TCP6', 3); //创建tcp ipv6 socket
 define('SWOOLE_SOCK_UDP', 2); //创建udp socket
 define('SWOOLE_SOCK_UDP6', 4); //创建udp ipv6 socket
+define('SWOOLE_SSL', 5);
 
 define('SWOOLE_TCP', 1); //创建tcp socket
 define('SWOOLE_TCP6', 2); //创建tcp ipv6 socket
