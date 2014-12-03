@@ -581,13 +581,8 @@ class swoole_client
      * 在send/recv前必须使用swoole_client_select来检测是否完成了连接
      * @return bool
      */
-<<<<<<< HEAD
     public function connect($host, $port, $timeout = 0.1, $flag = 0) {
     }
-=======
-    public function connect($host, $port = 0, $timeout = 0.1, $flag = 0) {}
-
->>>>>>> dfff86f021f1842d2cd00d6f850c617cfacb8e27
 
     /**
      * 向远程服务器发送数据
