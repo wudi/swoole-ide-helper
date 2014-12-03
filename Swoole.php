@@ -403,6 +403,13 @@ function swoole_timer_add($interval, $callback) {
 }
 
 /**
+ * 单次定时器，在N毫秒后执行回调函数
+ * @param $interval
+ * @param $callback
+ */
+function swoole_timer_after($ms, $callback, $user_param = null) {}
+
+/**
  * 删除定时器
  *
  * @param $interval
@@ -574,8 +581,13 @@ class swoole_client
      * 在send/recv前必须使用swoole_client_select来检测是否完成了连接
      * @return bool
      */
+<<<<<<< HEAD
     public function connect($host, $port, $timeout = 0.1, $flag = 0) {
     }
+=======
+    public function connect($host, $port = 0, $timeout = 0.1, $flag = 0) {}
+
+>>>>>>> dfff86f021f1842d2cd00d6f850c617cfacb8e27
 
     /**
      * 向远程服务器发送数据
@@ -1024,6 +1036,14 @@ class swoole_process
     }
 
     /**
+     * 注册信号处理函数
+     * require swoole 1.7.9+
+     * @param int   $signo
+     * @param mixed $callback
+     */
+    static function signal(int $signo, mixed $callback){}
+
+    /**
      * 启动子进程
      *
      * @return int
@@ -1163,6 +1183,9 @@ define('SWOOLE_SOCK_TCP', 1); //创建tcp socket
 define('SWOOLE_SOCK_TCP6', 3); //创建tcp ipv6 socket
 define('SWOOLE_SOCK_UDP', 2); //创建udp socket
 define('SWOOLE_SOCK_UDP6', 4); //创建udp ipv6 socket
+define('SWOOLE_SOCK_UNIX_DGRAM', 5); //创建udp socket
+define('SWOOLE_SOCK_UNIX_STREAM', 6); //创建udp ipv6 socket
+
 define('SWOOLE_SSL', 5);
 
 define('SWOOLE_TCP', 1); //创建tcp socket
