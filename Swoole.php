@@ -735,9 +735,21 @@ class swoole_server
      *
      * @param string $task_data
      * @param int $dst_worker_id
+<<<<<<< HEAD
+=======
+     * @return int
+>>>>>>> 6e4d1bea7a13d8332feff67945fc2c3f795f7c61
      */
     function task($task_data, $dst_worker_id = -1) {
     }
+
+    /**
+     * 向任意进程发送管道消息
+     * @param string $message
+     * @param int $dst_worker_id
+     * @return bool
+     */
+    function sendMessage(string $message, int $dst_worker_id = -1){}
 
     /**
      * 任务完成后发送结果到对应的worker进程
@@ -1161,6 +1173,60 @@ class swoole_http_response
     public function message($mssage, $type = 1) { }
     public function header($key, $value) { }
     public function cookie($key, $value, $expire = 0) {}
+}
+
+class swoole_table
+{
+    const TYPE_INT = 1;
+    const TYPE_STRING = 2;
+    const TYPE_FLOAT = 3;
+
+    /**
+     * 获取key
+     * @param $key
+     * @return array
+     */
+    function get($key){}
+
+    /**
+     * 设置key
+     * @param       $key
+     * @param array $array
+     */
+    function set($key, array $array) {}
+
+    /**
+     * 删除key
+     * @param $key
+     * @return bool
+     */
+    function del($key){}
+
+    /**
+     * 增加字段定义
+     * @param     $name
+     * @param     $type
+     * @param int $len
+     */
+    function column($name, $type, $len = 4) {}
+
+    /**
+     * 创建表，这里会申请操作系统内存
+     * @return bool
+     */
+    function create(){}
+
+    /**
+     * 锁定整个表
+     * @return bool
+     */
+    function lock(){}
+
+    /**
+     * 释放表锁
+     * @return bool
+     */
+    function unlock(){}
 }
 
 define('SWOOLE_VERSION', '1.7.7'); //当前Swoole的版本号
