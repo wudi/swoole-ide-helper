@@ -32,12 +32,16 @@ WinRAR打开 <Phpstorm_Dir>/plugins/php/lib/php.jar 文件
 
 PHPstorm使用演示(其他IDE同理)：
 
-![demo1](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/01.png "demo1")<br />  
-![demo2](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/02.png "demo2")<br />  
-![demo3](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/03.png "demo3")<br />
-![demo4](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/04.png "demo4")<br />
+![demo1](./demo_img/01.png "demo1")  
+
+![demo2](./demo_img/02.png "demo2")  
+
+![demo3](./demo_img/03.png "demo3")  
+
+![demo4](./demo_img/04.png "demo4")  
+
 
 使用php.jar包
 
-![demo5](https://raw2.github.com/EagleWu/swoole-auto-complete/master/demo_img/05.png "demo5")<br />
+![demo5](./demo_img/05.png "demo5")  
 
