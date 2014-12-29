@@ -735,10 +735,7 @@ class swoole_server
      *
      * @param string $task_data
      * @param int $dst_worker_id
-<<<<<<< HEAD
-=======
      * @return int
->>>>>>> 6e4d1bea7a13d8332feff67945fc2c3f795f7c61
      */
     function task($task_data, $dst_worker_id = -1) {
     }
