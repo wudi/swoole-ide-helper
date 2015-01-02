@@ -1135,22 +1135,6 @@ class swoole_buffer
 
 }
 
-
-/**
- * Class swoole_table
- *
- * 创建内存表
- */
-class swoole_table
-{
-    /**
-     * 创建对象后会创建一个Mutex锁
-     * $table->lock()/$table->unlock()在创建后即可使用
-     */
-    function __construct() {
-    }
-}
-
 class swoole_http_server extends swoole_server
 {
 }
@@ -1172,11 +1156,15 @@ class swoole_http_response
     public function cookie($key, $value, $expire = 0) {}
 }
 
+/**
+ * 创建内存表
+ */
 class swoole_table
 {
     const TYPE_INT = 1;
     const TYPE_STRING = 2;
     const TYPE_FLOAT = 3;
+
 
     /**
      * 获取key
