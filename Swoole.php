@@ -535,6 +535,13 @@ function swoole_async_write($filename, $content, $offset, $callback = NULL) {
 function swoole_async_dns_lookup($domain, $callback) {
 }
 
+function swoole_async_dns_lookup($domain_name, $callback){}
+function swoole_async_read($filename, $callback, $size = 8192){}
+function swoole_async_write($filename, $data, $callback = null){}
+function swoole_async_readfile($filename, $callback) {}
+function swoole_async_writefile($filename, $callback = null) {}
+
+
 /**
  * swoole_client
  */
@@ -667,14 +674,15 @@ class swoole_server
      * @var int
      */
     public $worker_id;
+
     /**
-     * @param $host
-     * @param $port
+     * swoole_server构造函数
+     * @param     $host
+     * @param     $port
      * @param int $mode
      * @param int $tcp_or_udp
      */
-    function __construct($host, $port, $mode = 3, $tcp_or_udp = 1) {
-    }
+    function __construct($host, $port, $mode = 3, $tcp_or_udp = 1){}
 
     /**
      * 设置事件回调函数
@@ -833,6 +841,15 @@ class swoole_server
      */
     public function after($ms, $callback){}
     
+    /*
+     * 增加监听端口，addlistener的别名
+     * @param $host
+     * @param $port
+     * @param $type
+     * @return bool
+     */
+    public function listen($host, $port, $type = SWOOLE_SOCK_TCP){}
+
     /**
      * 增加定时器
      *
@@ -868,8 +885,20 @@ class swoole_server
      * @param $fd
      * @param string $filename 文件绝对路径
      */
+
     public function sendfile($fd, $filename) {
     }
+
+    public function after($ms, $callback){}
+
+    /**
+     * 为socket绑定一个用户ID，在dispatch_mode = 5的设置下，会根据此数值进行投递
+     * @param $fd
+     * @param $uid
+     * @return bool
+     */
+    public function bind($fd, $uid) {}
+
 }
 
 
@@ -1040,6 +1069,16 @@ class swoole_process
     }
 
     /**
+     * 向某个进程发送信号
+     *
+     * @param     $pid
+     * @param int $sig
+     */
+    static function kill($pid, $sig = SIGTERM)
+    {
+    }
+
+    /**
      * 注册信号处理函数
      * require swoole 1.7.9+
      * @param int   $signo
@@ -1146,11 +1185,13 @@ class swoole_http_request
     public $header;
     public $server;
     public $cookie;
+
+    function setGlobal() {}
 }
 
 class swoole_http_response
 {
-    public function end($html) { }
+    public function end($html = '') { }
     public function message($mssage, $type = 1) { }
     public function header($key, $value) { }
     public function cookie($key, $value, $expire = 0) {}
