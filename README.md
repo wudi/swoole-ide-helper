@@ -15,20 +15,8 @@ Swoole releases 版本下载地址：[https://github.com/swoole/swoole-src/relea
 
 开发Swoole项目同时，在IDE中打开/导入本文件即可。
 
-如果IDE自带 ```Include Path``` 功能(如：PhpStorm)，设置该文件路径即可。
-
-PhpStorm 另一种方法:
-
-WinRAR打开 <Phpstorm_Dir>/plugins/php/lib/php.jar 文件
-
-复制 swoole.php 到路径：com\jetbrains\php\lang\psi\stubs\data\
-
-当然你也可以直接使用已经做好的 [php.jar](https://github.com/EagleWu/swoole-auto-complete/tree/master/phpstorm) 直接覆盖即可。
-
-(php.jar 拷贝来源PhpStorm 7.1，其他版本如存在兼容性问题，请自行按上面方面进行处理，覆盖php.jar时注意备份)
-
-保存文件，重启Phpstorm.
-
+*项目中直接放入 Swoole.php 让IDE自动识别
+*使用 IDE自带 ``Include Path`` 功能引入
 
 PHPstorm使用演示(其他IDE同理)：
 
