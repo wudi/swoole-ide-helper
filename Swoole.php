@@ -542,6 +542,13 @@ function swoole_async_readfile($filename, $callback) {}
 function swoole_async_writefile($filename, $callback = null) {}
 
 
+function swoole_async_dns_lookup($domain_name, $callback){}
+function swoole_async_read($filename, $callback, $size = 8192){}
+function swoole_async_write($filename, $data, $callback = null){}
+function swoole_async_readfile($filename, $callback) {}
+function swoole_async_writefile($filename, $callback = null) {}
+
+
 /**
  * swoole_client
  */
@@ -851,6 +858,15 @@ class swoole_server
     public function listen($host, $port, $type = SWOOLE_SOCK_TCP){}
 
     /**
+     * 增加监听端口，addlistener的别名
+     * @param $host
+     * @param $port
+     * @param $type
+     * @return bool
+     */
+    public function listen($host, $port, $type = SWOOLE_SOCK_TCP){}
+
+    /**
      * 增加定时器
      *
      * @param $interval
@@ -1066,6 +1082,16 @@ class swoole_process
      * @return false | array
      */
     static function wait() {
+    }
+
+    /**
+     * 向某个进程发送信号
+     *
+     * @param     $pid
+     * @param int $sig
+     */
+    static function kill($pid, $sig = SIGTERM)
+    {
     }
 
     /**
