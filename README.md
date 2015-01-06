@@ -15,8 +15,9 @@ Swoole releases 版本下载地址：[https://github.com/swoole/swoole-src/relea
 
 开发Swoole项目同时，在IDE中打开/导入本文件即可。
 
-*项目中直接放入 Swoole.php 让IDE自动识别
-*使用 IDE自带 ``Include Path`` 功能引入
+1、项目中直接放入 Swoole.php 让IDE自动识别
+
+2、使用 IDE自带 ``Include Path`` 功能引入
 
 PHPstorm使用演示(其他IDE同理)：
 
