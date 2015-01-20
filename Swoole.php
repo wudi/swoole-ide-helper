@@ -404,8 +404,9 @@ function swoole_timer_add($interval, $callback) {
 
 /**
  * 单次定时器，在N毫秒后执行回调函数
- * @param $interval
+ * @param $ms
  * @param $callback
+ * @param $user_param
  */
 function swoole_timer_after($ms, $callback, $user_param = null) {}
 
@@ -535,20 +536,6 @@ function swoole_async_write($filename, $content, $offset, $callback = NULL) {
 function swoole_async_dns_lookup($domain, $callback) {
 }
 
-function swoole_async_dns_lookup($domain_name, $callback){}
-function swoole_async_read($filename, $callback, $size = 8192){}
-function swoole_async_write($filename, $data, $callback = null){}
-function swoole_async_readfile($filename, $callback) {}
-function swoole_async_writefile($filename, $callback = null) {}
-
-
-function swoole_async_dns_lookup($domain_name, $callback){}
-function swoole_async_read($filename, $callback, $size = 8192){}
-function swoole_async_write($filename, $data, $callback = null){}
-function swoole_async_readfile($filename, $callback) {}
-function swoole_async_writefile($filename, $callback = null) {}
-
-
 /**
  * swoole_client
  */
@@ -644,7 +631,7 @@ class swoole_client
      */
     public function on($event_name, $callback_function) {
     }
-    
+
     /**
      * 判断是否连接到服务器
      * @return bool
@@ -761,7 +748,7 @@ class swoole_server
      * @param int $dst_worker_id
      * @return bool
      */
-    function sendMessage(string $message, int $dst_worker_id = -1){}
+    function sendMessage($message, $dst_worker_id = -1){}
 
     /**
      * 任务完成后发送结果到对应的worker进程
@@ -840,24 +827,15 @@ class swoole_server
      * @return array
      */
     function stats(){}
-    
+
     /**
      * 设置一个单次定时器，在$ms毫秒后执行某个函数
      * @param $ms
      * @param mixed $callback
      */
     public function after($ms, $callback){}
-    
-    /*
-     * 增加监听端口，addlistener的别名
-     * @param $host
-     * @param $port
-     * @param $type
-     * @return bool
-     */
-    public function listen($host, $port, $type = SWOOLE_SOCK_TCP){}
 
-    /**
+    /*
      * 增加监听端口，addlistener的别名
      * @param $host
      * @param $port
@@ -904,8 +882,6 @@ class swoole_server
 
     public function sendfile($fd, $filename) {
     }
-
-    public function after($ms, $callback){}
 
     /**
      * 为socket绑定一个用户ID，在dispatch_mode = 5的设置下，会根据此数值进行投递
@@ -1006,7 +982,7 @@ class swoole_lock
  * @param array $error 错误
  * @param float $timeout
  */
-function swoole_client_select(array &$read, array &$write, array &$error, float $timeout) {
+function swoole_client_select(array &$read, array &$write, array &$error, $timeout) {
 }
 
 /**
@@ -1095,22 +1071,12 @@ class swoole_process
     }
 
     /**
-     * 向某个进程发送信号
-     *
-     * @param     $pid
-     * @param int $sig
-     */
-    static function kill($pid, $sig = SIGTERM)
-    {
-    }
-
-    /**
      * 注册信号处理函数
      * require swoole 1.7.9+
      * @param int   $signo
      * @param mixed $callback
      */
-    static function signal(int $signo, mixed $callback){}
+    static function signal($signo, $callback){}
 
     /**
      * 启动子进程
@@ -1120,15 +1086,6 @@ class swoole_process
     function start() {
     }
 
-    /**
-     * 向子进程发送信号
-     *
-     * @param $pid
-     * @param string $signo
-     * @return int
-     */
-    function kill($pid, $signo = 'SIGTREM') {
-    }
 }
 
 
