@@ -255,8 +255,7 @@ function swoole_event_del($sock) {}
 
 
 /**
- * 退出事件轮询
- *
+ * 强行退出Swoole事件循环
  * @return void
  */
 function swoole_event_exit() {}
@@ -272,7 +271,6 @@ function swoole_event_exit() {}
  * @return int
  */
 function swoole_get_mysqli_sock($db) {}
-
 
 /**
  * 投递异步任务到task_worker池中
@@ -376,8 +374,15 @@ function swoole_timer_add($interval, $callback) {}
  * 单次定时器，在N毫秒后执行回调函数
  * @param $interval
  * @param $callback
+ * @return int
  */
 function swoole_timer_after($ms, $callback, $user_param = null) {}
+
+/**
+ * 删除定时器
+ * @param $id
+ */
+function swoole_timer_clear($id) {}
 
 /**
  * 删除定时器
@@ -649,6 +654,11 @@ class swoole_server
     public function listen($host, $port, $type = SWOOLE_SOCK_TCP){}
 
     /**
+     * 添加一个自定义的进程到swoole_server，此进程会被Manager进程管理，退出后会被重新拉起
+     */
+    public function addprocess(swoole_process $process) {}
+
+    /**
      * 增加定时器
      * @param $interval
      * @return bool
@@ -681,6 +691,12 @@ class swoole_server
      * @return bool
      */
     public function bind($fd, $uid) {}
+
+    /**
+     * 删除设定的定时器，此定时器不会再触发
+     * @param $id
+     */
+    function clearAfter($id) {}
 }
 
 
@@ -824,9 +840,10 @@ class swoole_process
      * 阻塞等待子进程退出，并回收
      * 成功返回一个数组包含子进程的PID和退出状态码
      * 如array('code' => 0, 'pid' => 15001)，失败返回false
+     * @param $blocking bool
      * @return false | array
      */
-    static function wait(){}
+    static function wait($blocking = true){}
 
     /**
      * 向某个进程发送信号
@@ -853,11 +870,51 @@ class swoole_process
     function start(){}
 }
 
+define('HTTP_GLOBAL_ALL', 1);
+define('HTTP_GLOBAL_GET', 2);
+define('HTTP_GLOBAL_POST', 4);
+define('HTTP_GLOBAL_COOKIE', 8);
+
+/**
+ * 内置Web服务器
+ * Class swoole_http_server
+ */
 class swoole_http_server extends swoole_server
 {
+    /**
+     * 启用数据合并，HTTP请求数据到PHP的GET/POST/COOKIE全局数组
+     * @param     $flag
+     * @param int $request_flag
+     */
+    function setGlobal($flag, $request_flag = 0) {}
 
+    /**
+     * 向某个WebSocket客户端连接推送数据
+     * @param      $fd
+     * @param      $data
+     * @param bool $binary_data
+     * @param bool $finish
+     */
+    function push($fd, $data, $binary_data = false, $finish = true) {}
 }
 
+/**
+ * 客户端向服务器发送的WebSocket数据帧
+ * Class swoole_websocket_frame
+ */
+class swoole_websocket_frame
+{
+    public $fd;
+    public $data;
+    public $fin;
+    public $opcode;
+    function message($data, $fd = 0, $binary_data = false, $finish = true) {}
+}
+
+/**
+ * Http请求对象
+ * Class swoole_http_request
+ */
 class swoole_http_request
 {
     public $get;
@@ -869,6 +926,10 @@ class swoole_http_request
     function setGlobal() {}
 }
 
+/**
+ * Http响应对象
+ * Class swoole_http_response
+ */
 class swoole_http_response
 {
     public function end($html = '') { }
@@ -894,8 +955,9 @@ class swoole_table
      * 设置key
      * @param       $key
      * @param array $array
+     * @return bool
      */
-    function set($key, array $array) {}
+    function set($key, array $array) { }
 
     /**
      * 删除key
@@ -931,7 +993,7 @@ class swoole_table
     function unlock(){}
 }
 
-define('SWOOLE_VERSION', '1.7.7'); //当前Swoole的版本号
+define('SWOOLE_VERSION', '1.7.10'); //当前Swoole的版本号
 
 /**
  * new swoole_server 构造函数参数
@@ -939,6 +1001,7 @@ define('SWOOLE_VERSION', '1.7.7'); //当前Swoole的版本号
 define('SWOOLE_BASE', 1); //使用Base模式，业务代码在Reactor中直接执行
 define('SWOOLE_THREAD', 2); //使用线程模式，业务代码在Worker线程中执行
 define('SWOOLE_PROCESS', 3); //使用进程模式，业务代码在Worker进程中执行
+define('SWOOLE_PACKET', 0x10);
 
 /**
  * new swoole_client 构造函数参数
