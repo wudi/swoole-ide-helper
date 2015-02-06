@@ -845,6 +845,11 @@ class swoole_server
     public function listen($host, $port, $type = SWOOLE_SOCK_TCP){}
 
     /**
+     * 添加一个自定义的进程到swoole_server，此进程会被Manager进程管理，退出后会被重新拉起
+     */
+    public function addprocess(swoole_process $process) {}
+
+    /**
      * 增加定时器
      *
      * @param $interval
@@ -890,6 +895,19 @@ class swoole_server
      * @return bool
      */
     public function bind($fd, $uid) {}
+
+	/**
+     * 设置一个单次定时器，在$ms毫秒后执行某个函数
+     * @param $ms
+     * @param mixed $callback
+     */
+    public function after($ms, $callback){}
+
+    /**
+     * 删除设定的定时器，此定时器不会再触发
+     * @param $id
+     */
+    function clearAfter($id) {}
 
 }
 
@@ -1157,10 +1175,39 @@ class swoole_buffer
 
 }
 
+
+define('HTTP_GLOBAL_ALL', 1);
+define('HTTP_GLOBAL_GET', 2);
+define('HTTP_GLOBAL_POST', 4);
+define('HTTP_GLOBAL_COOKIE', 8);
+
+/**
+ * 内置Web服务器
+ * Class swoole_http_server
+ */
 class swoole_http_server extends swoole_server
 {
+    /**
+     * 启用数据合并，HTTP请求数据到PHP的GET/POST/COOKIE全局数组
+     * @param     $flag
+     * @param int $request_flag
+     */
+    function setGlobal($flag, $request_flag = 0) {}
+
+    /**
+     * 向某个WebSocket客户端连接推送数据
+     * @param      $fd
+     * @param      $data
+     * @param bool $binary_data
+     * @param bool $finish
+     */
+    function push($fd, $data, $binary_data = false, $finish = true) {}
 }
 
+/**
+ * Http请求对象
+ * Class swoole_http_request
+ */
 class swoole_http_request
 {
     public $get;
@@ -1172,6 +1219,10 @@ class swoole_http_request
     function setGlobal() {}
 }
 
+/**
+ * Http响应对象
+ * Class swoole_http_response
+ */
 class swoole_http_response
 {
     public function end($html = '') { }
@@ -1246,6 +1297,8 @@ define('SWOOLE_VERSION', '1.7.7'); //当前Swoole的版本号
 define('SWOOLE_BASE', 1); //使用Base模式，业务代码在Reactor中直接执行
 define('SWOOLE_THREAD', 2); //使用线程模式，业务代码在Worker线程中执行
 define('SWOOLE_PROCESS', 3); //使用进程模式，业务代码在Worker进程中执行
+define('SWOOLE_PACKET', 0x10);
+
 /**
  * new swoole_client 构造函数参数
  */
