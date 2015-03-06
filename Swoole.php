@@ -896,13 +896,6 @@ class swoole_server
      */
     public function bind($fd, $uid) {}
 
-	/**
-     * 设置一个单次定时器，在$ms毫秒后执行某个函数
-     * @param $ms
-     * @param mixed $callback
-     */
-    public function after($ms, $callback){}
-
     /**
      * 删除设定的定时器，此定时器不会再触发
      * @param $id
