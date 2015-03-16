@@ -407,6 +407,7 @@ function swoole_timer_add($interval, $callback) {
  * @param $ms
  * @param $callback
  * @param $user_param
+ * @return int
  */
 function swoole_timer_after($ms, $callback, $user_param = null) {}
 
@@ -416,6 +417,14 @@ function swoole_timer_after($ms, $callback, $user_param = null) {}
  * @param $interval
  */
 function swoole_timer_del($interval) {
+}
+
+/**
+ * 删除定时器
+ * @param $timer_id
+ * @return bool
+ */
+function swoole_timer_clear($timer_id) {
 }
 
 /**
@@ -637,6 +646,12 @@ class swoole_client
      * @return bool
      */
     public function isConnected() {}
+
+    /**
+     * 获取客户端socket的host:port信息
+     * @return bool | array
+     */
+    public function getsockname(){}
 }
 
 /**
@@ -710,6 +725,9 @@ class swoole_server
      * @return bool
      */
     function send($fd, $response, $from_id = 0) {
+    }
+
+    function sendto(string $host, int $port, string $data) {
     }
 
     /**
@@ -832,8 +850,11 @@ class swoole_server
      * 设置一个单次定时器，在$ms毫秒后执行某个函数
      * @param $ms
      * @param mixed $callback
+     * @param mixed $param
      */
-    public function after($ms, $callback){}
+    public function after($ms, $callback, $param = null){
+
+    }
 
     /*
      * 增加监听端口，addlistener的别名
@@ -867,6 +888,12 @@ class swoole_server
     }
 
     /**
+     * 删除设定的定时器，此定时器不会再触发
+     * @param $id
+     */
+    function clearAfter($id) {}
+
+    /**
      * 设置Server的事件回调函数
      *
      * @param $event_name
@@ -896,11 +923,6 @@ class swoole_server
      */
     public function bind($fd, $uid) {}
 
-    /**
-     * 删除设定的定时器，此定时器不会再触发
-     * @param $id
-     */
-    function clearAfter($id) {}
 
 }
 
@@ -1072,6 +1094,40 @@ class swoole_process
     }
 
     /**
+     * 守护进程化
+     * @param bool $nochdir
+     * @param bool $noclose
+     */
+    static function daemon($nochdir = false, $noclose = false) {
+
+    }
+
+    /**
+     * 创建消息队列
+     * @param int $msgkey 消息队列KEY
+     * @param int $mode 模式
+     */
+    function useQueue($msgkey = -1, $mode = 2) {
+
+    }
+
+    /**
+     * 向消息队列推送数据
+     * @param $data
+     */
+    function push($data) {
+
+    }
+
+    /**
+     * 从消息队列中提取数据
+     * @param int $maxsize
+     */
+    function pop($maxsize = 8192) {
+
+    }
+
+    /**
      * 向某个进程发送信号
      *
      * @param     $pid
@@ -1186,7 +1242,11 @@ class swoole_http_server extends swoole_server
      * @param int $request_flag
      */
     function setGlobal($flag, $request_flag = 0) {}
+}
+define('WEBSOCKET_OPCODE_TEXT', 1);
 
+class swoole_websocket_server extends swoole_http_server
+{
     /**
      * 向某个WebSocket客户端连接推送数据
      * @param      $fd
@@ -1218,10 +1278,40 @@ class swoole_http_request
  */
 class swoole_http_response
 {
+    /**
+     * 结束Http响应，发送HTML内容
+     * @param string $html
+     */
     public function end($html = '') { }
-    public function message($mssage, $type = 1) { }
+
+    /**
+     * 启用Http-Chunk分段向浏览器发送数据
+     * @param $html
+     */
+    public function write($html) { }
+
+    /**
+     * 设置Http头信息
+     * @param $key
+     * @param $value
+     */
     public function header($key, $value) { }
+
+    /**
+     * 设置Cookie
+     * @param     $key
+     * @param     $value
+     * @param int $expire
+     */
     public function cookie($key, $value, $expire = 0) {}
+
+    /**
+     * 设置HttpCode，如404, 501, 200
+     * @param $code
+     */
+    public function status($code) {
+
+    }
 }
 
 /**
@@ -1232,7 +1322,6 @@ class swoole_table
     const TYPE_INT = 1;
     const TYPE_STRING = 2;
     const TYPE_FLOAT = 3;
-
 
     /**
      * 获取key
