@@ -608,6 +608,16 @@ class swoole_client
     }
 
     /**
+     * 向任意IP:PORT的服务器发送数据包，仅支持UDP/UDP6的client
+     * @param $ip
+     * @param $port
+     * @param $data
+     */
+    function sendto($ip, $port, $data) {
+
+    }
+
+    /**
      * 从服务器端接收数据
      *
      * 如果设定了$waitall就必须设定准确的$size，否则会一直等待，直到接收的数据长度达到$size
@@ -652,6 +662,13 @@ class swoole_client
      * @return bool | array
      */
     public function getsockname(){}
+
+    /**
+     * 获取远端socket的host:port信息，仅用于UDP/UDP6协议
+     * UDP发送数据到服务器后，可能会由其他的Server进行回复
+     * @return bool | array
+     */
+    public function getpeername(){}
 }
 
 /**
