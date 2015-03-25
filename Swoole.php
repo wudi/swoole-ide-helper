@@ -398,6 +398,7 @@ function swoole_event_wait() {
  *
  * @param $interval
  * @param $callback
+ * @return int
  */
 function swoole_timer_add($interval, $callback) {
 }
@@ -425,6 +426,18 @@ function swoole_timer_del($interval) {
  * @return bool
  */
 function swoole_timer_clear($timer_id) {
+}
+
+/**
+ * 添加TICK定时器
+ * @param      $ms
+ * @param      $callback
+ * @param null $params
+ * @return int
+ */
+function swoole_timer_tick($ms, $callback, $params = null)
+{
+
 }
 
 /**
@@ -1170,6 +1183,13 @@ class swoole_process
     function start() {
     }
 
+    /**
+     * 为工作进程重命名
+     * @param $process_name
+     */
+    function name($process_name) {
+
+    }
 }
 
 
@@ -1286,7 +1306,12 @@ class swoole_http_request
     public $server;
     public $cookie;
 
-    function setGlobal() {}
+    public $fd;
+
+    /**
+     * 获取非urlencode-form表单的POST原始数据
+     */
+    function rawContent() {}
 }
 
 /**
@@ -1327,6 +1352,14 @@ class swoole_http_response
      * @param $code
      */
     public function status($code) {
+
+    }
+
+    /**
+     * 设置Http压缩格式
+     * @param int  $level
+     */
+    function gzip($level = 1) {
 
     }
 }
