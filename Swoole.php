@@ -1310,6 +1310,7 @@ class swoole_http_request
 
     /**
      * 获取非urlencode-form表单的POST原始数据
+     * @return string
      */
     function rawContent() {}
 }
