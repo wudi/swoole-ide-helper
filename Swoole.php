@@ -1310,6 +1310,7 @@ class swoole_http_request
 
     /**
      * 获取非urlencode-form表单的POST原始数据
+     * @return string
      */
     function rawContent() {}
 }
@@ -1341,11 +1342,16 @@ class swoole_http_response
 
     /**
      * 设置Cookie
-     * @param     $key
-     * @param     $value
+     *
+     * @param string $key
+     * @param string $value
      * @param int $expire
+     * @param string $path
+     * @param string $domain
+     * @param bool $secure
+     * @param bool $httponly
      */
-    public function cookie($key, $value, $expire = 0) {}
+    public function cookie($key, $value, $expire = 0, $path='/', $domain='', $secure=false, $httponly=false) {}
 
     /**
      * 设置HttpCode，如404, 501, 200
