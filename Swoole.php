@@ -284,6 +284,15 @@ function swoole_event_exit() {
 }
 
 /**
+ * 异步写
+ * @param mixed  $socket
+ * @param string $data
+ */
+function swoole_event_write(mixed $socket, string $data){
+
+}
+
+/**
  * 获取MySQLi的socket文件描述符
  *
  * 可将mysql的socket增加到swoole中，执行异步MySQL查询。
@@ -291,6 +300,7 @@ function swoole_event_exit() {
  * swoole_get_mysqli_sock仅支持mysqlnd驱动，php5.4以下版本不支持此特性
  *
  * @param mysqli $db
+ * @return int
  */
 function swoole_get_mysqli_sock(\mysqli $db) {
 }
@@ -918,6 +928,17 @@ class swoole_server
     }
 
     /**
+     * 增加tick定时器
+     *
+     * @param $interval
+     * @param $callback
+     * @return bool
+     */
+    public function tick($interval_ms, $callback) {
+    }
+
+
+    /**
      * 删除设定的定时器，此定时器不会再触发
      * @param $id
      */
@@ -1152,6 +1173,7 @@ class swoole_process
     /**
      * 从消息队列中提取数据
      * @param int $maxsize
+     * @return string
      */
     function pop($maxsize = 8192) {
 
@@ -1305,11 +1327,13 @@ class swoole_http_request
     public $header;
     public $server;
     public $cookie;
+    public $files;
 
     public $fd;
 
     /**
      * 获取非urlencode-form表单的POST原始数据
+     * @return string
      */
     function rawContent() {}
 }
@@ -1393,6 +1417,23 @@ class swoole_table
      * @return bool
      */
     function del($key){}
+
+    /**
+     * 原子自增操作，可用于整形或浮点型列
+     * @param $key
+     * @param $column
+     * @param $incrby
+     * @return bool
+     */
+    function incr($key, $column, $incrby = 1) {}
+
+    /**
+     * 原子自减操作，可用于整形或浮点型列
+     * @param $key
+     * @param $column
+     * @param $decrby
+     */
+    function decr($key, $column, $decrby = 1) {}
 
     /**
      * 增加字段定义
