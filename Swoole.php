@@ -1852,6 +1852,8 @@ define('SWOOLE_SOCK_ASYNC', 1); //异步客户端
 define('SWOOLE_SYNC', 0); //同步客户端
 define('SWOOLE_ASYNC', 1); //异步客户端
 
+define('SWOOLE_KEEP', 512); //客户端保持长连接
+
 /**
  * new swoole_lock构造函数参数
  */
