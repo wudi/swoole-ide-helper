@@ -80,7 +80,7 @@ class swoole_server
      * @param int $mode
      * @param int $sock_type
      */
-    function __construct($host, $port, $mode = SWOOLE_PROCESS, $sock_type = SWOOLE_SOCK_TCP){}
+    function __construct($host, $port, $mode = SWOOLE_PROCESS, $sock_type = SWOOLE_SOCK_TCP) {}
 
     /**
      * 注册事件回调函数，与swoole_server->on相同。swoole_http_server->on的不同之处是：
@@ -121,8 +121,8 @@ class swoole_server
      * @param string $event
      * @param mixed $callback
      */
-    public function on($event, $callback) {
-    }
+    public function on($event, $callback) {}
+
     /**
      * 设置运行时参数
      *
@@ -130,8 +130,7 @@ class swoole_server
      *
      * @param array $setting
      */
-    public function set(array $setting) {
-    }
+    public function set(array $setting) {}
 
     /**
      * 启动server，监听所有TCP/UDP端口
@@ -140,8 +139,7 @@ class swoole_server
      *
      * @return bool
      */
-    public function start() {
-    }
+    public function start() {}
 
     /**
      * 向客户端发送数据
@@ -169,8 +167,7 @@ class swoole_server
      * @param int $from_id
      * @return bool
      */
-    public function send($fd, $data, $from_id = 0) {
-    }
+    public function send($fd, $data, $from_id = 0) {}
 
     /**
      * 向任意的客户端IP:PORT发送UDP数据包
@@ -196,8 +193,7 @@ class swoole_server
      * @param bool $ipv6
      * @return bool
      */
-    public function sendto($ip, $port, $data, $ipv6 = false) {
-    }
+    public function sendto($ip, $port, $data, $ipv6 = false) {}
 
     /**
      * 关闭客户端连接
@@ -212,8 +208,7 @@ class swoole_server
      * @param int $from_id
      * @return bool
      */
-    public function close($fd, $from_id = 0) {
-    }
+    public function close($fd, $from_id = 0) {}
 
     /**
      * taskwait与task方法作用相同，用于投递一个异步的任务到task进程池去执行。
@@ -231,8 +226,7 @@ class swoole_server
      * @param int $dst_worker_id
      * @return string
      */
-    public function taskwait($task_data, $timeout = 0.5, $dst_worker_id = -1) {
-    }
+    public function taskwait($task_data, $timeout = 0.5, $dst_worker_id = -1) {}
 
     /**
      * 投递一个异步任务到task_worker池中。此函数会立即返回。worker进程可以继续处理新的请求
@@ -256,8 +250,7 @@ class swoole_server
      * @param int $dst_worker_id
      * @return bool
      */
-    public function task($data, $dst_worker_id = -1) {
-    }
+    public function task($data, $dst_worker_id = -1) {}
 
 
     /**
@@ -300,10 +293,7 @@ class swoole_server
      * @param int $dst_worker_id
      * @return bool
      */
-    public function sendMessage($message, $dst_worker_id = -1)
-    {
-        return true;
-    }
+    public function sendMessage($message, $dst_worker_id = -1) {}
 
     /**
      * 此函数用于在task进程中通知worker进程，投递的任务已完成。此函数可以传递结果数据给worker进程
@@ -317,8 +307,7 @@ class swoole_server
      *
      * @param string $task_data
      */
-    public function finish($task_data) {
-    }
+    public function finish($task_data) {}
 
     /**
      * 检测服务器所有连接，并找出已经超过约定时间的连接。
@@ -331,8 +320,7 @@ class swoole_server
      * @param bool $if_close_connection
      * @return array
      */
-    public function heartbeat($if_close_connection = true) {
-    }
+    public function heartbeat($if_close_connection = true) {}
 
     /**
      * 获取连接的信息
@@ -363,8 +351,7 @@ class swoole_server
      * @param int $from_id
      * @return array | bool
      */
-    public function connection_info($fd, $from_id = -1) {
-    }
+    public function connection_info($fd, $from_id = -1) {}
 
     /**
      * 用来遍历当前Server所有的客户端连接，connection_list方法是基于共享内存的，不存在IOWait，遍历的速度很快。另外connection_list会返回所有TCP连接，而不仅仅是当前worker进程的TCP连接
@@ -392,8 +379,7 @@ class swoole_server
      * @param int $pagesize
      * @return array | bool
      */
-    public function connection_list($start_fd = -1, $pagesize = 100) {
-    }
+    public function connection_list($start_fd = -1, $pagesize = 100) {}
 
     /**
      * 重启所有worker进程
@@ -421,8 +407,7 @@ class swoole_server
      *
      * @return bool
      */
-    public function reload() {
-    }
+    public function reload() {}
 
     /**
      * 关闭服务器
@@ -432,8 +417,7 @@ class swoole_server
      * kill -15 主进程PID
      * @return bool
      */
-    public function shutdown() {
-    }
+    public function shutdown() {}
 
     /**
      * Swoole提供了swoole_server::addListener来增加监听的端口。业务代码中可以通过调用swoole_server::connection_info来获取某个连接来自于哪个端口
@@ -457,8 +441,7 @@ class swoole_server
      * @param int $port
      * @param int $type
      */
-    public function addlistener($host, $port, $type = SWOOLE_SOCK_TCP) {
-    }
+    public function addlistener($host, $port, $type = SWOOLE_SOCK_TCP) {}
 
     /**
      * 得到当前Server的活动TCP连接数，启动时间，accpet/close的总次数等信息
@@ -478,7 +461,7 @@ class swoole_server
      *
      * @return array
      */
-    function stats(){}
+    function stats() {}
 
     /**
      * 在指定的时间后执行函数
@@ -490,13 +473,12 @@ class swoole_server
      * $after_time_ms 最大不得超过 86400000
      * 此方法是swoole_timer_after函数的别名
      *
-     * @param $ms
+     * @param int $after_time_ms
      * @param int $after_time_ms
      * @param mixed $callback_function
      * @param mixed $param
      */
-    public function after($after_time_ms, $callback_function, $param = null){
-    }
+    public function after($after_time_ms, $callback_function, $param = null) {}
 
     /*
      * 增加监听端口，addlistener的别名
@@ -505,7 +487,7 @@ class swoole_server
      * @param $type
      * @return bool
      */
-    public function listen($host, $port, $type = SWOOLE_SOCK_TCP){}
+    public function listen($host, $port, $type = SWOOLE_SOCK_TCP) {}
 
     /**
      *
@@ -542,16 +524,14 @@ class swoole_server
      * @param int $interval
      * @return bool
      */
-    public function addtimer($interval) {
-    }
+    public function addtimer($interval) {}
 
     /**
      * 删除定时器
      *
-     * @param $interval
+     * @param int $interval
      */
-    public function deltimer($interval) {
-    }
+    public function deltimer($interval) {}
 
     /**
      * 增加tick定时器
@@ -562,13 +542,12 @@ class swoole_server
      *
      * 设置一个间隔时钟定时器，与after定时器不同的是tick定时器会持续触发，直到调用swoole_timer_clear清除。与swoole_timer_add不同的是tick定时器可以存在多个相同间隔时间的定时器。
      *
-     * @param int $ms
+     * @param int $interval_ms
      * @param mixed $callback
      * @param mixed $param
      * @return int
      */
-    public function tick($interval_ms, $callback, $param = null) {
-    }
+    public function tick($interval_ms, $callback, $param = null) {}
 
     /**
      * 删除设定的定时器，此定时器不会再触发
@@ -593,8 +572,7 @@ class swoole_server
      * @param mixed $event_callback_function
      * @return bool
      */
-    public function handler($event_name, $event_callback_function) {
-    }
+    public function handler($event_name, $event_callback_function) {}
 
     /**
      * 发送文件到TCP客户端连接
@@ -609,8 +587,7 @@ class swoole_server
      * @param string $filename 文件绝对路径
      * @return bool
      */
-    public function sendfile($fd, $filename) {
-    }
+    public function sendfile($fd, $filename) {}
 
     /**
      * 将连接绑定一个用户定义的ID，可以设置dispatch_mode=5设置已此ID值进行hash固定分配。可以保证某一个UID的连接全部会分配到同一个Worker进程

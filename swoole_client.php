@@ -4,7 +4,6 @@
  */
 class swoole_client
 {
-
     /**
      * 函数执行错误会设置该变量
      *
@@ -32,8 +31,7 @@ class swoole_client
      * @param int $sock_type 指定socket的类型，支持TCP/UDP、TCP6/UDP64种
      * @param int $sync_type SWOOLE_SOCK_SYNC/SWOOLE_SOCK_ASYNC  同步/异步
      */
-    public function __construct($sock_type, $sync_type = SWOOLE_SOCK_SYNC) {
-    }
+    public function __construct($sock_type, $sync_type = SWOOLE_SOCK_SYNC) {}
 
     /**
      * 连接到远程服务器
@@ -45,8 +43,7 @@ class swoole_client
      * 在send/recv前必须使用swoole_client_select来检测是否完成了连接
      * @return bool
      */
-    public function connect($host, $port, $timeout = 0.1, $flag = 0) {
-    }
+    public function connect($host, $port, $timeout = 0.1, $flag = 0) {}
 
     /**
      * 向远程服务器发送数据
@@ -58,8 +55,7 @@ class swoole_client
      * @param string $data
      * @return bool
      */
-    public function send($data) {
-    }
+    public function send($data) {}
 
     /**
      * 向任意IP:PORT的服务器发送数据包，仅支持UDP/UDP6的client
@@ -67,9 +63,7 @@ class swoole_client
      * @param $port
      * @param $data
      */
-    function sendto($ip, $port, $data) {
-
-    }
+    function sendto($ip, $port, $data) {}
 
     /**
      * 从服务器端接收数据
@@ -82,8 +76,7 @@ class swoole_client
      * @param bool $waitall 是否等待所有数据到达后返回
      * @return string
      */
-    public function recv($size = 65535, $waitall = false) {
-    }
+    public function recv($size = 65535, $waitall = false) {}
 
     /**
      * 关闭远程连接
@@ -92,18 +85,16 @@ class swoole_client
      *
      * @return bool
      */
-    public function close() {
-    }
+    public function close() {}
 
     /**
      * 注册异步事件回调函数
      *
      * @param $event_name
-     * @param $callback_function
+     * @param callable $callback_function
      * @return bool
      */
-    public function on($event_name, $callback_function) {
-    }
+    public function on($event_name, $callback_function) {}
 
     /**
      * 判断是否连接到服务器
@@ -115,12 +106,12 @@ class swoole_client
      * 获取客户端socket的host:port信息
      * @return bool | array
      */
-    public function getsockname(){}
+    public function getsockname() {}
 
     /**
      * 获取远端socket的host:port信息，仅用于UDP/UDP6协议
      * UDP发送数据到服务器后，可能会由其他的Server进行回复
      * @return bool | array
      */
-    public function getpeername(){}
+    public function getpeername() {}
 }

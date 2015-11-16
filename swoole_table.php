@@ -10,14 +10,14 @@ class swoole_table
 
     /**
      * 获取key
-     * @param $key
+     * @param string $key
      * @return array
      */
-    function get($key){}
+    function get($key) {}
 
     /**
      * 设置key
-     * @param       $key
+     * @param string $key
      * @param array $array
      */
     function set($key, array $array) {}
@@ -31,25 +31,25 @@ class swoole_table
 
     /**
      * 原子自增操作，可用于整形或浮点型列
-     * @param $key
-     * @param $column
-     * @param $incrby
+     * @param string $key
+     * @param string $column
+     * @param int $incrby
      * @return bool
      */
     function incr($key, $column, $incrby = 1) {}
 
     /**
      * 原子自减操作，可用于整形或浮点型列
-     * @param $key
-     * @param $column
-     * @param $decrby
+     * @param string $key
+     * @param string $column
+     * @param int $decrby
      */
     function decr($key, $column, $decrby = 1) {}
 
     /**
      * 增加字段定义
-     * @param     $name
-     * @param     $type
+     * @param string $name
+     * @param int $type swoole_table::TYPE_INT, swoole_table::TYPE_STRING, swoole_table::TYPE_FLOAT
      * @param int $len
      */
     function column($name, $type, $len = 4) {}
@@ -58,17 +58,17 @@ class swoole_table
      * 创建表，这里会申请操作系统内存
      * @return bool
      */
-    function create(){}
+    function create() {}
 
     /**
      * 锁定整个表
      * @return bool
      */
-    function lock(){}
+    function lock() {}
 
     /**
      * 释放表锁
      * @return bool
      */
-    function unlock(){}
+    function unlock() {}
 }

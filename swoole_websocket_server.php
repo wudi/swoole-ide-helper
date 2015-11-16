@@ -12,5 +12,5 @@ class swoole_websocket_server extends swoole_http_server
      * @param bool $binary_data
      * @param bool $finish
      */
-    function push($fd, $data, $binary_data = false, $finish = true) {}
+    public function push($fd, $data, $binary_data = false, $finish = true) {}
 }
