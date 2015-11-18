@@ -1325,6 +1325,13 @@ class swoole_server
      * @return bool
      */
     public function bind($fd, $uid) {}
+    
+    /**
+     * 检测fd对应的连接是否存在。
+     * @param type $fd
+     * @return bool $fd对应的TCP连接存在返回true，不存在返回false
+     */
+    public function exist($fd){}
 }
 
 
