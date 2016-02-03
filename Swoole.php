@@ -305,6 +305,14 @@ function swoole_event_write(mixed $socket, string $data){
 function swoole_get_mysqli_sock(\mysqli $db) {
 }
 
+/**
+ * 异步执行SQL
+ * @param $db
+ * @param $sql
+ */
+function swoole_mysql_query($db, $sql, $callback) {
+
+}
 
 /**
  * 投递异步任务到task_worker池中
@@ -404,16 +412,6 @@ function swoole_event_wait() {
 }
 
 /**
- * 添加定时器，可用于客户端环境和fpm中
- *
- * @param $interval
- * @param $callback
- * @return int
- */
-function swoole_timer_add($interval, $callback) {
-}
-
-/**
  * 单次定时器，在N毫秒后执行回调函数
  * @param $ms
  * @param $callback
@@ -421,14 +419,6 @@ function swoole_timer_add($interval, $callback) {
  * @return int
  */
 function swoole_timer_after($ms, $callback, $user_param = null) {}
-
-/**
- * 删除定时器
- *
- * @param $interval
- */
-function swoole_timer_del($interval) {
-}
 
 /**
  * 删除定时器
@@ -536,6 +526,13 @@ function swoole_async_writefile($filename, $content, $callback) {
 function swoole_async_read($filename, $callback, $trunk_size = 8192) {
 }
 
+/**
+ * 设置异步相关的参数
+ * @param array $setting
+ */
+function swoole_async_set(array $setting) {
+
+}
 
 /**
  * 异步写文件
@@ -600,8 +597,9 @@ class swoole_client
      *
      * @param int $sock_type 指定socket的类型，支持TCP/UDP、TCP6/UDP64种
      * @param int $sync_type SWOOLE_SOCK_SYNC/SWOOLE_SOCK_ASYNC  同步/异步
+     * @param string $connectionKey 链接的编号，用于长连接复用
      */
-    public function __construct($sock_type, $sync_type = SWOOLE_SOCK_SYNC) {
+    public function __construct($sock_type, $sync_type = SWOOLE_SOCK_SYNC, $connectionKey = '') {
     }
 
     /**
@@ -692,6 +690,47 @@ class swoole_client
      * @return bool | array
      */
     public function getpeername(){}
+
+    /**
+     * 设置客户端参数
+     * @param array $setting
+     */
+    function set(array $setting) {}
+
+    /**
+     * 睡眠，停止接收数据
+     */
+    function sleep(){
+
+    }
+
+    /**
+     * 唤醒，开始接收数据
+     */
+    function wakeup(){
+
+    }
+}
+
+/**
+ * Class swoole_server_port
+ */
+class swoole_server_port
+{
+    /**
+     * @param $event_name
+     * @param callable $callback
+     */
+    function on($event_name, callable $callback) {
+
+    }
+
+    /**
+     * @param $setting
+     */
+    function set($setting) {
+
+    }
 }
 
 /**
@@ -723,6 +762,23 @@ class swoole_server
      * @var int
      */
     public $worker_id;
+
+    /**
+     * 当前是否为task进程
+     * @var bool
+     */
+    public $taskworker;
+
+    /**
+     * 运行配置
+     * @var array
+     */
+    public $setting;
+
+    /**
+     * @var Iterator
+     */
+    public $connections;
 
     /**
      * swoole_server构造函数
@@ -875,7 +931,7 @@ class swoole_server
      * @param $host
      * @param $port
      * @param $type
-     * @return bool
+     * @return swoole_server_port
      */
     public function addlistener($host, $port, $type = SWOOLE_SOCK_TCP) {
     }
@@ -896,14 +952,16 @@ class swoole_server
 
     }
 
-    /*
+    /**
      * 增加监听端口，addlistener的别名
      * @param $host
      * @param $port
-     * @param $type
-     * @return bool
+     * @param int $type
+     * @return swoole_server_port
      */
-    public function listen($host, $port, $type = SWOOLE_SOCK_TCP){}
+    public function listen($host, $port, $type = SWOOLE_SOCK_TCP)
+    {
+    }
 
     /**
      * 添加一个自定义的进程到swoole_server，此进程会被Manager进程管理，退出后会被重新拉起
@@ -911,21 +969,10 @@ class swoole_server
     public function addprocess(swoole_process $process) {}
 
     /**
-     * 增加定时器
-     *
-     * @param $interval
-     * @return bool
+     * 添加定时器，1.8.0已移除addtimer特性，这里是基于tick的兼容版本
+     * @param int $ms
      */
-    public function addtimer($interval) {
-    }
-
-    /**
-     * 删除定时器
-     *
-     * @param $interval
-     */
-    public function deltimer($interval) {
-    }
+    public function addtimer(int $ms) {}
 
     /**
      * 增加tick定时器
@@ -942,7 +989,7 @@ class swoole_server
      * 删除设定的定时器，此定时器不会再触发
      * @param $id
      */
-    function clearAfter($id) {}
+    function clearTimer($id) {}
 
     /**
      * 设置Server的事件回调函数
@@ -974,7 +1021,38 @@ class swoole_server
      */
     public function bind($fd, $uid) {}
 
+    /**
+     * 根据监听的端口号获取ServerSocket，返回一个sockets资源
+     * @param $port
+     * @return resource
+     */
+    public function getSocket($port = 0) {
 
+    }
+
+    /**
+     * 判断fd对应的连接是否存在
+     * @param int $fd
+     * @return bool
+     */
+    function exist(int $fd) {
+
+    }
+    /**
+     * @param callable $callback
+     */
+    public function defer(callable $callback) {
+
+    }
+
+    /**
+     * @param int $fd
+     * @return bool | array
+     */
+    function getClientInfo($fd)
+    {
+
+    }
 }
 
 
@@ -1303,6 +1381,7 @@ class swoole_http_server extends swoole_server
     function setGlobal($flag, $request_flag = 0) {}
 }
 define('WEBSOCKET_OPCODE_TEXT', 1);
+define('WEBSOCKET_OPCODE_BINARY', 2);
 
 class swoole_websocket_server extends swoole_http_server
 {
@@ -1314,6 +1393,18 @@ class swoole_websocket_server extends swoole_http_server
      * @param bool $finish
      */
     function push($fd, $data, $binary_data = false, $finish = true) {}
+
+    /**
+     * @param $data
+     * @param $opcode
+     * @param bool $finish
+     * @param bool $mask
+     * @return string
+     */
+    static function pack($data, $opcode = WEBSOCKET_OPCODE_TEXT_FRAME, $finish = true, $mask = false)
+    {
+
+    }
 }
 
 /**
@@ -1386,6 +1477,14 @@ class swoole_http_response
     function gzip($level = 1) {
 
     }
+
+    /**
+     * 发送静态文件
+     * @param string  $level
+     */
+    function sendfile($filename) {
+
+    }
 }
 
 /**
@@ -1408,6 +1507,7 @@ class swoole_table
      * 设置key
      * @param       $key
      * @param array $array
+     * @return bool
      */
     function set($key, array $array) {}
 
@@ -1462,7 +1562,95 @@ class swoole_table
     function unlock(){}
 }
 
-define('SWOOLE_VERSION', '1.7.7'); //当前Swoole的版本号
+/**
+ * 异步Redis客户端
+ */
+class swoole_redis
+{
+    /**
+     * 注册事件回调函数
+     * @param $event_name
+     * @param callable $callback
+     */
+    function on($event_name, callable $callback)
+    {
+
+    }
+
+    /**
+     * 连接到服务器
+     * @param string $host
+     * @param int $port
+     * @param callable $callback
+     */
+    function connect($host, $port, callback $callback) {}
+
+    /**
+     * 关闭连接
+     */
+    function close() {}
+
+    /**
+     * 获取KEY值
+     * @param $key
+     */
+    function get($key) {}
+    function set($key, $value) {}
+    function keys($patten) {}
+    function subscribe(...$channel) {}
+    function unsubscribe(...$channel) {}
+}
+
+class swoole_atomic
+{
+    function add($value)
+    {
+
+    }
+
+    function sub($value)
+    {
+
+    }
+
+    function cmpset($cmpValue, $setValue)
+    {
+
+    }
+
+    function set($setValue)
+    {
+
+    }
+
+    function get()
+    {
+
+    }
+}
+
+class swoole_http_client
+{
+    function get($url, $callback)
+    {
+
+    }
+
+    function post($url, $data, $callback)
+    {
+
+    }
+
+    /**
+     * @param array $headers
+     */
+    function setHeaders($headers)
+    {
+
+    }
+}
+
+define('SWOOLE_VERSION', '1.8.1'); //当前Swoole的版本号
 
 /**
  * new swoole_server 构造函数参数
@@ -1481,8 +1669,8 @@ define('SWOOLE_SOCK_UDP', 2); //创建udp socket
 define('SWOOLE_SOCK_UDP6', 4); //创建udp ipv6 socket
 define('SWOOLE_SOCK_UNIX_DGRAM', 5); //创建udp socket
 define('SWOOLE_SOCK_UNIX_STREAM', 6); //创建udp ipv6 socket
-
-define('SWOOLE_SSL', 5);
+define('SWOOLE_NODE', 7); //节点服务器
+define('SWOOLE_SSL', 8);
 
 define('SWOOLE_TCP', 1); //创建tcp socket
 define('SWOOLE_TCP6', 2); //创建tcp ipv6 socket
@@ -1490,6 +1678,7 @@ define('SWOOLE_UDP', 3); //创建udp socket
 define('SWOOLE_UDP6', 4); //创建udp ipv6 socket
 define('SWOOLE_UNIX_DGRAM', 5);
 define('SWOOLE_UNIX_STREAM', 6);
+define('SWOOLE_KEEP', 7);
 
 define('SWOOLE_SOCK_SYNC', 0); //同步客户端
 define('SWOOLE_SOCK_ASYNC', 1); //异步客户端
@@ -1508,3 +1697,22 @@ define('SWOOLE_SEM', 4); //创建信号量
 
 define('SWOOLE_EVENT_WRITE', 1);
 define('SWOOLE_EVENT_READ', 2);
+
+define('SWOOLE_SSLv3_METHOD', 1);
+define('SWOOLE_SSLv3_SERVER_METHOD', 1);
+define('SWOOLE_SSLv3_CLIENT_METHOD', 1);
+define('SWOOLE_SSLv23_METHOD', 1);
+define('SWOOLE_SSLv23_SERVER_METHOD', 1);
+define('SWOOLE_SSLv23_CLIENT_METHOD', 1);
+define('SWOOLE_TLSv1_METHOD', 1);
+define('SWOOLE_TLSv1_SERVER_METHOD', 1);
+define('SWOOLE_TLSv1_CLIENT_METHOD', 1);
+define('SWOOLE_TLSv1_1_METHOD', 1);
+define('SWOOLE_TLSv1_1_SERVER_METHOD', 1);
+define('SWOOLE_TLSv1_1_CLIENT_METHOD', 1);
+define('SWOOLE_TLSv1_2_METHOD', 1);
+define('SWOOLE_TLSv1_2_SERVER_METHOD', 1);
+define('SWOOLE_TLSv1_2_CLIENT_METHOD', 1);
+define('SWOOLE_DTLSv1_METHOD', 1);
+define('SWOOLE_DTLSv1_SERVER_METHOD', 1);
+define('SWOOLE_DTLSv1_CLIENT_METHOD', 1);
