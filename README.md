@@ -13,22 +13,20 @@ Swoole releases 版本下载地址：[https://github.com/swoole/swoole-src/relea
 
 开发Swoole项目同时，在IDE中打开/导入本文件即可。
 
-1、项目中直接放入 Swoole.php 让IDE自动识别
-
-2、使用 IDE自带 ``Include Path`` 功能引入
+使用 IDE自带 ``Include Path`` 功能引入 helper 目录
 
 PHPstorm使用演示(其他IDE同理)：
 
-![demo1](./demo_img/01.png "demo1")  
+![demo1](./imgs/01.png "demo1")  
 
-![demo2](./demo_img/02.png "demo2")  
+![demo2](./imgs/02.png "demo2")  
 
-![demo3](./demo_img/03.png "demo3")  
+![demo3](./imgs/03.png "demo3")  
 
-![demo4](./demo_img/04.png "demo4")  
+![demo4](./imgs/04.png "demo4")  
 
 
 使用php.jar包
 
-![demo5](./demo_img/05.png "demo5")  
+![demo5](./imgs/05.png "demo5")  
 
