@@ -1375,7 +1375,7 @@ class swoole_server
      * @return bool
      */
     public function bind($fd, $uid) {}
-    
+
     /**
      * 根据监听的端口号获取ServerSocket，返回一个sockets资源
      * @param $port
@@ -1735,7 +1735,6 @@ class swoole_http_server extends swoole_server
      */
     function setGlobal($flag, $request_flag = 0) {}
 }
-define('WEBSOCKET_OPCODE_TEXT', 1);
 
 class swoole_websocket_server extends swoole_http_server
 {
@@ -2084,3 +2083,11 @@ define('SWOOLE_TLSv1_2_CLIENT_METHOD', 1);
 define('SWOOLE_DTLSv1_METHOD', 1);
 define('SWOOLE_DTLSv1_SERVER_METHOD', 1);
 define('SWOOLE_DTLSv1_CLIENT_METHOD', 1);
+
+define('WEBSOCKET_OPCODE_TEXT', 0x1);
+define('WEBSOCKET_OPCODE_BINARY', 0x2);
+
+define('WEBSOCKET_STATUS_CONNECTION', 1);
+define('WEBSOCKET_STATUS_HANDSHAKE', 2);
+define('WEBSOCKET_STATUS_FRAME', 3);
+define('WEBSOCKET_STATUS_ACTIVE', 3);
