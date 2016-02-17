@@ -1,9 +1,11 @@
 <?php
 
+namespace Swoole;
+
 /**
  * 内存表
  */
-class swoole_table
+class Table
 {
     const TYPE_INT    = 1;
     const TYPE_STRING = 2;

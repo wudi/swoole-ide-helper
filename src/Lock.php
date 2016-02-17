@@ -1,9 +1,10 @@
 <?php
+namespace Swoole;
 
 /**
  * Class swoole_lock
  */
-class swoole_lock
+class Lock
 {
 
     /**

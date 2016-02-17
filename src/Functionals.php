@@ -689,3 +689,23 @@ class swoole_server extends Swoole\Server
 {
 
 }
+
+class swoole_lock extends Swoole\Lock
+{
+
+}
+
+class swoole_redis extends Swoole\Redis
+{
+
+}
+
+class swoole_process extends Swoole\Process
+{
+
+}
+
+class swoole_table extends Swoole\Table
+{
+
+}

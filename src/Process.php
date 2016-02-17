@@ -1,4 +1,5 @@
 <?php
+namespace Swoole;
 
 /**
  * swoole进程管理类
@@ -6,7 +7,7 @@
  * 支持标准输入输出重定向，子进程内echo，会发送到管道中，而不是输出屏幕
  * Class swoole_process
  */
-class swoole_process
+class Process
 {
     /**
      * 进程的PID

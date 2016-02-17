@@ -1,9 +1,9 @@
 <?php
-
+namespace Swoole;
 /**
  * 异步Redis客户端
  */
-class swoole_redis
+class Redis
 {
     /**
      * 注册事件回调函数
