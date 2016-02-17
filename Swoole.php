@@ -305,6 +305,14 @@ function swoole_event_write(mixed $socket, string $data){
 function swoole_get_mysqli_sock(\mysqli $db) {
 }
 
+/**
+ * 异步执行SQL
+ * @param $db
+ * @param $sql
+ */
+function swoole_mysql_query($db, $sql, $callback) {
+
+}
 
 /**
  * 投递异步任务到task_worker池中
@@ -536,6 +544,13 @@ function swoole_async_writefile($filename, $content, $callback) {
 function swoole_async_read($filename, $callback, $trunk_size = 8192) {
 }
 
+/**
+ * 设置异步相关的参数
+ * @param array $setting
+ */
+function swoole_async_set(array $setting) {
+
+}
 
 /**
  * 异步写文件
@@ -600,8 +615,9 @@ class swoole_client
      *
      * @param int $sock_type 指定socket的类型，支持TCP/UDP、TCP6/UDP64种
      * @param int $sync_type SWOOLE_SOCK_SYNC/SWOOLE_SOCK_ASYNC  同步/异步
+     * @param string $connectionKey 链接的编号，用于长连接复用
      */
-    public function __construct($sock_type, $sync_type = SWOOLE_SOCK_SYNC) {
+    public function __construct($sock_type, $sync_type = SWOOLE_SOCK_SYNC, $connectionKey = '') {
     }
 
     /**
@@ -692,6 +708,47 @@ class swoole_client
      * @return bool | array
      */
     public function getpeername(){}
+
+    /**
+     * 设置客户端参数
+     * @param array $setting
+     */
+    function set(array $setting) {}
+
+    /**
+     * 睡眠，停止接收数据
+     */
+    function sleep(){
+
+    }
+
+    /**
+     * 唤醒，开始接收数据
+     */
+    function wakeup(){
+
+    }
+}
+
+/**
+ * Class swoole_server_port
+ */
+class swoole_server_port
+{
+    /**
+     * @param $event_name
+     * @param callable $callback
+     */
+    function on($event_name, callable $callback) {
+
+    }
+
+    /**
+     * @param $setting
+     */
+    function set($setting) {
+
+    }
 }
 
 /**
@@ -699,13 +756,6 @@ class swoole_client
  */
 class swoole_server
 {
-    /**
-     * swoole_server::set()函数所设置的参数会保存到swoole_server::$setting属性上。在回调函数中可以访问运行参数的值
-     *
-     * @var array
-     */
-    public $setting = array();
-
     /**
      * 主进程PID
      *
@@ -1327,11 +1377,37 @@ class swoole_server
     public function bind($fd, $uid) {}
     
     /**
-     * 检测fd对应的连接是否存在。
-     * @param type $fd
-     * @return bool $fd对应的TCP连接存在返回true，不存在返回false
+     * 根据监听的端口号获取ServerSocket，返回一个sockets资源
+     * @param $port
+     * @return resource
      */
-    public function exist($fd){}
+    public function getSocket($port = 0) {
+
+    }
+
+    /**
+     * 判断fd对应的连接是否存在
+     * @param int $fd
+     * @return bool
+     */
+    function exist(int $fd) {
+
+    }
+    /**
+     * @param callable $callback
+     */
+    public function defer(callable $callback) {
+
+    }
+
+    /**
+     * @param int $fd
+     * @return bool | array
+     */
+    function getClientInfo($fd)
+    {
+
+    }
 }
 
 
@@ -1671,6 +1747,18 @@ class swoole_websocket_server extends swoole_http_server
      * @param bool $finish
      */
     function push($fd, $data, $binary_data = false, $finish = true) {}
+
+    /**
+     * @param $data
+     * @param $opcode
+     * @param bool $finish
+     * @param bool $mask
+     * @return string
+     */
+    static function pack($data, $opcode = WEBSOCKET_OPCODE_TEXT_FRAME, $finish = true, $mask = false)
+    {
+
+    }
 }
 
 /**
@@ -1748,6 +1836,14 @@ class swoole_http_response
     function gzip($level = 1) {
 
     }
+
+    /**
+     * 发送静态文件
+     * @param string  $level
+     */
+    function sendfile($filename) {
+
+    }
 }
 
 /**
@@ -1770,6 +1866,7 @@ class swoole_table
      * 设置key
      * @param       $key
      * @param array $array
+     * @return bool
      */
     function set($key, array $array) {}
 
@@ -1825,57 +1922,102 @@ class swoole_table
 }
 
 /**
+ * 异步Redis客户端
+ */
+class swoole_redis
+{
+    /**
+     * 注册事件回调函数
+     * @param $event_name
+     * @param callable $callback
+     */
+    function on($event_name, callable $callback)
+    {
+
+    }
+
+    /**
+     * 连接到服务器
+     * @param string $host
+     * @param int $port
+     * @param callable $callback
+     */
+    function connect($host, $port, callback $callback)
+    {
+    }
+
+
+    /**
+     * 关闭连接
+     */
+    function close()
+    {
+    }
+
+    /**
+     * 获取KEY值
+     * @param $key
+     */
+    public function get()
+    {
+    }
+
+    /**
+     * 将当前值设置为指定的数字
+     *
+     * @param $value
+     */
+    public function set($value)
+    {
+    }
+}
+
+/**
  * woole_atomic是swoole扩展提供的原子计数操作类，可以方便整数的无锁原子增减。
  * swoole_atomic使用共享内存，可以在不同的进程之间操作计数
  * swoole_atomic基于gcc提供的CPU原子指令，无需加锁
  * swoole_atomic在服务器程序中必须在swoole_server->start前创建才能在Worker进程中使用
  */
 class swoole_atomic{
-	/**
-	 * @param int $init_value
-	 */
-	public function __construct($init_value){}
-
-	/**
-	 * 增加计数
-	 *
-	 * @param $add_value
-	 * @return int
-	 */
-	public function add($add_value){}
-
-
-	/**
-	 * 减少计数
-	 *
-	 * @param $sub_value
-	 * @return int
-	 */
-	public function sub($sub_value){}
-
-	/*
-	 * 获取当前计数的值
-	 * @return int
-	 */
-	public function get(){}
-
-	/**
-	 * 将当前值设置为指定的数字
-	 *
-	 * @param $value
-	 */
-	public function set($value){}
-
-	/**
-	 * 如果当前数值等于参数1，则将当前数值设置为参数2
-	 *
-	 * @param int $cmp_value
-	 * @param int $set_value
-	 */
-	public function cmpset($cmp_value, $set_value){}
+    /**
+     * @param int $init_value
+     */
+    public function __construct($init_value){}
+    /**
+     * 增加计数
+     *
+     * @param $add_value
+     * @return int
+     */
+    public function add($add_value){}
+    /**
+     * 减少计数
+     *
+     * @param $sub_value
+     * @return int
+     */
+    public function sub($sub_value){}
+    /*
+     * 获取当前计数的值
+     * @return int
+     */
+    public function get(){}
+    /**
+     * 将当前值设置为指定的数字
+     *
+     * @param $value
+     */
+    public function set($value){}
+    /**
+     * 如果当前数值等于参数1，则将当前数值设置为参数2
+     *
+     * @param int $cmp_value
+     * @param int $set_value
+     */
+    public function cmpset($cmp_value, $set_value){}
 }
 
-define('SWOOLE_VERSION', '1.7.20'); //当前Swoole的版本号
+define('SWOOLE_VERSION', '1.8.1'); //当前Swoole的版本号
 
 /**
  * new swoole_server 构造函数参数
@@ -1923,3 +2065,22 @@ define('SWOOLE_SEM', 4); //创建信号量
 
 define('SWOOLE_EVENT_WRITE', 1);
 define('SWOOLE_EVENT_READ', 2);
+
+define('SWOOLE_SSLv3_METHOD', 1);
+define('SWOOLE_SSLv3_SERVER_METHOD', 1);
+define('SWOOLE_SSLv3_CLIENT_METHOD', 1);
+define('SWOOLE_SSLv23_METHOD', 1);
+define('SWOOLE_SSLv23_SERVER_METHOD', 1);
+define('SWOOLE_SSLv23_CLIENT_METHOD', 1);
+define('SWOOLE_TLSv1_METHOD', 1);
+define('SWOOLE_TLSv1_SERVER_METHOD', 1);
+define('SWOOLE_TLSv1_CLIENT_METHOD', 1);
+define('SWOOLE_TLSv1_1_METHOD', 1);
+define('SWOOLE_TLSv1_1_SERVER_METHOD', 1);
+define('SWOOLE_TLSv1_1_CLIENT_METHOD', 1);
+define('SWOOLE_TLSv1_2_METHOD', 1);
+define('SWOOLE_TLSv1_2_SERVER_METHOD', 1);
+define('SWOOLE_TLSv1_2_CLIENT_METHOD', 1);
+define('SWOOLE_DTLSv1_METHOD', 1);
+define('SWOOLE_DTLSv1_SERVER_METHOD', 1);
+define('SWOOLE_DTLSv1_CLIENT_METHOD', 1);
