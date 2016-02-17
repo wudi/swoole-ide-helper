@@ -709,3 +709,8 @@ class swoole_table extends Swoole\Table
 {
 
 }
+
+class swoole_websocket_server extends Swoole\WebSocket\Server
+{
+
+}

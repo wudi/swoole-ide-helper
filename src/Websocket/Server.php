@@ -1,11 +1,11 @@
 <?php
-
+namespace Swoole\WebSocket;
 /**
  * Class swoole_http_server
  *
  *  内置 Websocket 服务器
  */
-class swoole_websocket_server extends swoole_http_server
+class Server extends \Swoole\Http\Server
 {
     /**
      * 向某个WebSocket客户端连接推送数据
