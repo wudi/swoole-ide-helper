@@ -1,12 +1,14 @@
 <?php
 
+namespace Swoole\Http;
+
 /**
  * swoole_http_client
  *
  * Author: EagleWu <eaglewudi@gmail.com>
  * Date: 2016/02/17
  */
-class swoole_http_client
+class Client
 {
 
     public $setting;
