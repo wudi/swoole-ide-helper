@@ -114,7 +114,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">75</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">71</span>
                                 </a>
                             </li>
                             <li>
@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-686875950"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-303845354"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-686875950" class="accordion-body collapse in">
+            <div id="namespace-303845354" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-152434509"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1683041625"></a>
                                 <a href="../namespaces/Swoole.html" style="margin-left: 30px; padding-left: 0">Swoole</a>
             </div>
-            <div id="namespace-152434509" class="accordion-body collapse ">
+            <div id="namespace-1683041625" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1570844488"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-120664022"></a>
                                 <a href="../namespaces/Swoole.Http.html" style="margin-left: 30px; padding-left: 0">Http</a>
             </div>
-            <div id="namespace-1570844488" class="accordion-body collapse ">
+            <div id="namespace-120664022" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -183,10 +183,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1035715596"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1319165832"></a>
                                 <a href="../namespaces/Swoole.WebSocket.html" style="margin-left: 30px; padding-left: 0">WebSocket</a>
             </div>
-            <div id="namespace-1035715596" class="accordion-body collapse ">
+            <div id="namespace-1319165832" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -250,8 +250,8 @@
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
                     <h1><small>\Swoole</small>Timer</h1>
-                    <p><em></em></p>
-                    
+                    <p><em>Class Timer</em></p>
+                    <p>异步定时器</p>
                     
                                         
                     <section id="summary">
@@ -311,7 +311,7 @@
                         <dt>File</dt>
                             <dd><a href="../files/Timer.html"><div class="path-wrapper">Timer.php</div></a></dd>
                                                 <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">Default</div></dd>
+                            <dd><div class="namespace-wrapper">Swoole</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
                                                                                                                                                                     <div class="namespace-wrapper">\Swoole\Timer</div>
@@ -343,8 +343,8 @@
             <article class="method">
                 <h3 class="public ">tick()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">tick(integer  <span class="argument">$ms</span>, callable  <span class="argument">$callback</span>) </pre>
-                <p><em></em></p>
+                <pre class="signature" style="margin-right: 54px;">tick(integer  <span class="argument">$ms</span>, callable  <span class="argument">$callback</span>, mixed  <span class="argument">$param = null</span>) </pre>
+                <p><em>设置一个间隔时钟定时器，与after定时器不同的是tick定时器会持续触发，直到调用swoole_timer_clear清除。与swoole_timer_add不同的是tick定时器可以存在多个相同间隔时间的定时器。</em></p>
                 
 
                                     <h4>Parameters</h4>
@@ -352,12 +352,17 @@
                                                     <tr>
                                 <td>integer</td>
                                 <td>$ms </td>
-                                <td></td>
+                                <td><p>指定时间，单位为毫秒</p></td>
                             </tr>
                                                     <tr>
                                 <td>callable</td>
                                 <td>$callback </td>
-                                <td></td>
+                                <td><p>时间到期后所执行的函数，必须是可以调用的。callback函数不接受任何参数</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$param </td>
+                                <td><p>回调参数</p></td>
                             </tr>
                                             </table>
                 
@@ -384,7 +389,7 @@
                 <h3 class="public ">after()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">after(integer  <span class="argument">$ms</span>, callable  <span class="argument">$callback</span>) </pre>
-                <p><em></em></p>
+                <p><em>在指定的时间后执行函数，需要swoole-1.7.7以上版本</em></p>
                 
 
                                     <h4>Parameters</h4>
@@ -392,12 +397,12 @@
                                                     <tr>
                                 <td>integer</td>
                                 <td>$ms </td>
-                                <td></td>
+                                <td><p>指定时间，单位为毫秒</p></td>
                             </tr>
                                                     <tr>
                                 <td>callable</td>
                                 <td>$callback </td>
-                                <td></td>
+                                <td><p>时间到期后所执行的函数，必须是可以调用的。callback函数不接受任何参数</p></td>
                             </tr>
                                             </table>
                 
@@ -424,7 +429,7 @@
                 <h3 class="public ">clear()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">clear(integer  <span class="argument">$timerId</span>) </pre>
-                <p><em></em></p>
+                <p><em>使用定时器ID来删除定时器</em></p>
                 
 
                                     <h4>Parameters</h4>
@@ -432,7 +437,7 @@
                                                     <tr>
                                 <td>integer</td>
                                 <td>$timerId </td>
-                                <td></td>
+                                <td><p>定时器ID，调用swoole_timer_add/swoole_timer_after 后会返回一个整数的ID</p></td>
                             </tr>
                                             </table>
                 
@@ -502,7 +507,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on February 22nd, 2016 at 13:06.
+                    on February 22nd, 2016 at 14:31.
                 </section>
             </section>
         </section>
