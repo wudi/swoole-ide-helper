@@ -7,6 +7,8 @@ Swoole 结构，便于开发过程中查看文档，以及屏蔽IDE undefined �
 
 Swoole releases 版本下载地址：[https://github.com/swoole/swoole-src/releases](https://github.com/swoole/swoole-src/releases)
 
+API 手册在线预览：[Swoole API Manual](https://docs.phper.io/swoole/swoole-api-manual/docs/)
+
 ### 使用方式
  
 普通IDE：
