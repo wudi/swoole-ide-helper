@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-995120708"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1173417585"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-995120708" class="accordion-body collapse in">
+            <div id="namespace-1173417585" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-767926973"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1380924441"></a>
                                 <a href="../namespaces/Swoole.html" style="margin-left: 30px; padding-left: 0">Swoole</a>
             </div>
-            <div id="namespace-767926973" class="accordion-body collapse ">
+            <div id="namespace-1380924441" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-683084070"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-585996358"></a>
                                 <a href="../namespaces/Swoole.Http.html" style="margin-left: 30px; padding-left: 0">Http</a>
             </div>
-            <div id="namespace-683084070" class="accordion-body collapse ">
+            <div id="namespace-585996358" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -183,10 +183,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-256047765"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1283350935"></a>
                                 <a href="../namespaces/Swoole.WebSocket.html" style="margin-left: 30px; padding-left: 0">WebSocket</a>
             </div>
-            <div id="namespace-256047765" class="accordion-body collapse ">
+            <div id="namespace-1283350935" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -1553,7 +1553,7 @@ Server可以监听一个内网端口，然后可以接收远程的控制命令�
             <article class="method">
                 <h3 class="public ">addlistener()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">addlistener(string  <span class="argument">$host</span>, integer  <span class="argument">$port</span>, integer  <span class="argument">$type = SWOOLE_SOCK_TCP</span>) </pre>
+                <pre class="signature" style="margin-right: 54px;">addlistener(string  <span class="argument">$host</span>, integer  <span class="argument">$port</span>, integer  <span class="argument">$type = SWOOLE_SOCK_TCP</span>) : \swoole_server_port|boolean</pre>
                 <p><em>Swoole提供了swoole_server::addListener来增加监听的端口。业务代码中可以通过调用swoole_server::connection_info来获取某个连接来自于哪个端口</em></p>
                 <ul>
 <li>SWOOLE_TCP/SWOOLE_SOCK_TCP tcp ipv4 socket</li>
@@ -1589,7 +1589,10 @@ Server可以监听一个内网端口，然后可以接收远程的控制命令�
                                             </table>
                 
                 
-                				
+                                    <h4>Returns</h4>
+                    <a href="../classes/swoole_server_port.html">\swoole_server_port</a>|boolean
+                                            &mdash; <p>如果成功，1.8.0以上版本返回swoole_server_port，以下返回TRUE；如果失败返回FALSE</p>
+                                    				
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2306,7 +2309,7 @@ handler/on/set 方法只能在swoole_server::start前调用</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on February 22nd, 2016 at 14:31.
+                    on February 25th, 2016 at 20:01.
                 </section>
             </section>
         </section>
