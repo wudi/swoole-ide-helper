@@ -471,6 +471,8 @@ class Server
      * @param string $host
      * @param int $port
      * @param int $type
+     * 
+     * @return \swoole_server_port|bool 如果成功，1.8.0以上版本返回swoole_server_port，以下返回TRUE；如果失败返回FALSE
      */
     public function addlistener($host, $port, $type = SWOOLE_SOCK_TCP)
     {
