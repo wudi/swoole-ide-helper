@@ -644,6 +644,7 @@ function swoole_async_dns_lookup($domain, $callback)
  * @param array $write 可写
  * @param array $error 错误
  * @param float $timeout
+ * @return int
  */
 function swoole_client_select(array &$read, array &$write, array &$error, $timeout)
 {
