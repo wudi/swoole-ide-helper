@@ -10,6 +10,18 @@ namespace Swoole;
 class Server
 {
     /**
+     * 当前服务器管理进程的Settings
+     *
+     * swoole_server::set()函数所设置的参数会保存到$setting属性上。
+     * 在回调函数中可以访问运行参数的值。
+     *
+     * swoole-1.6.11+可用
+     *
+     * @var array
+     */
+    public $setting;
+
+    /**
      * 主进程PID
      *
      * @var int
