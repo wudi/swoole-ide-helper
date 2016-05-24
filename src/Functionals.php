@@ -715,3 +715,8 @@ class swoole_websocket_server extends Swoole\WebSocket\Server
 {
 
 }
+
+class swoole_websocket_frame extends Swoole\WebSocket\Frame
+{
+
+}

@@ -13,6 +13,7 @@ class Server extends \Swoole\Http\Server
      * @param      $data
      * @param bool $binary_data
      * @param bool $finish
+     * @return bool
      */
     function push($fd, $data, $binary_data = false, $finish = true)
     {
