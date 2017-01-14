@@ -68,7 +68,7 @@ class Process
      * @param array $params 参数数组
      * @return bool
      */
-    function exec($execute_file, $params)
+    function exec(string $execute_file, array $params)
     {
     }
 
