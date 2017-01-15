@@ -384,9 +384,10 @@ class Server
      *
      * @param int $fd
      * @param int $from_id
+     * @param bool $ignore_close
      * @return array | bool
      */
-    public function connection_info($fd, $from_id = -1)
+    public function connection_info($fd, $from_id = -1, $ignore_close = false)
     {
     }
 
