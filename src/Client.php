@@ -111,7 +111,7 @@ class Client
      * 注册异步事件回调函数
      *
      * @param $event_name
-     * @param $callback_function
+     * @param callable $callback_function
      * @return bool
      */
     public function on($event_name, $callback_function)
