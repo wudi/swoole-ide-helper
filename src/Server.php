@@ -6,6 +6,8 @@ namespace Swoole;
  *
  * Author: wudi <wudi23@baidu.com>
  * Date: 2016/02/17
+ * @property string $host 服务器地址
+ * @property int    $port 服务器端口
  */
 class Server
 {
