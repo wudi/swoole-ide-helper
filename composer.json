@@ -1,0 +1,11 @@
+{
+    "name": "limingxinleo/swoole-ide-helper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "李铭昕",
+            "email": "715557344@qq.com"
+        }
+    ],
+    "require": {}
+}
