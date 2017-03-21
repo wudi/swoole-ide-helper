@@ -479,7 +479,7 @@ function swoole_timer_clear($timer_id)
 /**
  * 添加TICK定时器
  * @param      $ms
- * @param      $callback  function($timmerID, $params){}
+ * @param      mixed $callback function($timmerID, $params){}
  * @param null $params
  * @return int
  */
