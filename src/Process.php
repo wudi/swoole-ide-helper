@@ -24,7 +24,7 @@ class Process
     public $pipe;
 
     /**
-     * @param mixed $callback 子进程的回调函数
+     * @param callable $callback 子进程的回调函数
      * @param bool $redirect_stdin_stdout 是否重定向标准输入输出
      * @param bool $create_pipe 是否创建管道
      */
@@ -77,9 +77,10 @@ class Process
      * 成功返回一个数组包含子进程的PID和退出状态码
      * 如array('code' => 0, 'pid' => 15001)，失败返回false
      *
+     * @param bool $blocking 是否阻塞等待
      * @return false | array
      */
-    static function wait()
+    static function wait($blocking = true)
     {
     }
 
