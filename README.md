@@ -9,15 +9,18 @@ Swoole releases 版本下载地址：[https://github.com/swoole/swoole-src/relea
 
 API 手册在线预览：[Swoole API Manual](https://docs.phper.io/swoole/swoole-api-manual/docs/)
 
-### 使用方式
- 
-普通IDE：
+## 使用方式
+### composer 安装：
+
+    composer require --dev noname007/swoole-ide-helper
+
+### 普通IDE：
 
 开发Swoole项目同时，在IDE中打开/导入本文件即可。
 
 使用 IDE自带 ``Include Path`` 功能引入 helper 目录
 
-PHPstorm使用演示(其他IDE同理)：
+### PHPstorm使用演示(其他IDE同理)：
 
 ![demo1](./imgs/01.png "demo1")  
 
