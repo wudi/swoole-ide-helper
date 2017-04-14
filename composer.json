@@ -7,5 +7,10 @@
             "email": "soul11201@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Swoole":"src/"
+        }
+    },
     "require": {}
 }
