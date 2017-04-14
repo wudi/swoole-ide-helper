@@ -12,7 +12,8 @@ API 手册在线预览：[Swoole API Manual](https://docs.phper.io/swoole/swoole
 ## 使用方式
 ### composer 安装：
 
-    composer require --dev noname007/swoole-ide-helper
+    composer require --dev "eaglewu/swoole-ide-helper:dev-master"
+
 
 ### 普通IDE：
 
