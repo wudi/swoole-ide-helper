@@ -1,0 +1,16 @@
+{
+    "name": "eaglewu/swoole-ide-helper",
+    "description": "Swoole 在IDE下自动识别类、函数、宏，自动补全函数名",
+    "authors": [
+        {
+            "name": "soul11201",
+            "email": "soul11201@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Swoole\\":"src/"
+        }
+    },
+    "require": {}
+}
