@@ -5,6 +5,7 @@ namespace Swoole;
  * swoole进程管理类
  * 内置IPC通信支持，子进程和主进程之间可以方便的通信
  * 支持标准输入输出重定向，子进程内echo，会发送到管道中，而不是输出屏幕
+ * @method exit(int $code) int 退出子进程
  * Class swoole_process
  */
 class Process
@@ -49,16 +50,6 @@ class Process
      * @return string
      */
     function read($buffer_len = 8192)
-    {
-    }
-
-    /**
-     * 退出子进程，实际函数名为exit，IDE将exit识别为关键词了，会有语法错误，所以这里叫_exit
-     *
-     * @param int $code
-     * @return int
-     */
-    function _exit($code = 0)
     {
     }
 
