@@ -721,4 +721,19 @@ class Server
     {
 
     }
+    
+    /**
+     * 并发执行多个Task
+     *
+     * 执行成功返回一个结果数据，数组的key与传入的$tasks一致
+     * 某个任务执行超时不会影响其他任务，返回的结果数据中将不包含超时的任务
+     *
+     * @param array $tasks 必须为数字索引数组，不支持关联索引数组，底层会遍历$tasks将任务逐个投递到Task进程
+     * @param double $timeout  为浮点型，单位为秒
+     * @return array
+     */
+    function taskWaitMulti(array $tasks, $timeout)
+    {
+    
+    }
 }
