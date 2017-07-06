@@ -561,7 +561,7 @@ class Server
      *
      * 子进程会托管到Manager进程，如果发生致命错误，manager进程会重新创建一个
      *
-     * @param swoole_process $process
+     * @param swoole_process|Process $process
      */
     public function addProcess(swoole_process $process)
     {

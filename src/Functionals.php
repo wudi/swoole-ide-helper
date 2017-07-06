@@ -440,7 +440,7 @@ function swoole_event_wait()
  * 添加定时器，可用于客户端环境和fpm中
  *
  * @param $interval
- * @param $callback
+ * @param callable $callback
  * @return int
  */
 function swoole_timer_add($interval, $callback)
@@ -450,7 +450,7 @@ function swoole_timer_add($interval, $callback)
 /**
  * 单次定时器，在N毫秒后执行回调函数
  * @param $ms
- * @param $callback  function ($user_param)｛｝
+ * @param callable $callback  function ($user_param)｛｝
  * @param $user_param
  * @return int
  */
@@ -479,7 +479,7 @@ function swoole_timer_clear($timer_id)
 /**
  * 添加TICK定时器
  * @param      $ms
- * @param      mixed $callback function($timmerID, $params){}
+ * @param      callable $callback function($timmerID, $params){}
  * @param null $params
  * @return int
  */
