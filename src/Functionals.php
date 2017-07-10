@@ -743,3 +743,15 @@ class swoole_websocket_frame extends Swoole\WebSocket\Frame
 {
 
 }
+class swoole_mysql extends \Swoole\Mysql
+{
+
+}
+class swoole_http2_client extends \Swoole\Http2\Client
+{
+
+}
+class swoole_mysql_exception extends \Swoole\Mysql\Exception
+{
+    
+}
