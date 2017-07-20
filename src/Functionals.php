@@ -755,3 +755,7 @@ class swoole_mysql_exception extends \Swoole\Mysql\Exception
 {
     
 }
+class swoole_serialize extends \Swoole\Serialize
+{
+
+}
