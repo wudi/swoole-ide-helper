@@ -20,10 +20,10 @@ Swoole releases 版本下载地址：[https://github.com/swoole/swoole-src/relea
 
 ### 使用演示：
 
-![demo1](./imgs/01.png "demo1")  
+![demo1](./imgs/img-01.png "demo1")
 
-![demo2](./imgs/02.png "demo2")  
+![demo2](./imgs/img-02.png "demo2")
 
-![demo3](./imgs/03.png "demo3")  
+![demo3](./imgs/img-03.png "demo3")
 
-![demo4](./imgs/04.png "demo4")  
+![demo4](./imgs/img-04.png "demo4")
