@@ -8,18 +8,17 @@ Swoole 结构，便于开发过程中查看文档，以及屏蔽IDE undefined �
 Swoole releases 版本下载地址：[https://github.com/swoole/swoole-src/releases](https://github.com/swoole/swoole-src/releases)
 
 ## 使用方式
-### composer 安装：
+### composer 安装 (推荐)：
 
     composer require --dev "eaglewu/swoole-ide-helper:dev-master"
 
+### 其他 IDE/文本编辑器：
 
-### 普通IDE：
+在项目中中打开/导入仓库内文件即可。
 
-开发Swoole项目同时，在IDE中打开/导入本文件即可。
+推荐使用 IDE 自带 ``Include Path`` 功能引入目录
 
-使用 IDE自带 ``Include Path`` 功能引入 helper 目录
-
-### PHPstorm使用演示(其他IDE同理)：
+### 使用演示：
 
 ![demo1](./imgs/01.png "demo1")  
 
@@ -28,9 +27,3 @@ Swoole releases 版本下载地址：[https://github.com/swoole/swoole-src/relea
 ![demo3](./imgs/03.png "demo3")  
 
 ![demo4](./imgs/04.png "demo4")  
-
-
-使用php.jar包
-
-![demo5](./imgs/05.png "demo5")  
-
