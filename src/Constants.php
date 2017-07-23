@@ -82,3 +82,6 @@ define('WEBSOCKET_STATUS_FRAME', 3);
 define('WEBSOCKET_STATUS_ACTIVE', 3);
 
 define('SWOOLE_FAST_PACK', 1);
+
+define('SWOOLE_AIO_BASE', 0);
+define('SWOOLE_AIO_LINUX', 1);
