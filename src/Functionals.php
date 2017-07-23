@@ -555,8 +555,9 @@ function swoole_async_readfile($filename, $callback)
  * @param string $filename
  * @param string $content
  * @param callback $callback
+ * @param int $flags (在 1.9.1 或更高版本可用)
  */
-function swoole_async_writefile($filename, $content, $callback)
+function swoole_async_writefile($filename, $content, $callback, $flags = 0)
 {
 }
 
@@ -575,9 +576,10 @@ function swoole_async_writefile($filename, $content, $callback)
  * @param string $filename
  * @param mixed $callback
  * @param int $trunk_size
+ * @param int $offset (在 1.7.13 或更高版本可用)
  * @return bool
  */
-function swoole_async_read($filename, $callback, $trunk_size = 8192)
+function swoole_async_read($filename, $callback, $trunk_size = 8192, $offset = 0)
 {
 }
 
@@ -606,7 +608,7 @@ function swoole_async_set(array $setting)
  *
  * @return bool
  */
-function swoole_async_write($filename, $content, $offset, $callback = NULL)
+function swoole_async_write($filename, $content, $offset = -1, $callback = NULL)
 {
 }
 
