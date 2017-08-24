@@ -3,8 +3,8 @@
     "description": "Swoole 在IDE下自动识别类、函数、宏，自动补全函数名",
     "authors": [
         {
-            "name": "eaglewu",
-            "email": "eaglewu@gmail.com"
+            "name": "eagle",
+            "email": "eaglewudi@gmail.com"
         }
     ],
     "autoload": {
