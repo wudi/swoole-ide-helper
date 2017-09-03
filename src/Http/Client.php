@@ -10,6 +10,9 @@ namespace Swoole\Http;
  */
 class Client
 {
+    public $cookies;
+    public $headers;
+    public $body;
 
     public $setting;
 
@@ -38,6 +41,15 @@ class Client
      * @return true
      */
     public function setHeaders($headers)
+    {
+
+    }
+
+    /**
+     * @param $cookies
+     * @return true
+     */
+    public function setCookies($cookies)
     {
 
     }
