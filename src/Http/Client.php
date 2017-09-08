@@ -13,6 +13,7 @@ class Client
     public $cookies;
     public $headers;
     public $body;
+    public $statusCode; // -1 连接服务器超时 -2 服务器响应超时
 
     public $setting;
 
@@ -132,6 +133,14 @@ class Client
      * @param mixed $finish
      */
     public function upgrade($uri, $finish)
+    {
+
+    }
+
+    /**
+     * @param $file
+     */
+    public function addFile($file)
     {
 
     }
