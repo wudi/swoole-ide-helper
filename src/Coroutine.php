@@ -1,16 +1,15 @@
 <?php
 /**
  * swoole-ide-helper
- * Author: Wudi <wudi@51idc.com>
- * Datetime: 20/07/2017
+ * Author: Wudi <wudi@anchnet.com>
+ * Datetime: 09/11/2017
  */
 
-namespace Swoole\Coroutine;
+namespace Swoole;
 
 
-class Util
+class Coroutine
 {
-
     /**
      * 创建一个新的协程，并立即执行
      *
