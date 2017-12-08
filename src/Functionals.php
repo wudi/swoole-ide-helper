@@ -713,6 +713,16 @@ class swoole_table extends Swoole\Table
 
 }
 
+class swoole_channel extends Swoole\Channel
+{
+
+}
+
+class swoole_redis_server extends Swoole\Redis\Server
+{
+
+}
+
 /**
  * @desc 内置 Websocket 服务器
  *
