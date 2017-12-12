@@ -7,7 +7,6 @@
 
 namespace Swoole;
 
-
 class Coroutine
 {
     /**
@@ -16,7 +15,7 @@ class Coroutine
      * @param callable $function 协程执行的代码
      * @return bool
      */
-    public function create(callable $function)
+    public static function create(callable $function)
     {
         return true;
     }
@@ -27,7 +26,7 @@ class Coroutine
      * @link https://wiki.swoole.com/wiki/page/772.html
      * @param string $coroutineId 为要恢复的协程ID，在协程内可以使用getuid获取到协程的ID
      */
-    public function resume($coroutineId)
+    public static function resume($coroutineId)
     {
 
     }
@@ -37,7 +36,7 @@ class Coroutine
      * @link https://wiki.swoole.com/wiki/page/773.html
      * @param string $corouindId 要挂起协程的ID
      */
-    public function suspend($corouindId)
+    public static function suspend($corouindId)
     {
 
     }
