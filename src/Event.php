@@ -24,7 +24,7 @@ class Event
      * @param $flag
      * @return bool
      */
-    public function swoole_event_add($sock, $read_callback = null, $write_callback = null, $flag = null)
+    public function add($sock, $read_callback = null, $write_callback = null, $flag = null)
     {
     }
 
@@ -37,7 +37,7 @@ class Event
      * @param null $write_callback
      * @param null $flag
      */
-    public function swoole_event_set($sock, $read_callback = null, $write_callback = null, $flag = null)
+    public function set($sock, $read_callback = null, $write_callback = null, $flag = null)
     {
     }
 
@@ -49,7 +49,7 @@ class Event
      * @param int $sock
      * @return bool
      */
-    public function swoole_event_del($sock)
+    public function del($sock)
     {
     }
 
@@ -59,7 +59,7 @@ class Event
      *
      * @return void
      */
-    public function swoole_event_exit()
+    public function exit()
     {
     }
 
@@ -68,7 +68,7 @@ class Event
      * @param mixed $socket
      * @param string $data
      */
-    public function swoole_event_write($socket, $data)
+    public function write($socket, $data)
     {
     }
 }
