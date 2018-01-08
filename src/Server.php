@@ -1,6 +1,7 @@
 <?php
 
 namespace Swoole;
+
 /**
  * Class swoole_server
  *
@@ -164,7 +165,7 @@ class Server
      * swoole 支持的 Socket 类型 https://wiki.swoole.com/wiki/page/16.html
      * $sock_type | SWOOLE_SSL 可以启用 SSL 隧道加密
      */
-    function __construct($host, $port, $mode = SWOOLE_PROCESS, $sock_type = SWOOLE_SOCK_TCP)
+    public function __construct($host, $port, $mode = SWOOLE_PROCESS, $sock_type = SWOOLE_SOCK_TCP)
     {
     }
 
@@ -175,7 +176,9 @@ class Server
      *
      * @return bool
      */
-    public function start(){}
+    public function start()
+    {
+    }
 
     /**
      * 向客户端发送数据 https://wiki.swoole.com/wiki/page/p-server/send.html
@@ -203,7 +206,9 @@ class Server
      * @param int $from_id
      * @return bool
      */
-    public function send($fd, $data, $from_id = 0){}
+    public function send($fd, $data, $from_id = 0)
+    {
+    }
 
     /**
      * 向任意的客户端IP:PORT发送UDP数据包 https://wiki.swoole.com/wiki/page/381.html
@@ -229,7 +234,9 @@ class Server
      * @param int $server_socket 服务器可能会同时监听多个UDP端口，此参数可以指定使用哪个端口发送数据包
      * @return bool
      */
-    public function sendto($ip, $port, $data, $server_socket = -1){}
+    public function sendto($ip, $port, $data, $server_socket = -1)
+    {
+    }
 
     /**
      * 阻塞地向客户端发送数据 https://wiki.swoole.com/wiki/page/434.html
@@ -238,7 +245,9 @@ class Server
      * @param int $fd
      * @param string $send_data
      */
-    public function sendwait($fd, $send_data){}
+    public function sendwait($fd, $send_data)
+    {
+    }
 
     /**
      * 关闭客户端连接 https://wiki.swoole.com/wiki/page/p-server/close.html
@@ -344,7 +353,9 @@ class Server
      * @param int $dst_worker_id
      * @return bool
      */
-    public function sendMessage($message, $dst_worker_id = -1){}
+    public function sendMessage($message, $dst_worker_id = -1)
+    {
+    }
 
     /**
      * 次函数已废弃 https://wiki.swoole.com/wiki/page/223.html
@@ -426,7 +437,9 @@ class Server
      * @param int $pagesize
      * @return array | bool
      */
-    public function connection_list($start_fd = -1, $pagesize = 10){}
+    public function connection_list($start_fd = -1, $pagesize = 10)
+    {
+    }
 
     /**
      * 重启所有worker进程 https://wiki.swoole.com/wiki/page/p-server/reload.html
@@ -525,7 +538,7 @@ class Server
      *
      * @return array
      */
-    function stats()
+    public function stats()
     {
     }
 
@@ -631,7 +644,7 @@ class Server
      * 清除tick/after定时器，此函数是 swoole_timer_clear 的别名
      * @param int $id
      */
-    function clearTimer($id)
+    public function clearTimer($id)
     {
     }
 
@@ -671,7 +684,9 @@ class Server
      * @param int $length
      * @return bool
      */
-    public function sendfile($fd, $filename, $offset =0, $length = 0){}
+    public function sendfile($fd, $filename, $offset =0, $length = 0)
+    {
+    }
 
     /**
      * 将连接绑定一个用户定义的ID，可以设置dispatch_mode=5设置已此ID值进行hash固定分配。可以保证某一个UID的连接全部会分配到同一个Worker进程 https://wiki.swoole.com/wiki/page/369.html
@@ -701,7 +716,6 @@ class Server
      */
     public function getSocket($port = 0)
     {
-
     }
 
     /**
@@ -710,21 +724,27 @@ class Server
      * @param int $fd
      * @return bool
      */
-    public function exist($fd){}
+    public function exist($fd)
+    {
+    }
 
     /**
      * 停止接收数据 https://wiki.swoole.com/wiki/page/613.html
      *
      * @param int $fd
      */
-    public function pause($fd){}
+    public function pause($fd)
+    {
+    }
 
     /**
      * 恢复数据接收 https://wiki.swoole.com/wiki/page/614.html
      *
      * @param int $fd
      */
-    public function resume($fd){}
+    public function resume($fd)
+    {
+    }
 
     /**
      * 延后执行一个PHP函数 https://wiki.swoole.com/wiki/page/516.html
@@ -738,9 +758,8 @@ class Server
      * @param int $fd
      * @return bool | array
      */
-    function getClientInfo($fd)
+    public function getClientInfo($fd)
     {
-
     }
 
     /**
@@ -753,8 +772,7 @@ class Server
      * @param double $timeout 为浮点型，单位为秒
      * @return array
      */
-    function taskWaitMulti(array $tasks, $timeout)
+    public function taskWaitMulti(array $tasks, $timeout)
     {
-
     }
 }

@@ -1,5 +1,6 @@
 <?php
 namespace Swoole\WebSocket;
+
 /**
  * Class swoole_http_server
  *
@@ -15,7 +16,7 @@ class Server extends \Swoole\Http\Server
      * @param bool $finish
      * @return bool
      */
-    function push($fd, $data, $binary_data = false, $finish = true)
+    public function push($fd, $data, $binary_data = false, $finish = true)
     {
     }
 
@@ -26,7 +27,7 @@ class Server extends \Swoole\Http\Server
      * @param bool $mask
      * @return string
      */
-    static function pack($data, $opcode = WEBSOCKET_OPCODE_TEXT, $finish = true, $mask = false)
+    public static function pack($data, $opcode = WEBSOCKET_OPCODE_TEXT, $finish = true, $mask = false)
     {
     }
 }

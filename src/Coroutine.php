@@ -28,7 +28,6 @@ class Coroutine
      */
     public static function resume($coroutineId)
     {
-
     }
 
     /**
@@ -38,7 +37,6 @@ class Coroutine
      */
     public static function suspend($corouindId)
     {
-
     }
 
     /**
@@ -60,7 +58,6 @@ class Coroutine
      */
     public static function call_user_func_array(callable $callback, array $param_arr)
     {
-
     }
 
     /**
@@ -73,7 +70,5 @@ class Coroutine
      */
     public static function call_user_func(callable $callback, $parameter = null, $_ = null)
     {
-
     }
-
 }

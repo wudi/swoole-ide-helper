@@ -25,9 +25,8 @@ class Timer
      * @param mixed $param 回调参数
      * @return int $timerId 定时器ID
      */
-    static function tick($ms, callable $callback, $param = null)
+    public static function tick($ms, callable $callback, $param = null)
     {
-
     }
 
     /**
@@ -35,11 +34,11 @@ class Timer
      *
      * @param int $ms 指定时间，单位为毫秒
      * @param callable $callback 时间到期后所执行的函数，必须是可以调用的。callback函数不接受任何参数
+     * @param mixed $param 回调参数
      * @return int $timerId 定时器ID
      */
-    static function after($ms, callable $callback)
+    public static function after($ms, callable $callback, $param)
     {
-
     }
 
     /**
@@ -47,8 +46,7 @@ class Timer
      *
      * @param int $timerId 定时器ID，调用swoole_timer_add/swoole_timer_after 后会返回一个整数的ID
      */
-    static function clear($timerId)
+    public static function clear($timerId)
     {
-
     }
 }

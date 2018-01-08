@@ -71,7 +71,5 @@ class Mysql
      */
     public function query($sql, $timeout = 0.0)
     {
-
     }
-
 }

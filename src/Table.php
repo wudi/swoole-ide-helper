@@ -25,7 +25,7 @@ class Table
      * @param $key
      * @return array
      */
-    function get($key)
+    public function get($key)
     {
     }
 
@@ -35,7 +35,7 @@ class Table
      * @param array $array
      * @return bool
      */
-    function set($key, array $array)
+    public function set($key, array $array)
     {
     }
 
@@ -44,7 +44,7 @@ class Table
      * @param $key
      * @return bool
      */
-    function del($key)
+    public function del($key)
     {
     }
 
@@ -55,7 +55,7 @@ class Table
      * @param $incrby
      * @return bool
      */
-    function incr($key, $column, $incrby = 1)
+    public function incr($key, $column, $incrby = 1)
     {
     }
 
@@ -65,7 +65,7 @@ class Table
      * @param $column
      * @param $decrby
      */
-    function decr($key, $column, $decrby = 1)
+    public function decr($key, $column, $decrby = 1)
     {
     }
 
@@ -75,7 +75,7 @@ class Table
      * @param     $type
      * @param int $len
      */
-    function column($name, $type, $len = 4)
+    public function column($name, $type, $len = 4)
     {
     }
 
@@ -83,7 +83,7 @@ class Table
      * 创建表，这里会申请操作系统内存
      * @return bool
      */
-    function create()
+    public function create()
     {
     }
 
@@ -91,7 +91,7 @@ class Table
      * 锁定整个表
      * @return bool
      */
-    function lock()
+    public function lock()
     {
     }
 
@@ -99,7 +99,7 @@ class Table
      * 释放表锁
      * @return bool
      */
-    function unlock()
+    public function unlock()
     {
     }
 }

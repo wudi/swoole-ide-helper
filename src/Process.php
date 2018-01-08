@@ -29,7 +29,7 @@ class Process
      * @param bool $redirect_stdin_stdout 是否重定向标准输入输出
      * @param bool $create_pipe 是否创建管道
      */
-    function __construct($callback, $redirect_stdin_stdout = false, $create_pipe = true)
+    public function __construct($callback, $redirect_stdin_stdout = false, $create_pipe = true)
     {
     }
 
@@ -39,7 +39,7 @@ class Process
      * @param string $data
      * @return int
      */
-    function write($data)
+    public function write($data)
     {
     }
 
@@ -49,7 +49,7 @@ class Process
      * @param int $buffer_len 最大读取的长度
      * @return string
      */
-    function read($buffer_len = 8192)
+    public function read($buffer_len = 8192)
     {
     }
 
@@ -59,7 +59,7 @@ class Process
      * @param array $params 参数数组
      * @return bool
      */
-    function exec(string $execute_file, array $params)
+    public function exec(string $execute_file, array $params)
     {
     }
 
@@ -71,7 +71,7 @@ class Process
      * @param bool $blocking 是否阻塞等待
      * @return false | array
      */
-    static function wait($blocking = true)
+    public static function wait($blocking = true)
     {
     }
 
@@ -80,9 +80,8 @@ class Process
      * @param bool $nochdir
      * @param bool $noclose
      */
-    static function daemon($nochdir = false, $noclose = false)
+    public static function daemon($nochdir = false, $noclose = false)
     {
-
     }
 
     /**
@@ -90,18 +89,16 @@ class Process
      * @param int $msgkey 消息队列KEY
      * @param int $mode 模式
      */
-    function useQueue($msgkey = -1, $mode = 2)
+    public function useQueue($msgkey = -1, $mode = 2)
     {
-
     }
 
     /**
      * 向消息队列推送数据
      * @param $data
      */
-    function push($data)
+    public function push($data)
     {
-
     }
 
     /**
@@ -109,9 +106,8 @@ class Process
      * @param int $maxsize
      * @return string
      */
-    function pop($maxsize = 8192)
+    public function pop($maxsize = 8192)
     {
-
     }
 
     /**
@@ -120,7 +116,7 @@ class Process
      * @param     $pid
      * @param int $sig
      */
-    static function kill($pid, $sig = SIGTERM)
+    public static function kill($pid, $sig = SIGTERM)
     {
     }
 
@@ -130,7 +126,7 @@ class Process
      * @param int $signo
      * @param mixed $callback
      */
-    static function signal($signo, $callback)
+    public static function signal($signo, $callback)
     {
     }
 
@@ -139,7 +135,7 @@ class Process
      *
      * @return int
      */
-    function start()
+    public function start()
     {
     }
 
@@ -147,8 +143,7 @@ class Process
      * 为工作进程重命名
      * @param $process_name
      */
-    function name($process_name)
+    public function name($process_name)
     {
-
     }
 }

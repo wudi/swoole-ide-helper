@@ -12,7 +12,8 @@ namespace Swoole;
  *
  * @package Swoole
  */
-class Serialize {
+class Serialize
+{
     /**
      * 将PHP变量序列化
      *
@@ -21,12 +22,16 @@ class Serialize {
      *
      * @return string|bool 序列化成功后返回二进制字符串，失败返回false
      */
-    public static function pack($data, $flags = 0) { }
+    public static function pack($data, $flags = 0)
+    {
+    }
 
     /**
      * @param string $data 序列化数据，必须是由swoole_serialize::pack函数生成
      *
      * @return mixed 操作成功返回PHP变量，失败返回false
      */
-    public static function unpack($data) { }
+    public static function unpack($data)
+    {
+    }
 }

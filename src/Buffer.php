@@ -1,6 +1,7 @@
 <?php
 
 namespace Swoole;
+
 /**
  * Class swoole_buffer
  *
@@ -12,7 +13,7 @@ class Buffer
     /**
      * @param int $size
      */
-    function __construct($size = 128)
+    public function __construct($size = 128)
     {
     }
 
@@ -22,7 +23,7 @@ class Buffer
      * @param string $data
      * @return int
      */
-    function append($data)
+    public function append($data)
     {
     }
 
@@ -36,7 +37,7 @@ class Buffer
      * @param int $length 表示读取数据的长度，默认为从$offset到整个缓存区末尾
      * @param bool $remove 表示从缓冲区的头部将此数据移除。只有$offset = 0时此参数才有效
      */
-    function substr($offset, $length = -1, $remove = false)
+    public function substr($offset, $length = -1, $remove = false)
     {
     }
 
@@ -45,7 +46,7 @@ class Buffer
      * 执行此操作后，缓存区将重置。swoole_buffer对象就可以用来处理新的请求了。
      * swoole_buffer基于指针运算实现clear，并不会写内存
      */
-    function clear()
+    public function clear()
     {
     }
 
@@ -54,7 +55,7 @@ class Buffer
      *
      * @param int $new_size 指定新的缓冲区尺寸，必须大于当前的尺寸
      */
-    function expand($new_size)
+    public function expand($new_size)
     {
     }
 
@@ -69,8 +70,7 @@ class Buffer
      * @param int $offset 偏移量
      * @param string $data 写入的数据
      */
-    function write($offset, $data)
+    public function write($offset, $data)
     {
     }
-
 }

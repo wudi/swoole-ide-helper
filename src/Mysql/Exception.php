@@ -17,8 +17,6 @@
 
 namespace Swoole\Mysql;
 
-
 class Exception extends \Exception
 {
-
 }

@@ -87,7 +87,7 @@ class Async
      * @param mixed|NULL $callback
      * @return bool
      */
-    public static function write(string $filename, string $content, int $offset = -1, mixed $callback = NULL)
+    public static function write(string $filename, string $content, int $offset = -1, mixed $callback = null)
     {
     }
 
