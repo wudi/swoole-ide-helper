@@ -1,6 +1,7 @@
 <?php
 
 namespace Swoole\Http;
+
 /**
  * Class swoole_http_server
  *
@@ -13,7 +14,7 @@ class Server extends \swoole_server
      * @param     $flag
      * @param int $request_flag
      */
-    function setGlobal($flag, $request_flag = 0)
+    public function setGlobal($flag, $request_flag = 0)
     {
     }
 }

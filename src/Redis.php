@@ -1,5 +1,6 @@
 <?php
 namespace Swoole;
+
 /**
  * 异步Redis客户端
  */
@@ -10,9 +11,8 @@ class Redis
      * @param $event_name
      * @param callable $callback
      */
-    function on($event_name, callable $callback)
+    public function on($event_name, callable $callback)
     {
-
     }
 
     /**
@@ -21,7 +21,7 @@ class Redis
      * @param int $port
      * @param callable $callback
      */
-    function connect($host, $port, callback $callback)
+    public function connect($host, $port, callback $callback)
     {
     }
 
@@ -29,7 +29,7 @@ class Redis
     /**
      * 关闭连接
      */
-    function close()
+    public function close()
     {
     }
 

@@ -26,7 +26,6 @@ class Client
      */
     public function __construct($host, $port)
     {
-
     }
 
     /**
@@ -43,7 +42,6 @@ class Client
      */
     public function setHeaders($headers)
     {
-
     }
 
     /**
@@ -52,7 +50,6 @@ class Client
      */
     public function setCookies($cookies)
     {
-
     }
 
     /**
@@ -61,7 +58,6 @@ class Client
      */
     public function setData($data)
     {
-
     }
 
     /**
@@ -71,7 +67,6 @@ class Client
      */
     public function execute($uri, $finish)
     {
-
     }
 
     /**
@@ -81,7 +76,6 @@ class Client
      */
     public function push($data, $opcode = WEBSOCKET_OPCODE_TEXT, $fin = 1)
     {
-
     }
 
     /**
@@ -89,7 +83,6 @@ class Client
      */
     public function isConnected()
     {
-
     }
 
     /**
@@ -97,7 +90,6 @@ class Client
      */
     public function close()
     {
-
     }
 
     /**
@@ -106,7 +98,6 @@ class Client
      */
     public function on($name, $callback)
     {
-
     }
 
     /**
@@ -115,7 +106,6 @@ class Client
      */
     public function get($uri, $finish)
     {
-
     }
 
     /**
@@ -125,7 +115,6 @@ class Client
      */
     public function post($uri, $post, $finish)
     {
-
     }
 
     /**
@@ -134,7 +123,6 @@ class Client
      */
     public function upgrade($uri, $finish)
     {
-
     }
 
     /**
@@ -142,11 +130,9 @@ class Client
      */
     public function addFile($file)
     {
-
     }
 
     public function __destruct()
     {
-
     }
 }

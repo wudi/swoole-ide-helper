@@ -16,7 +16,6 @@ namespace Swoole\Redis;
  */
 class Server extends \Swoole\Server
 {
-
     const NIL    = 'NIL'; // 返回nil数据
     const ERROR  = 'ERROR'; // 返回错误码
     const STATUS = 'STATUS'; // 返回状态
@@ -37,7 +36,6 @@ class Server extends \Swoole\Server
      */
     public function setHandler(string $command, callable $callback)
     {
-
     }
 
 
@@ -51,6 +49,5 @@ class Server extends \Swoole\Server
      */
     public static function format(int $type, mixed $value = null)
     {
-
     }
 }

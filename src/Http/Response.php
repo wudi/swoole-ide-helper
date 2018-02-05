@@ -1,5 +1,6 @@
 <?php
 namespace Swoole\Http;
+
 /**
  * Http响应对象
  * Class swoole_http_response
@@ -52,24 +53,21 @@ class Response
      */
     public function status($code)
     {
-
     }
 
     /**
      * 设置Http压缩格式
      * @param int $level
      */
-    function gzip($level = 1)
+    public function gzip($level = 1)
     {
-
     }
 
     /**
      * 发送静态文件
      * @param string $level
      */
-    function sendfile($filename)
+    public function sendfile($filename)
     {
-
     }
 }

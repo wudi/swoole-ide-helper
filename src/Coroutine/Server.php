@@ -7,7 +7,6 @@
 
 namespace Swoole\Coroutine;
 
-
 class Server
 {
     /**
@@ -26,7 +25,6 @@ class Server
      */
     public function setDefer($is_defer = true)
     {
-
     }
 
     /**
@@ -36,7 +34,6 @@ class Server
      */
     public function recv()
     {
-
     }
 
     /**
@@ -46,7 +43,6 @@ class Server
      */
     public static function create(callable $function)
     {
-
     }
 
     /**
@@ -56,7 +52,5 @@ class Server
      */
     public function getuid()
     {
-
     }
-
 }
