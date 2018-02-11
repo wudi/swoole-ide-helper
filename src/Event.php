@@ -24,7 +24,7 @@ class Event
      * @param $flag
      * @return bool
      */
-    public function add($sock, $read_callback = null, $write_callback = null, $flag = null)
+    public static function add($sock, $read_callback = null, $write_callback = null, $flag = null)
     {
     }
 
@@ -37,7 +37,7 @@ class Event
      * @param null $write_callback
      * @param null $flag
      */
-    public function set($sock, $read_callback = null, $write_callback = null, $flag = null)
+    public static function set($sock, $read_callback = null, $write_callback = null, $flag = null)
     {
     }
 

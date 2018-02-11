@@ -5,11 +5,16 @@ namespace Swoole;
  * swoole进程管理类
  * 内置IPC通信支持，子进程和主进程之间可以方便的通信
  * 支持标准输入输出重定向，子进程内echo，会发送到管道中，而不是输出屏幕
- * @method exit(int $code) int 退出子进程
+ * @method exit(int $code = 0) int 退出子进程
  * Class swoole_process
  */
 class Process
 {
+    /**
+     * @var int 可将队列设置为非阻塞
+     */
+    const IPC_NOWAIT = 256;
+
     /**
      * 进程的PID
      *
@@ -88,6 +93,9 @@ class Process
      * 创建消息队列
      * @param int $msgkey 消息队列KEY
      * @param int $mode 模式
+     *
+     * 将队列设置为非阻塞
+     * $process->useQueue($key, $mode | swoole_process::IPC_NOWAIT);
      */
     public function useQueue($msgkey = -1, $mode = 2)
     {
@@ -115,6 +123,7 @@ class Process
      *
      * @param     $pid
      * @param int $sig
+     * @return bool
      */
     public static function kill($pid, $sig = SIGTERM)
     {
