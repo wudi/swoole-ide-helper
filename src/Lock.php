@@ -13,7 +13,7 @@ class Lock
      * 注意每一种类型的锁支持的方法都不一样。如读写锁、文件锁可以支持 $lock->lock_read()。
      * 另外除文件锁外，其他类型的锁必须在父进程内创建，这样fork出的子进程之间才可以互相争抢锁。
      */
-    public function __construct($type, $lockfile = NULL)
+    public function __construct($type, $lockfile = null)
     {
     }
 
@@ -71,4 +71,3 @@ class Lock
     {
     }
 }
-

@@ -260,7 +260,7 @@ function swoole_set_process_name($name)
  * @param $flag
  * @return bool
  */
-function swoole_event_add($sock, $read_callback = NULL, $write_callback = NULL, $flag = NULL)
+function swoole_event_add($sock, $read_callback = null, $write_callback = null, $flag = null)
 {
 }
 
@@ -273,7 +273,7 @@ function swoole_event_add($sock, $read_callback = NULL, $write_callback = NULL, 
  * @param null $write_callback
  * @param null $flag
  */
-function swoole_event_set($sock, $read_callback = NULL, $write_callback = NULL, $flag = NULL)
+function swoole_event_set($sock, $read_callback = null, $write_callback = null, $flag = null)
 {
 }
 
@@ -306,7 +306,6 @@ function swoole_event_exit()
  */
 function swoole_event_write($socket, $data)
 {
-
 }
 
 /**
@@ -330,7 +329,6 @@ function swoole_get_mysqli_sock(\mysqli $db)
  */
 function swoole_mysql_query($db, $sql, $callback)
 {
-
 }
 
 /**
@@ -485,7 +483,6 @@ function swoole_timer_clear($timer_id)
  */
 function swoole_timer_tick($ms, $callback, $params = null)
 {
-
 }
 
 /**
@@ -589,7 +586,6 @@ function swoole_async_read($filename, $callback, $trunk_size = 8192, $offset = 0
  */
 function swoole_async_set(array $setting)
 {
-
 }
 
 /**
@@ -608,7 +604,7 @@ function swoole_async_set(array $setting)
  *
  * @return bool
  */
-function swoole_async_write($filename, $content, $offset = -1, $callback = NULL)
+function swoole_async_write($filename, $content, $offset = -1, $callback = null)
 {
 }
 
@@ -655,72 +651,58 @@ function swoole_client_select(array &$read, array &$write, array &$error, $timeo
 
 class swoole_http_client extends Swoole\Http\Client
 {
-
 }
 
 class swoole_http_request extends Swoole\Http\Request
 {
-
 }
 
 class swoole_http_response extends Swoole\Http\Response
 {
-
 }
 
 class swoole_http_server extends Swoole\Http\Server
 {
-
 }
 
 class swoole_atomic extends Swoole\Atomic
 {
-
 }
 
 class swoole_buffer extends Swoole\Buffer
 {
-
 }
 
 class swoole_client extends Swoole\Client
 {
-
 }
 
 class swoole_server extends Swoole\Server
 {
-
 }
 
 class swoole_lock extends Swoole\Lock
 {
-
 }
 
 class swoole_redis extends Swoole\Redis
 {
-
 }
 
 class swoole_process extends Swoole\Process
 {
-
 }
 
 class swoole_table extends Swoole\Table
 {
-
 }
 
 class swoole_channel extends Swoole\Channel
 {
-
 }
 
 class swoole_redis_server extends Swoole\Redis\Server
 {
-
 }
 
 /**
@@ -742,7 +724,6 @@ class swoole_redis_server extends Swoole\Redis\Server
  */
 class swoole_websocket_server extends Swoole\WebSocket\Server
 {
-
 }
 
 /**
@@ -753,21 +734,16 @@ class swoole_websocket_server extends Swoole\WebSocket\Server
  */
 class swoole_websocket_frame extends Swoole\WebSocket\Frame
 {
-
 }
 class swoole_mysql extends \Swoole\Mysql
 {
-
 }
 class swoole_http2_client extends \Swoole\Http2\Client
 {
-
 }
 class swoole_mysql_exception extends \Swoole\Mysql\Exception
 {
-    
 }
 class swoole_serialize extends \Swoole\Serialize
 {
-
 }

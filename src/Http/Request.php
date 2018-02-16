@@ -1,6 +1,7 @@
 <?php
 
 namespace Swoole\Http;
+
 /**
  * Http请求对象
  * Class swoole_http_request
@@ -20,7 +21,7 @@ class Request
      * 获取非urlencode-form表单的POST原始数据
      * @return string
      */
-    function rawContent()
+    public function rawContent()
     {
     }
 }

@@ -7,7 +7,6 @@
 
 namespace Swoole\Coroutine\Http;
 
-
 class Client
 {
 
@@ -35,7 +34,6 @@ class Client
      */
     public function get($path)
     {
-
     }
 
     /**
@@ -48,7 +46,6 @@ class Client
      */
     public function post($path, $data)
     {
-
     }
 
     /**
@@ -58,5 +55,4 @@ class Client
     {
         return true;
     }
-
 }
