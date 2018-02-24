@@ -16,6 +16,7 @@
  */
 
 namespace Swoole;
+
 /**
  * Class Mysql
  * @package Swoole
@@ -65,7 +66,6 @@ class Mysql
      */
     public function on(string $eventName, callable $callback)
     {
-
     }
 
     /**
@@ -84,7 +84,6 @@ class Mysql
      */
     public function connect(array $config, callable $callback)
     {
-
     }
 
     /**
@@ -95,7 +94,6 @@ class Mysql
      */
     public function escape(string $str): string
     {
-
     }
 
     /**
@@ -110,7 +108,6 @@ class Mysql
      */
     public function query(string $sql, callable $callback)
     {
-
     }
 
     /**
@@ -122,7 +119,6 @@ class Mysql
      */
     public function begin(callable $callback)
     {
-
     }
     /**
      * commit transaction
@@ -133,7 +129,6 @@ class Mysql
      */
     public function commit(callable $callback)
     {
-
     }
     /**
      * rollback transaction
@@ -144,7 +139,6 @@ class Mysql
      */
     public function rollback(callable $callback)
     {
-
     }
 
     /**
@@ -152,6 +146,5 @@ class Mysql
      */
     public function close()
     {
-
     }
 }

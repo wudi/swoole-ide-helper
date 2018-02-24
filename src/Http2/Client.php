@@ -15,7 +15,6 @@
  */
 namespace Swoole\Http2;
 
-
 class Client
 {
     /**
@@ -33,7 +32,6 @@ class Client
      */
     public function setHeaders(array $haders)
     {
-
     }
 
     /**
@@ -41,7 +39,6 @@ class Client
      */
     public function setCookies(array $cookies)
     {
-    
     }
 
     /**
@@ -49,8 +46,8 @@ class Client
      * @param callable $callback
      * @return bool|void
      */
-    public function get(string $uri, callable $callback) {
-
+    public function get(string $uri, callable $callback)
+    {
     }
 
     /**
@@ -61,7 +58,6 @@ class Client
      */
     public function post(string $uri, callable $callback, mixed $data)
     {
-
     }
 
     /**
@@ -71,7 +67,6 @@ class Client
      */
     public function openStream(string $uri, callable $callback)
     {
-
     }
 
     /**
@@ -82,13 +77,12 @@ class Client
      */
     public function push(int $streamID, mixed $data)
     {
-
     }
 
     /**
      * @param int $streamID
      */
-    public function closeStream(int $streamID) {
-
+    public function closeStream(int $streamID)
+    {
     }
 }

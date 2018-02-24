@@ -7,7 +7,6 @@
 
 namespace Swoole\Coroutine;
 
-
 class Client
 {
 
@@ -62,5 +61,4 @@ class Client
     {
         return true;
     }
-
 }

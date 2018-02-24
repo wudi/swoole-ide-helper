@@ -1,6 +1,7 @@
 <?php
 
 namespace Swoole;
+
 /**
  * swoole_client
  *
@@ -76,9 +77,8 @@ class Client
      * @param $port
      * @param $data
      */
-    function sendto($ip, $port, $data)
+    public function sendto($ip, $port, $data)
     {
-
     }
 
     /**
