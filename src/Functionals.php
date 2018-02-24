@@ -22,6 +22,17 @@
  *
  */
 
+function swoole_version()
+{
+}
+
+function swoole_cpu_num()
+{
+}
+
+function swoole_last_error()
+{
+}
 
 /**
  * swoole_server_set函数用于设置swoole_server运行时的各项参数
@@ -32,7 +43,6 @@
 function swoole_server_set($serv, array $arguments)
 {
 }
-
 
 /**
  * 创建一个swoole server资源对象
