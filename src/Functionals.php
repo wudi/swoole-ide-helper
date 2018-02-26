@@ -653,6 +653,14 @@ function swoole_client_select(array &$read, array &$write, array &$error, $timeo
 }
 
 
+function swoole_cpu_num()
+{
+}
+
+function swoole_last_error()
+{
+}
+
 class swoole_http_client extends Swoole\Http\Client
 {
 
@@ -771,3 +779,4 @@ class swoole_serialize extends \Swoole\Serialize
 {
 
 }
+

@@ -11,6 +11,11 @@ namespace Swoole;
 class Process
 {
     /**
+     * @var int 可将队列设置为非阻塞
+     */
+    const IPC_NOWAIT = 256;
+
+    /**
      * 进程的PID
      *
      * @var int
@@ -89,6 +94,9 @@ class Process
      * 创建消息队列
      * @param int $msgkey 消息队列KEY
      * @param int $mode 模式
+     *
+     * 将队列设置为非阻塞
+     * $process->useQueue($key, $mode | swoole_process::IPC_NOWAIT);
      */
     function useQueue($msgkey = -1, $mode = 2)
     {
