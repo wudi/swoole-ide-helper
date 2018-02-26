@@ -127,6 +127,7 @@ class Process
      *
      * @param     $pid
      * @param int $sig
+     * @return bool
      */
     static function kill($pid, $sig = SIGTERM)
     {

@@ -147,21 +147,29 @@ class Client
      * 设置客户端参数
      * @param array $setting
      */
-    function set(array $setting)
+    public function set(array $setting)
     {
     }
 
     /**
      * 睡眠，停止接收数据
      */
-    function sleep()
+    public function sleep()
     {
     }
 
     /**
      * 唤醒，开始接收数据
      */
-    function wakeup()
+    public function wakeup()
+    {
+    }
+
+    /**
+     * @param $file string file with path
+     * @return bool|mixed false if file not exist
+     */
+    public function sendfile($file)
     {
     }
 }

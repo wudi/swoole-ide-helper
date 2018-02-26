@@ -1,6 +1,8 @@
 Swoole Auto Complete
 ====================
 
+[![Monthly Downloads](https://poser.pugx.org/eaglewu/swoole-ide-helper/d/monthly)](https://packagist.org/packages/eaglewu/swoole-ide-helper)
+
 Auto completion, trigger suggest and view docs for [Swoole](https://github.com/swoole/swoole-src) in editor.
 
 The purpose of avoid the tips of undefined and improve work efficiency.
