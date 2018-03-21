@@ -44,11 +44,11 @@ class Client
      * 底层会自动yield，等待数据接收完成后自动切换到当前协程。
      * @link https://wiki.swoole.com/wiki/page/661.html
      *
-     * @return string
+     * @return array
      */
-    public function recv()
+    public function recv(): array
     {
-        return "";
+        return [];
     }
 
     /**
