@@ -1,6 +1,7 @@
 <?php
 
 namespace Swoole;
+
 /**
  * Class swoole_buffer
  *
@@ -8,6 +9,16 @@ namespace Swoole;
  */
 class Buffer
 {
+
+    /**
+     * @var int 内存容量
+     */
+    public $capacity = 128;
+
+    /**
+     * @var int 占用长度
+     */
+    public $length = 0;
 
     /**
      * @param int $size
@@ -71,6 +82,19 @@ class Buffer
      */
     function write($offset, $data)
     {
+    }
+
+    /**
+     * 读取缓冲区内容
+     *
+     * @param int $offset
+     * @param int|null $length
+     *
+     * @return string
+     */
+    function read(int $offset, int $length = null): string
+    {
+
     }
 
 }
