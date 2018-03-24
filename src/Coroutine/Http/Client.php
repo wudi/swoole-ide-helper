@@ -9,53 +9,6 @@ namespace Swoole\Coroutine\Http;
 
 class Client extends \Swoole\Http\Client
 {
-    /**
-     * @var 主机ip地址
-     */
-    public $host;
-
-    /**
-     * @var bool 是否为ssl连接
-     */
-    public $ssl = false;
-
-    /**
-     * @var array
-     */
-    public $redirect_headers;
-
-    /**
-     * @var bool 记录是否使用了延迟收包
-     */
-    public $defer = false;
-
-    /**
-     * @var string[] 请求头
-     */
-    public $requestHeaders;
-
-    /**
-     * @var string[] 存储上次请求返回的set-cookie头
-     */
-    public $set_cookie_headers;
-
-    /**
-     * 存储上次请求的返回包体
-     *
-     * @link https://wiki.swoole.com/wiki/page/578.html
-     *
-     * @var string
-     */
-    public $body;
-
-    /**
-     * 错误码
-     *
-     * @link https://wiki.swoole.com/wiki/page/578.html
-     *
-     * @var integer
-     */
-    public $errCode;
 
     public function __construct($host, $port, $ssl = false)
     {
