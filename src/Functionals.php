@@ -27,7 +27,7 @@
  * swoole_server_set函数用于设置swoole_server运行时的各项参数
  *
  * @param \swoole_server $serv
- * @param $arguments
+ * @param                $arguments
  */
 function swoole_server_set($serv, array $arguments)
 {
@@ -56,6 +56,7 @@ function swoole_server_create($host, $port, $mode = SWOOLE_PROCESS, $sock_type =
  * @param \swoole_server $serv
  * @param string $host
  * @param int $port
+ *
  * @return void
  */
 function swoole_server_addlisten($serv, $host = '127.0.0.1', $port = 9502)
@@ -76,6 +77,7 @@ function swoole_server_addlisten($serv, $host = '127.0.0.1', $port = 9502)
  *
  * @param \swoole_server $serv
  * @param int $interval
+ *
  * @return bool
  */
 function swoole_server_addtimer($serv, $interval)
@@ -98,6 +100,7 @@ function swoole_server_addtimer($serv, $interval)
  * @param \swoole_server $serv
  * @param string $event_name
  * @param callable $event_callback_function
+ *
  * @return bool
  */
 function swoole_server_handler($serv, $event_name, $event_callback_function)
@@ -125,6 +128,7 @@ function swoole_server_handler($serv, $event_name, $event_callback_function)
  * 5、关闭daemonize，关闭log，使错误信息可以打印到屏幕
  *
  * @param \swoole_server $serv
+ *
  * @return bool
  */
 function swoole_server_start($serv)
@@ -145,6 +149,7 @@ function swoole_server_start($serv)
  * SIGUSR1: 向管理进程发送SIGUSR1信号，将平稳地restart所有worker进程，在PHP代码中可以调用swoole_server_reload($serv)完成此操作
  *
  * @param \swoole_server $serv
+ *
  * @return void
  */
 function swoole_server_reload($serv)
@@ -161,6 +166,7 @@ function swoole_server_reload($serv)
  * @param \swoole_server $serv
  * @param int $fd
  * @param int $from_id
+ *
  * @return bool
  */
 function swoole_server_close($serv, $fd, $from_id = 0)
@@ -179,6 +185,7 @@ function swoole_server_close($serv, $fd, $from_id = 0)
  * @param int $fd
  * @param string $data
  * @param int $from_id
+ *
  * @return bool
  */
 function swoole_server_send($serv, $fd, $data, $from_id = 0)
@@ -202,6 +209,7 @@ function swoole_server_send($serv, $fd, $data, $from_id = 0)
  *
  * @param \swoole_server $serv
  * @param int $fd
+ *
  * @return array on success or false on failure.
  */
 function swoole_connection_info($serv, $fd)
@@ -219,6 +227,7 @@ function swoole_connection_info($serv, $fd)
  * @param \swoole_server $serv
  * @param int $start_fd
  * @param int $pagesize
+ *
  * @return array on success or false on failure
  */
 function swoole_connection_list($serv, $start_fd = 0, $pagesize = 10)
@@ -234,6 +243,7 @@ function swoole_connection_list($serv, $start_fd = 0, $pagesize = 10)
  * 此函数与PHP5.5提供的cli_set_process_title功能是相同的，但swoole_set_process_name可用于PHP5.2之上的任意版本。
  *
  * @param string $name
+ *
  * @return void
  */
 function swoole_set_process_name($name)
@@ -256,11 +266,12 @@ function swoole_set_process_name($name)
  *
  * @param int $sock
  * @param \\is_callable $callback
- * @param $write_callback
- * @param $flag
+ * @param     $write_callback
+ * @param     $flag
+ *
  * @return bool
  */
-function swoole_event_add($sock, $read_callback = NULL, $write_callback = NULL, $flag = NULL)
+function swoole_event_add($sock, $read_callback = null, $write_callback = null, $flag = null)
 {
 }
 
@@ -268,12 +279,12 @@ function swoole_event_add($sock, $read_callback = NULL, $write_callback = NULL, 
  * 修改socket的事件设置
  * 可以修改可读/可写事件的回调设置和监听的事件类型
  *
- * @param $sock
- * @param $read_callback
+ * @param      $sock
+ * @param      $read_callback
  * @param null $write_callback
  * @param null $flag
  */
-function swoole_event_set($sock, $read_callback = NULL, $write_callback = NULL, $flag = NULL)
+function swoole_event_set($sock, $read_callback = null, $write_callback = null, $flag = null)
 {
 }
 
@@ -283,6 +294,7 @@ function swoole_event_set($sock, $read_callback = NULL, $write_callback = NULL, 
  * swoole_event_del应当与 swoole_event_add 成对使用
  *
  * @param int $sock
+ *
  * @return bool
  */
 function swoole_event_del($sock)
@@ -301,6 +313,7 @@ function swoole_event_exit()
 
 /**
  * 异步写
+ *
  * @param mixed $socket
  * @param string $data
  */
@@ -317,6 +330,7 @@ function swoole_event_write($socket, $data)
  * swoole_get_mysqli_sock仅支持mysqlnd驱动，php5.4以下版本不支持此特性
  *
  * @param mysqli $db
+ *
  * @return int
  */
 function swoole_get_mysqli_sock(\mysqli $db)
@@ -325,6 +339,7 @@ function swoole_get_mysqli_sock(\mysqli $db)
 
 /**
  * 异步执行SQL
+ *
  * @param $db
  * @param $sql
  */
@@ -354,6 +369,7 @@ function swoole_mysql_query($db, $sql, $callback)
  *
  * @param \swoole_server $serv
  * @param string $data
+ *
  * @return int  $task_id
  */
 function swoole_server_task($serv, $data)
@@ -370,6 +386,7 @@ function swoole_server_task($serv, $data)
  *
  * @param \swoole_server $serv
  * @param string $response
+ *
  * @return void
  */
 function swoole_server_finish($serv, $response)
@@ -385,6 +402,7 @@ function swoole_server_finish($serv, $response)
  *
  * @param \swoole_server $serv
  * @param int $interval
+ *
  * @return void
  */
 function swoole_server_deltimer($serv, $interval)
@@ -398,6 +416,7 @@ function swoole_server_deltimer($serv, $interval)
  * 此函数可以用在worker进程内。
  *
  * @param \swoole_server $serv
+ *
  * @return void
  */
 function swoole_server_shutdown($serv)
@@ -416,6 +435,7 @@ function swoole_server_shutdown($serv)
  *
  * @param string $task_data
  * @param float $timeout
+ *
  * @return string
  */
 function swoole_server_taskwait($task_data, $timeout = 0.5)
@@ -439,8 +459,9 @@ function swoole_event_wait()
 /**
  * 添加定时器，可用于客户端环境和fpm中
  *
- * @param $interval
+ * @param          $interval
  * @param callable $callback
+ *
  * @return int
  */
 function swoole_timer_add($interval, $callback)
@@ -449,9 +470,11 @@ function swoole_timer_add($interval, $callback)
 
 /**
  * 单次定时器，在N毫秒后执行回调函数
- * @param $ms
- * @param callable $callback  function ($user_param)｛｝
- * @param $user_param
+ *
+ * @param          $ms
+ * @param callable $callback function ($user_param)｛｝
+ * @param          $user_param
+ *
  * @return int
  */
 function swoole_timer_after($ms, $callback, $user_param = null)
@@ -469,7 +492,9 @@ function swoole_timer_del($interval)
 
 /**
  * 删除定时器
+ *
  * @param $timer_id
+ *
  * @return bool
  */
 function swoole_timer_clear($timer_id)
@@ -478,9 +503,11 @@ function swoole_timer_clear($timer_id)
 
 /**
  * 添加TICK定时器
- * @param      $ms
+ *
+ * @param               $ms
  * @param      callable $callback function($timmerID, $params){}
  * @param null $params
+ *
  * @return int
  */
 function swoole_timer_tick($ms, $callback, $params = null)
@@ -577,6 +604,7 @@ function swoole_async_writefile($filename, $content, $callback, $flags = 0)
  * @param mixed $callback
  * @param int $trunk_size
  * @param int $offset (在 1.7.13 或更高版本可用)
+ *
  * @return bool
  */
 function swoole_async_read($filename, $callback, $trunk_size = 8192, $offset = 0)
@@ -585,6 +613,7 @@ function swoole_async_read($filename, $callback, $trunk_size = 8192, $offset = 0
 
 /**
  * 设置异步相关的参数
+ *
  * @param array $setting
  */
 function swoole_async_set(array $setting)
@@ -608,7 +637,7 @@ function swoole_async_set(array $setting)
  *
  * @return bool
  */
-function swoole_async_write($filename, $content, $offset = -1, $callback = NULL)
+function swoole_async_write($filename, $content, $offset = -1, $callback = null)
 {
 }
 
@@ -646,20 +675,13 @@ function swoole_async_dns_lookup($domain, $callback)
  * @param array $write 可写
  * @param array $error 错误
  * @param float $timeout
+ *
  * @return int
  */
 function swoole_client_select(array &$read, array &$write, array &$error, $timeout)
 {
 }
 
-
-function swoole_cpu_num()
-{
-}
-
-function swoole_last_error()
-{
-}
 
 class swoole_http_client extends Swoole\Http\Client
 {
@@ -773,10 +795,37 @@ class swoole_http2_client extends \Swoole\Http2\Client
 }
 class swoole_mysql_exception extends \Swoole\Mysql\Exception
 {
-    
+
 }
 class swoole_serialize extends \Swoole\Serialize
 {
 
 }
 
+/**==================短名API==================*/
+
+/**
+ * Class Co
+ * Coroutine的短名API
+ */
+class Co extends \Swoole\Coroutine
+{
+
+}
+
+class Chan extends \Swoole\Coroutine\Channel
+{
+
+}
+
+/**
+ * 创建一个协程
+ * go(function () {});
+ * go("test");
+ * go([$object, "method"]);
+ *
+ * @param callable|string|array $function
+ */
+function go($function)
+{
+}

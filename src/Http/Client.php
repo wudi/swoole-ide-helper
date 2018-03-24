@@ -38,6 +38,14 @@ class Client
     }
 
     /**
+     * @param string $method
+     */
+    public function setMethod(string $method)
+    {
+
+    }
+
+    /**
      * @param $headers
      * @return true
      */
@@ -69,13 +77,13 @@ class Client
      * @param mixed $finish
      * @return bool
      */
-    public function execute($uri, $finish)
+    public function execute($uri, $finish = null)
     {
 
     }
 
     /**
-     * @param $data
+     * @param     $data
      * @param int $opcode
      * @param int $fin
      */
