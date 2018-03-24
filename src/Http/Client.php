@@ -73,11 +73,12 @@ class Client
     }
 
     /**
-     * @param string $uri
-     * @param mixed $finish
-     * @return bool
+     * 更底层的Http请求方法，需要代码中调用setMethod和setData等接口设置请求的方法和数据。
+     *
+     * @param string $path
+     * @param callable $callback
      */
-    public function execute($uri, $finish = null)
+    public function execute(string $path, callable $callback)
     {
 
     }
