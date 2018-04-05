@@ -95,6 +95,16 @@ class Client extends \Swoole\Http\Client
     }
 
     /**
+     * 更底层的Http请求方法，需要代码中调用setMethod和setData等接口设置请求的方法和数据。
+     *
+     * @param string $path
+     */
+    public function execute(string $path)
+    {
+
+    }
+
+    /**
      * 接收消息。与setDefer或upgrade配合使用。
      *
      * $timeout 设置超时，优先使用指定的参数，其次使用set方法中传入的timeout配置
