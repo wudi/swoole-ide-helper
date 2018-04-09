@@ -10,6 +10,20 @@ namespace Swoole;
 class Coroutine
 {
     /**
+     * max_coroutine
+     * 设置最大协程数，超过限制后底层将无法创建新的协程。
+     *
+     * stack_size
+     * 设置单个协程初始栈的内存尺寸，默认为8192
+     *
+     * @param array $options
+     */
+    public static function set(array $options)
+    {
+
+    }
+
+    /**
      * 创建一个新的协程，并立即执行
      *
      * @param callable $function 协程执行的代码
