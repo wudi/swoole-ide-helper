@@ -7,6 +7,7 @@
 
 namespace Swoole\Coroutine\Http;
 
+
 class Client extends \Swoole\Http\Client
 {
 
@@ -49,8 +50,10 @@ class Client extends \Swoole\Http\Client
      * upgrade会产生一次协程调度
      *
      * @param string $path
+     *
+     * @return bool
      */
-    public function upgrade($path)
+    public function upgrade($path): bool
     {
 
     }
@@ -78,8 +81,10 @@ class Client extends \Swoole\Http\Client
      * @param string $data
      * @param int $opcode
      * @param bool $finish
+     *
+     * @return bool
      */
-    public function push(string $data, int $opcode = WEBSOCKET_OPCODE_TEXT, bool $finish = true)
+    public function push(string $data, int $opcode = WEBSOCKET_OPCODE_TEXT, bool $finish = true): bool
     {
 
     }
@@ -136,6 +141,8 @@ class Client extends \Swoole\Http\Client
      *
      * $timeout 设置超时，优先使用指定的参数，其次使用set方法中传入的timeout配置
      * 未设置任何超时，将持续等待
+     *
+     * @return string|bool|\Swoole\WebSocket\Frame
      */
     public function recv(float $timeout = -1)
     {
