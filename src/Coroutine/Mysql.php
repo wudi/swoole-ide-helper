@@ -7,6 +7,8 @@
 
 namespace Swoole\Coroutine;
 
+use Swoole\Coroutine\Mysql\Statement;
+
 /**
  * Class Mysql
  * 需要在编译swoole时增加--enable-coroutine来开启此功能
@@ -152,7 +154,7 @@ class Mysql extends Client
      *
      * @return Statement
      */
-    public function prepare(string $sql): bool
+    public function prepare(string $sql): Statement
     {
 
     }

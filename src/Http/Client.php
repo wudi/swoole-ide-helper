@@ -198,7 +198,7 @@ class Client
         string $filename = null,
         string $mimeType = null,
         int $offset = 0,
-        int $length
+        int $length = 0
     ) {
 
     }

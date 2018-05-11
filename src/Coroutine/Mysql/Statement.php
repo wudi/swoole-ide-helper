@@ -38,7 +38,7 @@ Class Statement
      *
      * @return bool|array
      */
-    function execute(array $params, float $timeout = -1)
+    function execute(array $params = [], float $timeout = -1)
     {
         return [];
     }

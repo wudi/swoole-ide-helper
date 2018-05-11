@@ -7,6 +7,7 @@
 
 namespace Swoole\Coroutine\Http;
 
+
 class Client extends \Swoole\Http\Client
 {
 
@@ -49,8 +50,10 @@ class Client extends \Swoole\Http\Client
      * upgrade会产生一次协程调度
      *
      * @param string $path
+     *
+     * @return bool
      */
-    public function upgrade($path)
+    public function upgrade($path): bool
     {
 
     }
@@ -78,8 +81,10 @@ class Client extends \Swoole\Http\Client
      * @param string $data
      * @param int $opcode
      * @param bool $finish
+     *
+     * @return bool
      */
-    public function push(string $data, int $opcode = WEBSOCKET_OPCODE_TEXT, bool $finish = true)
+    public function push(string $data, int $opcode = WEBSOCKET_OPCODE_TEXT, bool $finish = true): bool
     {
 
     }
@@ -105,10 +110,39 @@ class Client extends \Swoole\Http\Client
     }
 
     /**
+     * 添加POST文件 (注意,此方法参数3,4位置与async-http-client不同
+     *
+     * $path 文件的路径，必选参数，不能为空文件或者不存在的文件
+     * $name 表单的名称，必选参数，FILES参数中的key
+     * $mimeType 文件的MIME格式，可选参数，底层会根据文件的扩展名自动推断
+     * $filename 文件名称，可选参数，默认为basename($path)
+     * $offset 上传文件的偏移量，可以指定从文件的中间部分开始传输数据。此特性可用于支持断点续传。
+     * $length 发送数据的尺寸，默认为整个文件的尺寸
+     * 使用addFile会自动将POST的Content-Type将变更为form-data。addFile底层基于sendfile，可支持异步发送超大文件。
+     *
+     * addFile在1.8.9或更高版本可用
+     * $offset, $length 参数在1.9.11或更高版本可用
+     *
+     * @param $file
+     */
+    public function addFile(
+        string $path,
+        string $name,
+        string $mimeType = null,
+        string $filename = null,
+        int $offset = 0,
+        int $length = -1
+    ) {
+
+    }
+
+    /**
      * 接收消息。与setDefer或upgrade配合使用。
      *
      * $timeout 设置超时，优先使用指定的参数，其次使用set方法中传入的timeout配置
      * 未设置任何超时，将持续等待
+     *
+     * @return string|bool|\Swoole\WebSocket\Frame
      */
     public function recv(float $timeout = -1)
     {

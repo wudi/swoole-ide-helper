@@ -10,6 +10,20 @@ namespace Swoole;
 class Coroutine
 {
     /**
+     * max_coroutine
+     * 设置最大协程数，超过限制后底层将无法创建新的协程。
+     *
+     * stack_size
+     * 设置单个协程初始栈的内存尺寸，默认为8192
+     *
+     * @param array $options
+     */
+    public static function set(array $options)
+    {
+
+    }
+
+    /**
      * 创建一个新的协程，并立即执行
      *
      * @param callable $function 协程执行的代码
@@ -115,7 +129,6 @@ class Coroutine
     {
     }
 
-
     /**
      * 进入等待状态。相当于PHP的sleep函数，
      * 不同的是Coroutine::sleep是协程调度器实现的，
@@ -127,6 +140,101 @@ class Coroutine
      */
     public static function sleep(float $seconds): void
     {
+    }
+
+    /**
+     * 协程方式读取文件。
+     *
+     * 需要2.1.2或更高版本
+     *
+     * 参数
+     * $filename文件名
+     * 返回值
+     * 读取成功返回字符串内容，读取失败返回false
+     * readFile方法没有尺寸限制，读取的内容会存放在内存中，因此读取超大文件时可能会占用过多内存
+     *
+     * @param string $filename
+     *
+     * @return string|bool
+     */
+    public static function readFile(string $filename): string
+    {
+    }
+
+    /**
+     * 协程方式写入文件。
+     *
+     * 需要2.1.2或更高版本
+     *
+     * 参数
+     * $filename为文件的名称，必须有可写权限，文件不存在会自动创建。打开文件失败会立即返回false
+     * $fileContent为要写入到文件的内容，最大可写入4M
+     * $flags为写入的选项，可以使用FILE_APPEND表示追加到文件末尾，默认会清空当前文件内容
+     *
+     * 返回值
+     * 写入成功返回true，写入失败返回false
+     *
+     * @param string $filename
+     * @param string $fileContent
+     * @param int $flags
+     * @return bool
+     */
+    public static function writeFile(string $filename, string $fileContent, int $flags): bool
+    {
+
+    }
+
+    /**
+     * 执行一条shell指令。底层自动进行协程调度。
+     *
+     * 参数
+     * $cmd 要执行的shell指令
+     *
+     * 返回值
+     * 执行失败返回false，执行成功返回数组，包含了进程退出的状态码、信号、输出内容。
+     *
+     * array(
+     *   'code' => 0,
+     *   'signal' => 0,
+     *   'output' => '',
+     * );
+     * 使用实例
+     * go(function() {
+     *   $ret = Co::exec("md5sum ".__FILE__);
+     * });
+     *
+     * @param string $cmd
+     * @return array|bool
+     */
+    public static function exec(string $cmd): array
+    {
+
+    }
+
+    /**
+     *
+     * 进行DNS解析，查询域名对应的IP地址，与gethostbyname不同，getaddrinfo支持更多参数设置，而且会返回多个IP结果。
+     *
+     * $domain 域名，如www.baidu.com
+     * $family 默认为AF_INET表示返回IPv4地址，使用AF_INET6时返回IPv6地址
+     * 其他参数设置请参考man getaddrinfo 文档
+     * 成功返回多个IP地址组成的数组，失败返回false
+     *
+     * @param string $domain
+     * @param int $family
+     * @param int $socktype
+     * @param int $protocol
+     * @param string|null $service
+     * @return array|bool
+     */
+    public static function getAddrInfo(
+        string $domain,
+        int $family = AF_INET,
+        int $socktype = SOCK_STREAM,
+        int $protocol = STREAM_IPPROTO_TCP,
+        string $service = null
+    ): array {
+
     }
 
 }
