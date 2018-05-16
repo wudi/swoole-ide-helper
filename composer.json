@@ -6,11 +6,5 @@
             "name": "eagle",
             "email": "eaglewudi@gmail.com"
         }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Swoole\\":"src/"
-        }
-    },
-    "require": {}
+    ]
 }
