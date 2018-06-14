@@ -21,6 +21,15 @@ class Table
     }
 
     /**
+     * 检查是否存在key
+     * @param $key
+     * @return bool
+     */
+    function exist($key)
+    {
+    }
+    
+    /**
      * 获取key
      * @param $key
      * @return array
