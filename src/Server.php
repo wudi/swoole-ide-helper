@@ -87,6 +87,11 @@ class Server
     public $connections;
 
     /**
+     * @var \Swoole\Server\Port[] $ports -
+     */
+    public $ports;
+
+    /**
      * 注册事件回调函数，与swoole_server->on相同。swoole_http_server->on的不同之处是：
      *
      * * swoole_http_server->on不接受onConnect/onReceive回调设置
