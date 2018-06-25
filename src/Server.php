@@ -82,9 +82,14 @@ class Server
      *
      *      echo "当前服务器共有 ".count($server->connections). " 个连接\n";
      *
-     * @var array
+     * @var \Swoole\Connection\Iterator
      */
     public $connections;
+
+    /**
+     * @var \Swoole\Server\Port[] $ports -
+     */
+    public $ports;
 
     /**
      * 注册事件回调函数，与swoole_server->on相同。swoole_http_server->on的不同之处是：
@@ -297,12 +302,25 @@ class Server
      *
      * @param mixed $data
      * @param int $dst_worker_id
-     * @return bool
+     * @param callable $callback onFinish函数，如果任务设置了回调函数，Task返回结果时会直接执行指定的回调函数，不再执行Server的onFinish回调
+     * @return int|false 调用成功返回任务编号，失败（比如没启用task进程）返回false
      */
-    public function task($data, $dst_worker_id = -1)
+    public function task($data, $dst_worker_id = -1, $callback = null)
     {
     }
 
+    /**
+     * finish
+     * 此函数用于在task进程中通知worker进程，投递的任务已完成。此函数可以传递结果数据给worker进程。
+     * finish方法可以连续多次调用，Worker进程会多次触发onFinish事件
+     * 在onTask回调函数中调用过finish方法后，return数据依然会触发onFinish事件
+     * @param string $data
+     * @return void
+     * @note 使用swoole_server::finish函数必须为Server设置onFinish回调函数。此函数只可用于task进程的onTask回调中
+     */
+    public function finish(string $data)
+    {
+    }
 
     /**
      * 此函数可以向任意worker进程或者task进程发送消息。在非主进程和管理进程中可调用。收到消息的进程会触发onPipeMessage事件 https://wiki.swoole.com/wiki/page/363.html
