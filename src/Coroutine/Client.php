@@ -46,7 +46,7 @@ class Client
      *
      * @return array
      */
-    public function recv(): array
+    public function recv()
     {
         return [];
     }

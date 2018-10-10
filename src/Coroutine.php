@@ -98,7 +98,7 @@ class Coroutine
      *
      * @return string
      */
-    public static function getHostByName(string $domain, int $family = AF_INET): string
+    public static function getHostByName($domain, $family = AF_INET): string
     {
     }
 
@@ -125,7 +125,7 @@ class Coroutine
      *
      * @return int 写入成功返回数据长度，失败返回false
      */
-    public static function fwrite(resource $handle, string $data, int $length = 0): int
+    public static function fwrite($handle, $data, $length = 0): int
     {
     }
 
@@ -228,12 +228,12 @@ class Coroutine
      * @return array|bool
      */
     public static function getAddrInfo(
-        string $domain,
-        int $family = AF_INET,
-        int $socktype = SOCK_STREAM,
-        int $protocol = STREAM_IPPROTO_TCP,
-        string $service = null
-    ): array {
+        $domain,
+        $family = AF_INET,
+        $socktype = SOCK_STREAM,
+        $protocol = STREAM_IPPROTO_TCP,
+        $service = null
+    ) {
 
     }
 

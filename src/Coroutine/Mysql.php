@@ -89,7 +89,7 @@ class Mysql extends Client
      *
      * @return string
      */
-    public function escape(string $str): string
+    public function escape($str)
     {
 
     }
@@ -140,7 +140,7 @@ class Mysql extends Client
      *
      * @param bool $bool
      */
-    public function setDefer(bool $bool = true)
+    public function setDefer($bool = true)
     {
 
     }
@@ -154,7 +154,7 @@ class Mysql extends Client
      *
      * @return Statement
      */
-    public function prepare(string $sql): Statement
+    public function prepare($sql)
     {
 
     }

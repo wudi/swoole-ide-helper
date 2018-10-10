@@ -18,7 +18,7 @@ class Channel
      * @return bool 成功返回true，底层会修改$read、$write数组，$read和$write中的元素，即是可读或可写的channel
      * @note 超时或传入的参数错误，如$read和$write中有非channel对象，底层返回false
      */
-    public static function select(array &$read, array &$write, float $timeout = 0): bool
+    public static function select(array &$read, array &$write, $timeout = 0)
     {
     }
 
@@ -35,7 +35,7 @@ class Channel
      * @note 当设置为0时，底层将不再设置缓冲区，push和pop操作会立即挂起当前协程
      * @see https://wiki.swoole.com/wiki/page/845.html
      */
-    public function __construct(int $capacity = 0)
+    public function __construct($capacity = 0)
     {
     }
 
@@ -48,7 +48,7 @@ class Channel
      * @note 执行成功返回true 通道并关闭时，执行失败返回false
      * @see https://wiki.swoole.com/wiki/page/843.html
      */
-    public function push($data): bool
+    public function push($data)
     {
     }
 
@@ -69,7 +69,7 @@ class Channel
      * @return bool 当前通道是否为空
      * @note true表示
      */
-    public function isEmpty(): bool
+    public function isEmpty()
     {
     }
 
@@ -78,7 +78,7 @@ class Channel
      * 判断当前通道是否已满
      * @return bool 当前通道是否已满
      */
-    public function isFull(): bool
+    public function isFull()
     {
     }
 
@@ -105,7 +105,7 @@ class Channel
      * }
      * @see https://wiki.swoole.com/wiki/page/846.html
      */
-    public function stats(): array
+    public function stats()
     {
     }
 
@@ -114,7 +114,7 @@ class Channel
      * 获取通道中的元素数量
      * @return int 通道中的元素数量
      */
-    public function length(): int
+    public function length()
     {
     }
 }
