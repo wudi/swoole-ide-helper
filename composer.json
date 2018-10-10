@@ -1,10 +1,18 @@
 {
     "name": "eaglewu/swoole-ide-helper",
-    "description": "Swoole 在IDE下自动识别类、函数、宏，自动补全函数名",
+    "description": "Swoole IDE Helper, to improve auto-completion",
+    "type": "library",
+    "keywords": ["swoole", "autocomplete", "ide", "helper", "phpstorm", "netbeans", "sublime", "codeintel", "phpdoc"],
     "authors": [
         {
             "name": "eagle",
-            "email": "eaglewudi@gmail.com"
+            "email": "eaglewudi@gmail.com",
+            "role": "lead"
         }
-    ]
+    ],
+    "autoload-dev": {
+        "psr-4": {
+            "Swoole\\": "src"
+        }
+    },
 }
