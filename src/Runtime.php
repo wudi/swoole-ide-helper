@@ -6,7 +6,7 @@
  * Datetime: 2018/10/10 10:47
  */
 
-namespace Swoole\Coroutine;
+namespace Swoole;
 
 
 class Runtime
