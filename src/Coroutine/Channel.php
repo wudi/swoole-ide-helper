@@ -4,11 +4,30 @@ namespace Swoole\Coroutine;
 
 /**
  * Class Channel
+ *
+ * @since 2.0.13
  * @package Swoole\Coroutine
  * 通道，类似于go语言的chan，支持多生产者协程和多消费者协程
  */
 class Channel
 {
+
+    /**
+     * 默认成功 0
+     * 超时 pop失败时(超时)会置为-1
+     * channel已关闭,继续操作channel，设置错误码 -2
+     * 参数错误 push或者pop传入错误的参数，设置为-3
+     *
+     * @var int
+     */
+    public $errCode = 0;
+
+    /**
+     * @var int $capacity 容量，这个数字一定是正整数
+     */
+    public $capacity;
+
+
     /**
      * select
      * 通道读写检测。类似于socket_select和stream_select可以检测channel是否可进行读写。
@@ -21,11 +40,6 @@ class Channel
     public static function select(array &$read, array &$write, $timeout = 0)
     {
     }
-
-    /**
-     * @var int $capacity 容量，这个数字一定是正整数
-     */
-    public $capacity;
 
     /**
      * Channel constructor.
