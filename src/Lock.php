@@ -22,6 +22,7 @@ class Lock
      * 加锁操作
      *
      * 如果有其他进程持有锁，那这里将进入阻塞，直到持有锁的进程unlock。
+     * @return boolean
      */
     public function lock()
     {
@@ -35,6 +36,7 @@ class Lock
      * 当返回false时表示抢锁失败，有其他进程持有锁。返回true时表示加锁成功，此时可以修改共享变量。
      *
      * SWOOlE_SEM 信号量没有trylock方法
+     * @return boolean
      */
     public function trylock()
     {
@@ -43,6 +45,7 @@ class Lock
 
     /**
      * 释放锁
+     * @return boolean
      */
     public function unlock()
     {
@@ -70,5 +73,11 @@ class Lock
     public function trylock_read()
     {
     }
+
+    /**
+     * @return boolean
+     */
+    public function lockwait()
+    {}
 }
 
