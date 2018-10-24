@@ -75,9 +75,10 @@ class Lock
     }
 
     /**
-     * @return boolean
+     * @param float $timeout
+     * @return void
      */
-    public function lockwait()
+    public function lockwait($timeout = 1.0)
     {}
 }
 
