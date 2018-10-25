@@ -79,6 +79,8 @@ class Lock
      * @return void
      */
     public function lockwait($timeout = 1.0)
-    {}
+    {
+    }
+
 }
 
