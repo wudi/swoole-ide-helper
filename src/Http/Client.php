@@ -192,14 +192,8 @@ class Client
      *
      * @param $file
      */
-    public function addFile(
-        string $path,
-        string $name,
-        string $filename = null,
-        string $mimeType = null,
-        int $offset = 0,
-        int $length = 0
-    ) {
+    public function addFile($path, $name, $filename = null, $mimeType = null, $offset = 0, $length = 0)
+    {
 
     }
 
