@@ -26,7 +26,7 @@ namespace Swoole;
  * @property $insert_id
  * @property $affected_rows
  */
-class Mysql
+class MySQL
 {
     /**
      * @var string the connect error number
