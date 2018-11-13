@@ -2,7 +2,7 @@
 /**
  * swoole-ide-helper
  *
- * Author: eaglewu <eaglewudi@gmail.com>
+ * Author: Eagle <eaglewudi@gmail.com>
  * Datetime: 2018/10/10 10:19
  */
 

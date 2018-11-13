@@ -4,7 +4,7 @@ namespace Swoole;
 /**
  * Class swoole_server
  *
- * Author: wudi <wudi23@baidu.com>
+ * Author: Eagle <eaglewudi@gmail.com>
  * Date: 2016/02/17
  * @property string $host 服务器地址
  * @property int $port 服务器端口

@@ -17,7 +17,7 @@
  *
  * PS:替换前请备份php.jar 若发生错误便于恢复 :)
  *
- * Author:EagleWu <eaglewudi@gmail.com>
+ * Author: Eagle <eaglewudi@gmail.com>
  * Date: 2014/01/17
  *
  */

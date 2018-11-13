@@ -2,7 +2,7 @@
 /**
  * swoole-ide-helper.
  *
- * Author: wudi <wudi23@baidu.com>
+ * Author: Eagle <eaglewudi@gmail.com>
  * Date: 2016/02/17
  */
 

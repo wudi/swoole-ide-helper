@@ -1,7 +1,7 @@
 <?php
 /**
  * swoole-ide-helper
- * Author: eagle <eaglewudi@gmail.com>
+ * Author: Eagle <eaglewudi@gmail.com>
  * Datetime: 20/07/2017
  */
 

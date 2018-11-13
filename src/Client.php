@@ -4,7 +4,7 @@ namespace Swoole;
 /**
  * swoole_client
  *
- * Author: EagleWu <eaglewudi@gmail.com>
+ * Author: Eagle <eaglewudi@gmail.com>
  * Date: 2016/02/17
  */
 class Client
