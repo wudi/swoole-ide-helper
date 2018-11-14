@@ -23,9 +23,10 @@ class Table
     /**
      * 获取key
      * @param $key
-     * @return array
+     * @param string $field
+     * @return array|bool|string
      */
-    function get($key)
+    function get($key, $field = null)
     {
     }
 
