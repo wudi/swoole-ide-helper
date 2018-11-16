@@ -51,4 +51,24 @@ class Redis
     public function set($key, $value, callback $callback)
     {
     }
+
+    /**
+     * Get State
+     *
+     * @return false|integer
+     */
+    public function getState()
+    {
+    }
+
+    /**
+     * Execute redis command
+     *
+     * @param $command
+     * @param array $params
+     */
+    public function __call($command, array $params)
+    {
+    }
+
 }
