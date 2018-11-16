@@ -66,6 +66,7 @@ class Redis
      *
      * @param $command
      * @param array $params
+     * @return bool
      */
     public function __call($command, array $params)
     {
