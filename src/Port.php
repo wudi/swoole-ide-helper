@@ -6,6 +6,16 @@
 class swoole_server_port
 {
     /**
+     * @var int
+     */
+    public $sock;
+
+    /**
+     * @var int
+     */
+    public $port;
+
+    /**
      * @param $event_name
      * @param callable $callback
      */
