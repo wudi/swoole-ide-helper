@@ -112,4 +112,10 @@ class Table
     function unlock()
     {
     }
+
+    /**
+     * table中存在的条目数
+     * @return int
+     */
+    function count(){}
 }
