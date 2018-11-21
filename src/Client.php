@@ -75,6 +75,7 @@ class Client
      * @param $ip
      * @param $port
      * @param $data
+     * @return bool
      */
     function sendto($ip, $port, $data)
     {
