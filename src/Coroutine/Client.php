@@ -10,7 +10,23 @@ namespace Swoole\Coroutine;
 
 class Client
 {
-
+    const MSG_OOB = 1;
+    const MSG_PEEK = 2;
+    const MSG_DONTWAIT = 128;
+    const MSG_WAITALL = 64;
+    
+    public $errCode;
+    public $sock;
+    public $type;
+    public $setting;
+    public $connected;
+    
+    /**
+     * @param $type
+     * @return mixed
+     */
+    public function __construct($type){}
+    
     /**
      * 连接到远程服务器
      * connect操作会有一次协程切换开销，connect发起时yield，完成时resume
