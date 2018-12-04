@@ -358,7 +358,7 @@ class Server
      *
      *      $serv->start();
      *
-     * @param string $message
+     * @param mixed $message
      * @param int $dst_worker_id
      * @return bool
      */
