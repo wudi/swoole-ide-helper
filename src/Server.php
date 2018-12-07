@@ -358,7 +358,7 @@ class Server
      *
      *      $serv->start();
      *
-     * @param string $message
+     * @param mixed $message
      * @param int $dst_worker_id
      * @return bool
      */
@@ -571,7 +571,7 @@ class Server
      * @param $host
      * @param $port
      * @param $type
-     * @return bool
+     * @return \Swoole\Server\Port|bool 如果成功，1.8.0以上版本返回swoole_server_port，以下返回TRUE；如果失败返回FALSE
      */
     public function listen($host, $port, $type = SWOOLE_SOCK_TCP)
     {
