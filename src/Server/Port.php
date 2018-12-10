@@ -10,6 +10,16 @@ namespace Swoole\Server;
 class Port
 {
     /**
+     * @var int
+     */
+    public $sock;
+
+    /**
+     * @var int
+     */
+    public $port;
+
+    /**
      * @param $event_name
      * @param callable $callback
      */
