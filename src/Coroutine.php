@@ -48,9 +48,8 @@ class Coroutine
     /**
      * 挂起当前协程
      * @link https://wiki.swoole.com/wiki/page/773.html
-     * @param string $corouindId 要挂起协程的ID
      */
-    public static function suspend($corouindId)
+    public static function suspend()
     {
 
     }
