@@ -116,7 +116,7 @@ class Coroutine
      * 获取协程状态
      * 需要4.0.1或更高版本
      *
-     *@return array
+     * @return array
      */
     public static function stats(): array
     {
