@@ -111,6 +111,16 @@ class Coroutine
     public static function fread(int $fp): string
     {
     }
+    
+    /**
+     * 获取协程状态
+     * 需要4.0.1或更高版本
+     *
+     * @return array
+     */
+    public static function stats(): array
+    {
+    }
 
     /**
      * 协程方式向文件写入数据。
