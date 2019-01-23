@@ -44,11 +44,64 @@ class Client
      * 底层会自动yield，等待数据接收完成后自动切换到当前协程。
      * @link https://wiki.swoole.com/wiki/page/661.html
      *
-     * @return array
+     * @return string
      */
-    public function recv()
+    public function recv($timeout = -1)
     {
-        return [];
+        return ;
+    }
+
+    /**
+     * 向任意IP:PORT的服务器发送数据包，仅支持UDP/UDP6的client
+     * @param $ip
+     * @param $port
+     * @param $data
+     * @return bool
+     */
+    function sendto($ip, $port, $data)
+    {
+
+    }
+
+    /**
+     * 判断是否连接到服务器
+     * @return bool
+     */
+    public function isConnected()
+    {
+    }
+
+    /**
+     * 获取客户端socket的host:port信息
+     * @return bool | array
+     */
+    public function getsockname()
+    {
+    }
+
+    /**
+     * 获取远端socket的host:port信息，仅用于UDP/UDP6协议
+     * UDP发送数据到服务器后，可能会由其他的Server进行回复
+     * @return bool | array
+     */
+    public function getpeername()
+    {
+    }
+
+    /**
+     * 设置客户端参数
+     * @param array $setting
+     */
+    public function set(array $setting)
+    {
+    }
+
+    /**
+     * @param $file string file with path
+     * @return bool|mixed false if file not exist
+     */
+    public function sendfile($file)
+    {
     }
 
     /**
