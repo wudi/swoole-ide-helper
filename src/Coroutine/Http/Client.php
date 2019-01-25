@@ -110,6 +110,30 @@ class Client extends \Swoole\Http\Client
     }
 
     /**
+     * 通过Http下载文件。download仅使用小量内存，就可以完成超大文件的下载。
+     *
+     * 参数：
+     * $path 下载的链接，URL路径
+     * $filename 指定下载内容写入的文件路径，会自动写入到downloadFile属性
+     * $offset 指定写入文件的偏移量，此选项可用于支持断点续传，可配合Http头Range:bytes=$offset-实现
+     * $offset为0时若文件已存在，底层会自动清空此文件
+     *
+     * 返回值
+     * 执行成功返回true
+     * 打开文件失败或feek失败返回false
+     *
+     * @param string $path
+     * @param string $filename
+     * @param int $offset
+     *
+     * @return bool
+     */
+    public function download(string $path, string $filename, int $offset = 0)
+    {
+
+    }
+
+    /**
      * 添加POST文件 (注意,此方法参数3,4位置与async-http-client不同
      *
      * $path 文件的路径，必选参数，不能为空文件或者不存在的文件
