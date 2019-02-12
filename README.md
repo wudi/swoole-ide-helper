@@ -1,7 +1,8 @@
 Swoole IDE Helper
 ====================
 
-[![Monthly Downloads](https://poser.pugx.org/eaglewu/swoole-ide-helper/d/monthly)](https://packagist.org/packages/eaglewu/swoole-ide-helper)
+[![Software License][ico-license]](LICENSE.md)
+[![Total Downloads][ico-downloads]][link-downloads]
 
 Auto completion, trigger suggest and view docs for [Swoole](https://github.com/swoole/swoole-src) in editor.
 
@@ -32,3 +33,10 @@ Put the source code path into `Include Path` in IDE.
 
 
 ### Have fun :)
+
+
+
+[ico-downloads]: https://img.shields.io/packagist/dt/eaglewu/swoole-ide-helper.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+
+[link-downloads]: https://packagist.org/packages/eaglewu/swoole-ide-helper
