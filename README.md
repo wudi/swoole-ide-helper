@@ -1,4 +1,4 @@
-Swoole Auto Complete
+Swoole IDE Helper
 ====================
 
 [![Monthly Downloads](https://poser.pugx.org/eaglewu/swoole-ide-helper/d/monthly)](https://packagist.org/packages/eaglewu/swoole-ide-helper)
