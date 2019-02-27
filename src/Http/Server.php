@@ -6,7 +6,7 @@ namespace Swoole\Http;
  *
  *  内置 Web 服务器
  */
-class Server extends \swoole_server
+class Server extends \Swoole\Server
 {
     /**
      * 启用数据合并，HTTP请求数据到PHP的GET/POST/COOKIE全局数组
