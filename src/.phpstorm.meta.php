@@ -9,8 +9,8 @@ namespace PHPSTORM_META {
     registerArgumentsSet('swoole_sock_type',
         SWOOLE_SOCK_TCP, SWOOLE_SOCK_TCP6,
         SWOOLE_SOCK_UDP, SWOOLE_SOCK_UDP6,
-        SWOOLE_SOCK_UNIX_DGRAM, SWOOLE_UNIX_DGRAM,
-        SWOOLE_SOCK_UNIX_STREAM, SWOOLE_UNIX_STREAM
+        SWOOLE_SOCK_UNIX_DGRAM,
+        SWOOLE_SOCK_UNIX_STREAM
     );
 
     expectedArguments(\Swoole\Server::__construct(), 2, SWOOLE_BASE, SWOOLE_PROCESS);
