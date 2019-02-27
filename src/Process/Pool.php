@@ -16,6 +16,8 @@ class Pool
 {
     /**
      * Pool constructor.
+     * 进程池介绍 https://wiki.swoole.com/wiki/page/901.html
+     *
      * @param int $worker_num
      * @param int $ipc_type
      * @param int $msgqueue_key

@@ -6,6 +6,7 @@ define('SWOOLE_PROCESS', 3);
 define('SWOOLE_IPC_UNSOCK', 1);
 define('SWOOLE_IPC_MSGQUEUE', 2);
 define('SWOOLE_IPC_PREEMPTIVE', 3);
+define('SWOOLE_IPC_SOCKET', 3);
 define('SWOOLE_SOCK_TCP', 1);
 define('SWOOLE_SOCK_TCP6', 3);
 define('SWOOLE_SOCK_UDP', 2);
