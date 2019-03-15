@@ -121,10 +121,11 @@ class Socket
      * 接收数据
      *
      * @link https://wiki.swoole.com/wiki/page/919.html
+     * @param int $length 接收数据的预期长度，返回值长度不一定等于预期长度
      * @param double $timeout 设置超时时间，默认为-1表示永不超时
      * @return string|false
      */
-    public function recv($timeout = -1)
+    public function recv($length = 65535, $timeout = -1)
     {
 
     }
