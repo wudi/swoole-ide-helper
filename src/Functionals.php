@@ -829,3 +829,14 @@ class Chan extends \Swoole\Coroutine\Channel
 function go($function)
 {
 }
+
+/**
+ * 延迟执行
+ * defer(function () use ($db) {
+ *  $db->close();
+ * });
+ * @param callable $function
+ */
+function defer($function)
+{
+}
