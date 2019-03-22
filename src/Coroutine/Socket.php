@@ -118,15 +118,47 @@ class Socket
     }
 
     /**
+     * 向对端发送数据
+     *
+     * 与send方法不同的是, sendAll会尽可能完整地发送数据, 直到成功发送全部数据或遇到错误中止。
+     *
+     * @since 4.3.0
+     * @link https://wiki.swoole.com/wiki/page/1069.html
+     * @param string $data 要发送的数据内容，可以为文本或二进制数据
+     * @param double $timeout 设置超时时间，默认为-1表示永不超时
+     * @return int|false
+     */
+    public function sendAll($data, $timeout = - 1)
+    {
+        
+    }
+
+    /**
      * 接收数据
      *
      * @link https://wiki.swoole.com/wiki/page/919.html
+     * @param int $length 接收数据的预期长度，返回值长度不一定等于预期长度
      * @param double $timeout 设置超时时间，默认为-1表示永不超时
      * @return string|false
      */
-    public function recv($timeout = -1)
+    public function recv($length = 65535, $timeout = -1)
     {
 
+    }
+
+    /**
+     * 接收数据
+     * 与recv不同的是, recvAll会尽可能完整地接收响应长度的数据, 直到接收完成或遇到错误失败。
+     *
+     * @since 4.3.0
+     * @link https://wiki.swoole.com/wiki/page/1070.html
+     * @param int $length 需要接收的长度
+     * @param double $timeout 设置超时时间，默认为-1表示永不超时
+     * @return string|false
+     */
+    public function recvAll($length = 65535, $timeout = -1)
+    {
+        
     }
 
     /**
