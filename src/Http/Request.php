@@ -38,4 +38,13 @@ class Request
     public function rawContent()
     {
     }
+
+    /**
+     * 获取完整的原始Http请求报文。包括Http Header和Http Body
+     * @version 2.1.2
+     * @return string
+     */
+    public function getData()
+    {
+    }
 }
