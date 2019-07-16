@@ -1,4 +1,5 @@
 <?php
+
 namespace Swoole\Http;
 /**
  * Http响应对象
@@ -24,10 +25,11 @@ class Response
 
     /**
      * 设置Http头信息
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param string $value
+     * @param bool $ucfirst
      */
-    public function header($key, $value)
+    public function header($key, $value, $ucfirst = true)
     {
     }
 
@@ -65,11 +67,22 @@ class Response
     }
 
     /**
-     * 发送静态文件
-     * @param string $level
+     * @param $filename
+     * @param int $offset
+     * @param null $length
      */
-    function sendfile($filename)
+    public function sendFile( $filename,  $offset = 0,  $length = null)
     {
+    }
 
+    /**
+     * 跳转
+     *
+     * @param string $url
+     * @param integer $httpCode
+     * @return void
+     */
+    public function redirect($url, $httpCode = 302)
+    {
     }
 }
