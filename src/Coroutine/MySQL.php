@@ -16,7 +16,7 @@ use Swoole\Coroutine\Mysql\Statement;
  *
  * @package Swoole\Coroutine
  */
-class MySQL extends Client
+class MySQL
 {
 
     /** @var array 连接信息，保存的是传递给构造函数的数组 */
