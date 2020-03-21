@@ -8,6 +8,8 @@
 
 namespace Swoole\Process;
 
+use Swoole\Process;
+
 /**
  * Class Pool
  * @package Swoole\Process
@@ -64,7 +66,7 @@ class Pool
     }
 
     /**
-     * @return Pool
+     * @return Process
      */
     public function getProcess()
     {
