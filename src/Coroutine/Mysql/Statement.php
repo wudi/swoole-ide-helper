@@ -9,17 +9,24 @@ namespace Swoole\Coroutine\Mysql;
 
 Class Statement
 {
-
-    /** @var string MySQL服务器返回的错误信息 */
-    public $error;
-    /** @var integer MySQL服务器返回的错误代码 */
-    public $errno;
-
     /** @var integer 影响的行数 */
     public $affected_rows;
 
+    /** @var integer MySQL服务器返回的错误代码 */
+    public $errno;
+
+    /** @var string MySQL服务器返回的错误信息 */
+    public $error;
+
     /** @var  integer 最后一个插入的记录id */
     public $insert_id;
+
+    /**
+     * @return bool
+     */
+    public function close()
+    {
+    }
 
     /**
      * 向MySQL服务器发送SQL预处理数据参数。
@@ -36,11 +43,45 @@ Class Statement
      * 成功返回数据集数组
      * 失败返回false，可检查$db->error和$db->errno判断错误原因
      *
-     * @return bool|array
+     * @return array|bool
      */
-    function execute(array $params = [], float $timeout = -1)
+    public function execute(array $params = [], float $timeout = 0)
     {
-        return [];
     }
 
+    /**
+     * @param float $timeout
+     *
+     * @return array|null|bool
+     */
+    public function fetch(float $timeout = 0)
+    {
+    }
+
+    /**
+     * @param float $timeout
+     *
+     * @return array|bool
+     */
+    public function fetchAll(float $timeout = 0)
+    {
+    }
+
+    /**
+     * @param float $timeout
+     *
+     * @return array|null|bool
+     */
+    public function nextResult(float $timeout = 0)
+    {
+    }
+
+    /**
+     * @param float $timeout
+     *
+     * @return array|null|bool
+     */
+    public function recv(float $timeout = 0)
+    {
+    }
 }
