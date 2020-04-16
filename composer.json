@@ -11,6 +11,9 @@
             "role": "lead"
         }
     ],
+    "require": {
+        "php": ">=7.0"
+    },
     "autoload-dev": {
         "psr-4": {
             "Swoole\\": "src"
