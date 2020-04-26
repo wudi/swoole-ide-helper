@@ -136,6 +136,14 @@ class MySQL
     }
 
     /**
+     * @return bool
+     */
+    public function getDefer(): bool
+    {
+
+    }
+
+    /**
      * 延迟收包
      *
      * @param bool $bool
@@ -155,6 +163,16 @@ class MySQL
      * @return Statement
      */
     public function prepare($sql)
+    {
+
+    }
+
+    /**
+     * @param float $timeout
+     *
+     * @return Statement|null|bool
+     */
+    public function recv(float $timeout = 0)
     {
 
     }
