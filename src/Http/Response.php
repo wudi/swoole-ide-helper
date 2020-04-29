@@ -29,11 +29,28 @@ class Response
      * @param string $domain
      * @param bool $secure
      * @param bool $httponly
+     * @param string $samesite 从 v4.4.6 版本开始支持
      */
-    public function cookie($key, $value, $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false)
+    public function cookie($key, $value, $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false, $samesite = '')
     {
     }
-
+    
+    /**
+     * 设置rawCookie
+     *
+     * @param string $key
+     * @param string $value
+     * @param int $expire
+     * @param string $path
+     * @param string $domain
+     * @param bool $secure
+     * @param bool $httponly
+     * @param string $samesite 从 v4.4.6 版本开始支持
+     */
+    public function rawCookie($key, $value, $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false, $samesite = '')
+    {
+    }
+    
     /**
      * 设置HttpCode，如404, 501, 200
      * @param int $code
@@ -45,6 +62,7 @@ class Response
     /**
      * 设置Http压缩格式
      * @param int $level
+     * @deprecated 此方法在 4.1.0 或更高版本中已废弃
      */
     public function gzip($level = 1)
     {
