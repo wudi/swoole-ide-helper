@@ -119,7 +119,7 @@ function swoole_server_handler($serv, $event_name, $event_callback_function)
  *
  * /usr/bin/php /data/webroot/www.swoole.com/server.php
  *
- * 常见的错误有及拍错方法：
+ * 常见的错误有及排错方法：
  *
  * 1、bind端口失败,原因是其他进程已占用了此端口
  * 2、未设置必选回调函数，启动失败
